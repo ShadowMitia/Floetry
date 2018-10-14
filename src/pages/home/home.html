@@ -1,14 +1,33 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+		<div class="bar bar-header">
+			<h1 class="title">Floetry</h1>
+			<button class="button">Home</button>
+		</div>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+	<div text-center>
+		<p>
+			How are you feeling today ?
+		</p>
+		
+		<ion-grid>
+			<ion-row>
+				<ion-col width-50><button ion-button (click)="getFeels('Happy')" style="width:100%">Happy</button></ion-col>
+				<ion-col width-50><button ion-button (click)="getFeels('Sad')" style="width:100%">Sad</button></ion-col>
+				<ion-col width-50><button ion-button (click)="getFeels('Angry')" style="width:100%">Angry</button></ion-col>
+				<ion-col width-50><button ion-button (click)='getFeels("Anxious")' style="width:100%">Anxious</button></ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col width-50><button ion-button (click)="getFeels('Embarassed')" style="width:100%">Embarassed</button></ion-col>
+				<ion-col width-50><button ion-button (click)="getFeels('Hurt')" style="width:100%">Hurt</button></ion-col>
+				<ion-col width-50><button ion-button (click)="getFeels('Depressed')" style="width:100%">Depressed</button></ion-col>
+				<ion-col width-50><button ion-button (click)="getFeels('Jealous')" style="width:100%">Jealous</button></ion-col>
+			</ion-row>
+		</ion-grid>
+	</div>
 </ion-content>
