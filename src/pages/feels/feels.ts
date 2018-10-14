@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the FeelsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-feels',
@@ -15,11 +8,64 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FeelsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+	feels: string;
+	constructor(public navCtrl: NavController, public navParams: NavParams) 
+	{
+		this.feels = this.navParams.get('feel');
+		console.log(this.feels);
+		switch(this.feels) 
+		{ 
+			case 'Happy': 
+			{ 
+				//statements; 
+				break; 
+			} 
+			case 'Sad': 
+			{ 
+				//statements; 
+				break; 
+			} 
+			case 'Angry': 
+			{ 
+				//statements; 
+				break; 
+			} 
+			case 'Anxious': 
+			{ 
+				//statements; 
+				break; 
+			} 
+			case 'Embarassed': 
+			{ 
+				//statements; 
+				break; 
+			} 
+			case 'Hurt': 
+			{ 
+				//statements; 
+				break; 
+			} 
+			case 'Depressed': 
+			{ 
+				//statements; 
+				break; 
+			} 
+			case 'Jealous': 
+			{ 
+				//statements; 
+				break; 
+			} 
+			default: 
+			{ 
+				//statements; 
+				break; 
+			} 
+		} 
+	}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FeelsPage');
-  }
+	ionViewDidLoad() 
+	{
+		console.log('ionViewDidLoad FeelsPage');
+	}
 
 }

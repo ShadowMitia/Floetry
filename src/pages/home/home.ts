@@ -19,6 +19,6 @@ export class HomePage {
 
 	getFeels(feel: string)
 	{
-		this.navCtrl.push(FeelsPage)
+		this.navCtrl.push(FeelsPage, {feel:feel});
 	}
 }
