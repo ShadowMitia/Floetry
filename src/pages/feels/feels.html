@@ -13,5 +13,11 @@
 <ion-content padding>
 	<div text-center>
 		<p>Tell us more details...</p>
+		
+			<ion-grid>
+			<ion-row>
+				<ion-col width-50><button ion-button style="width:100%" *ngFor="let emo of emoLst">{{emo}}</button></ion-col>
+			</ion-row>
+		</ion-grid>
 	</div>
 </ion-content>

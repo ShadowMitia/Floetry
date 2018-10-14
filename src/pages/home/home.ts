@@ -17,7 +17,7 @@ export class HomePage {
 		
 	}
 
-	getFeels(feel: string)
+	getFeels(feel: string, nBtn: number)
 	{
 		this.navCtrl.push(FeelsPage, {feel:feel});
 	}
