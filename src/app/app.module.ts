@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { PoemGridPageModule } from '../pages/poem-grid/poem-grid.module';
+import { PoemOverlayPageModule } from '../pages/poem-overlay/poem-overlay.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { HomePage } from '../pages/home/home';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-	FeelsPageModule
+	    FeelsPageModule,
+      PoemGridPageModule,
+      PoemOverlayPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

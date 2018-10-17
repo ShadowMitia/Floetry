@@ -9,7 +9,7 @@ import { PoemOverlayPageModule } from '../poem-overlay/poem-overlay.module';
   ],
     imports: [
         PoemOverlayPageModule,
-    IonicPageModule.forChild(PoemGridPage),
+        IonicPageModule.forChild(PoemGridPage),
   ],
 })
 export class PoemGridPageModule {}
