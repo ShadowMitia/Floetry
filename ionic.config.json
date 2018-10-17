@@ -1,7 +1,0 @@
-{
-  "name": "PoemApp",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}
