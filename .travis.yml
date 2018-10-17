@@ -1,4 +1,11 @@
 language: node_js
+node_js:
+  - "stable"
+
+cache:
+  directories:
+  - node_modules
+  - plugins
 
 before_script:
  — npm install -g ionic cordova
