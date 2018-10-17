@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "stable"
+
+cache:
+  directories:
+    - node_modules
+    - plugins
+
+before_script:
+  - npm install -g ionic cordova
+
+script:
+  - ionic cordova build browser --prod
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN 
+  keep-history: true
+  on:
+    branch: master
