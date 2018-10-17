@@ -11,10 +11,9 @@ import { FeelsPage } from '../feels/feels'
 
 export class HomePage {
 
-	fp: FeelsPage;
 	constructor(public navCtrl: NavController) 
-	{
-		
+	  {
+
 	}
 
 	getFeels(feel: string, nBtn: number)

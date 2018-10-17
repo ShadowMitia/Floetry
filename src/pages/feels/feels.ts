@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PoemGridPage } from '../poem-grid/poem-grid';
 
 @IonicPage()
 @Component({
@@ -37,7 +38,7 @@ export class FeelsPage {
 				this.emoLst.push('angsty', 'confused', 'distressed', 'nervous', 'tense', 'fearful');
 				break; 
 			} 
-			case 'Embarassed': 
+			case 'Embarrassed': 
 			{ 
 				this.emoLst.push('awkward', 'shameful', 'unsettled', 'sheepish', 'shy', 'uneasy');
 				break; 
@@ -65,6 +66,10 @@ export class FeelsPage {
 		} 
 		console.log(this.emoLst);
 	}
+
+    openPage(emotion:string) {
+        this.navCtrl.push(PoemGridPage, {feel: this.feels, emotion: emotion});
+    }
 
 	ionViewDidLoad() 
 	{

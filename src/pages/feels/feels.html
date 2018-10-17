@@ -16,7 +16,7 @@
 
 			<ion-grid>
 			<ion-row>
-				<ion-col width-50><button ion-button style="width:100%" *ngFor="let emo of emoLst">{{emo}}</button></ion-col>
+				<ion-col width-50><button (click)="openPage(emo)" ion-button style="width:100%" *ngFor="let emo of emoLst">{{emo}}</button></ion-col>
 			</ion-row>
 		</ion-grid>
 	</div>
