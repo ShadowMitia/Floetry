@@ -17,16 +17,9 @@
 		
 		<ion-grid>
 			<ion-row>
-				<ion-col width-50><button ion-button (click)="getFeels('Happy')" style="width:100%">Happy</button></ion-col>
-				<ion-col width-50><button ion-button (click)="getFeels('Sad')" style="width:100%">Sad</button></ion-col>
-				<ion-col width-50><button ion-button (click)="getFeels('Angry')" style="width:100%">Angry</button></ion-col>
-				<ion-col width-50><button ion-button (click)='getFeels("Anxious")' style="width:100%">Anxious</button></ion-col>
-			</ion-row>
-			<ion-row>
-				<ion-col width-50><button ion-button (click)="getFeels('Embarassed')" style="width:100%">Embarassed</button></ion-col>
-				<ion-col width-50><button ion-button (click)="getFeels('Hurt')" style="width:100%">Hurt</button></ion-col>
-				<ion-col width-50><button ion-button (click)="getFeels('Depressed')" style="width:100%">Depressed</button></ion-col>
-				<ion-col width-50><button ion-button (click)="getFeels('Jealous')" style="width:100%">Jealous</button></ion-col>
+				  <ion-col width-50 *ngFor="let feel of feelings">
+              <color-button (click)="getFeels('feel.emotion')" color="{{feel.color}}" text="{{feel.emotion}}" style="width:100">{{feel.emotion}}</color-button>
+          </ion-col>
 			</ion-row>
 		</ion-grid>
 	</div>

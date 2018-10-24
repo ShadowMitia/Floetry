@@ -6,26 +6,29 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { HomePageModule } from '../pages/home/home.module';
 import { PoemGridPageModule } from '../pages/poem-grid/poem-grid.module';
 import { PoemOverlayPageModule } from '../pages/poem-overlay/poem-overlay.module';
+import { ComponentsModule } from '../components/components.module';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp),
+      BrowserModule,
+      ComponentsModule,
+      IonicModule.forRoot(MyApp),
+      HomePageModule,
 	    FeelsPageModule,
       PoemGridPageModule,
-      PoemOverlayPageModule
+      PoemOverlayPageModule,
+      PipesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+      MyApp
   ],
   providers: [
     StatusBar,
