@@ -10,61 +10,46 @@ import { PoemGridPage } from '../poem-grid/poem-grid';
 export class FeelsPage {
 
 	feels: string;
-	emoLst: Array<string>;
+	  emoLst: Array<any>;
 	constructor(public navCtrl: NavController, public navParams: NavParams) 
 	{
-		this.feels = this.navParams.get('feel');
-		console.log(this.feels);
-		this.emoLst = [];
-		switch(this.feels) 
-		{ 
-			case 'Happy': 
-			{ 
-				this.emoLst.push('glad', 'peppy', 'excited', 'lucky', 'content', 'gay');
-				break; 
-			} 
-			case 'Sad': 
-			{ 
-				this.emoLst.push('disappointed', 'mournful', 'regretful', 'pessimistic', 'dismayed', 'disillusioned');
-				break; 
-			} 
-			case 'Angry': 
-			{ 
-				this.emoLst.push('upset', 'enraged', 'violent', 'annoyed', 'furious', 'snappy');
-				break; 
-			} 
-			case 'Anxious': 
-			{ 
-				this.emoLst.push('angsty', 'confused', 'distressed', 'nervous', 'tense', 'fearful');
-				break; 
-			} 
-			case 'Embarrassed': 
-			{ 
-				this.emoLst.push('awkward', 'shameful', 'unsettled', 'sheepish', 'shy', 'uneasy');
-				break; 
-			} 
-			case 'Hurt': 
-			{ 
-				this.emoLst.push('ruined', 'wounded', 'damaged', 'abused', 'discomforted', 'injured');
-				break; 
-			} 
-			case 'Depressed': 
-			{ 
-				this.emoLst.push('downhearted', 'low', 'dispirited', 'gloomy', 'morose', 'oppressed');
-				break; 
-			} 
-			case 'Jealous': 
-			{ 
-				this.emoLst.push('bitter', 'envious', 'selfish', 'desirous', 'green', 'greedy');
-				break; 
-			} 
-			default: 
-			{ 
-				//statements; 
-				break; 
-			} 
-		} 
-		console.log(this.emoLst);
+		  this.feels = this.navParams.get('feel');
+      this.feels = this.feels.toLowerCase().trim();
+
+      console.log("Got emotion: ", this.feels);
+
+		  let emotions = {
+          "happy": {subEmotions: ['glad', 'peppy', 'excited', 'lucky', 'content', 'gay'],
+                    color: "#FF0000"
+                   },
+          "sad":  {subEmotions: ['disappointed', 'mournful', 'regretful', 'pessimistic', 'dismayed', 'disillusioned'],
+                   color: "#FF0000"
+                  },
+          "angry":  {subEmotions: ['upset', 'enraged', 'violent', 'annoyed', 'furious', 'snappy'],
+                     color: "#FF0000"
+                    },
+          "anxious":  {subEmotions: ['angsty', 'confused', 'distressed', 'nervous', 'tense', 'fearful'],
+                       color: "#FF0000"
+                      },
+          "embarrassed":  {subEmotions: ['awkward', 'shameful', 'unsettled', 'sheepish', 'shy', 'uneasy'],
+                           color: "#FF0000"
+                          },
+          "hurt":  {subEmotions: ['ruined', 'wounded', 'damaged', 'abused', 'discomforted', 'injured'],
+                    color: "#FF0000"
+                   },
+          "depressed":  {subEmotions: ['downhearted', 'low', 'dispirited', 'gloomy', 'morose', 'oppressed'],
+                         color: "#FF0000"
+                        },
+          "jealous":  {subEmotions: ['bitter', 'envious', 'selfish', 'desirous', 'green', 'greedy'],
+                       color: "#FF0000"
+                      }
+      };
+
+      this.emoLst = emotions[this.feels];
+
+      console.log("Sub emotion list: ", this.emoLst);
+
+
 	}
 
     openPage(emotion:string) {
