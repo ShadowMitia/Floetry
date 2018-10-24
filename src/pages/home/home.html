@@ -11,14 +11,13 @@
 
 <ion-content padding>
 	<div text-center>
-		<p>
-			How are you feeling today ?
-		</p>
+		  <p>
+          <p>How are you feeling today ?</p>
 		
 		<ion-grid>
 			<ion-row>
 				  <ion-col width-50 *ngFor="let feel of feelings">
-              <color-button (click)="getFeels(feel.emotion)" color="{{feel.color}}" text="{{feel.emotion}}" style="width:100">{{feel.emotion}}</color-button>
+              <color-button (click)="getFeels(feel)" color="{{feel.color}}" text="{{feel.emotion}}" style="width:100">{{feel.emotion}}</color-button>
           </ion-col>
 			</ion-row>
 		</ion-grid>

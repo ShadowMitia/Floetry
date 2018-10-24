@@ -11,10 +11,13 @@ export class FeelsPage {
 
 	feels: string;
 	  emoLst: Array<any>;
+    feelsColor:string;
 	constructor(public navCtrl: NavController, public navParams: NavParams) 
 	{
 		  this.feels = this.navParams.get('feel');
-      this.feels = this.feels.toLowerCase().trim();
+      this.feelsColor = this.navParams.get('color');
+      this.feels = this.feels.toLowerCase();
+      this.feels = this.feels.trim();
 
       console.log("Got emotion: ", this.feels);
 
