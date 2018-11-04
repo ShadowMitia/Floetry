@@ -15,16 +15,21 @@ import { PoemOverlayPage } from '../poem-overlay/poem-overlay';
   templateUrl: 'poem-grid.html',
 })
 export class PoemGridPage {
+	
+	/*const fs = require('fs');*/
 
     feels: string;
     emotion: string;
 
     testTitle: string;
     testText: string;
+	
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController) {
         this.feels = this.navParams.get("feel");
         this.emotion = this.navParams.get("emotion");
+		
+		
 
 
         this.testTitle = "Poem title";

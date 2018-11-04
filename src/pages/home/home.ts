@@ -14,14 +14,14 @@ export class HomePage {
 	constructor(public navCtrl: NavController) 
 	  {
       this.feelings = [
-          {emotion:"happy", color:"red"},
-          {emotion:"sad", color:"#00FF00"},
-          {emotion:"angry", color:"#0000FF"},
-          {emotion:"anxious", color:"#11DD11"},
-          {emotion:"embarrassed", color:"purple"},
-          {emotion:"hurt", color:"rgb(100, 100, 100)"},
-          {emotion:"depressed", color:""},
-          {emotion:"jealous", color:""}
+          {emotion:"happy", color:"#F7D26C"},
+          {emotion:"sad", color:"#67829F"},
+          {emotion:"angry", color:"#A70032"},
+          {emotion:"anxious", color:"#D25668"},
+          {emotion:"embarrassed", color:"#C383D7"},
+          {emotion:"hurt", color:"#EB5593"},
+          {emotion:"depressed", color:"#1C4267"},
+          {emotion:"jealous", color:"#BEDFA4"}
       ];
 	}
 
