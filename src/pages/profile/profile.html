@@ -11,10 +11,10 @@
   </ion-navbar>
   
    <ion-segment [(ngModel)]="state" color="primary">
-    <ion-segment-button value="Info">
+    <ion-segment-button value="Info" (click)="toggle('info')">
       Informations
     </ion-segment-button>
-    <ion-segment-button value="Fav">
+    <ion-segment-button value="Fav" (click)="toggle('fav')">
       Favourites
     </ion-segment-button>
   </ion-segment>
@@ -23,7 +23,16 @@
 
 
 <ion-content padding>
-	<p *ngFor="let item of getItems(state)">
+	<div *ngIf="show">
+		<p *ngFor="let item of getItems(state)">
+			{{ item }}
+		</p>
+	</div>
+	<div *ngIf="!show">
+		<ion-list-header>{{ state }}</ion-list-header>
+		<ion-item *ngFor="let item of getItems(state)">
 		{{ item }}
-	</p>
+		</ion-item>
+	</div>
+
 </ion-content>

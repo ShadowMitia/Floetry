@@ -16,6 +16,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ProfilePage {
 	
 	state : 'Info';
+	show: boolean = true;
+	
 	states: any = {
 		'Info': [
 		'Name : Jean', 'Surname : Peuplus', 'Age : 56'
@@ -37,5 +39,17 @@ export class ProfilePage {
   getItems(type: any) {
     return this.states[type];
   }
+  
+	toggle(arg)
+	{
+		if (arg == "info")
+		{
+			this.show = true;
+		}
+		else if(arg == "fav")
+		{
+			this.show = false;
+		}
+	}
 
 }
