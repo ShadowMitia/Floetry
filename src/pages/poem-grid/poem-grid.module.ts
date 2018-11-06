@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { PoemGridPage } from './poem-grid';
 import { PoemOverlayPageModule } from '../poem-overlay/poem-overlay.module';
 import { PipesModule } from '../../pipes/pipes.module';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { PipesModule } from '../../pipes/pipes.module';
   ],
     imports: [
         PoemOverlayPageModule,
-        PipesModule,
+      PipesModule,
+      ComponentsModule,
         IonicPageModule.forChild(PoemGridPage),
   ],
 })

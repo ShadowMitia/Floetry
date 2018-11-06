@@ -15,15 +15,8 @@
       </ion-title>
   </ion-navbar>
   <div>
-  <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">
-      <circle [style.fill]="feelsColor" cx="50%" cy="50%" r="50%" />
-      <text x="50%" y="50%" text-anchor="middle" fill="white">{{feels | capitalize}}</text>
-  </svg>
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">
-      <circle [style.fill]="feelsColor" cx="25%" cy="25%" r="25%" />
-      <text x="50%" y="25%" text-anchor="start" fill="black">{{emotion | capitalize}}</text>
-  </svg>
+    <color-button insideText="{{feels}}"></color-button>
+    <color-button insideText="{{emotion}}" size="25"></color-button>
   </div>
 </ion-header>
 

@@ -12,13 +12,13 @@ import { Component, Input} from '@angular/core';
 })
 export class ColorButtonComponent {
 
-    @Input() text: string;
-    @Input() color: string;
-    static id: number = 1;
+  @Input() text: string;
+  @Input() insideText: string;
+  @Input() fillColor: string = "red";
+  @Input() size: number = 50;
 
   constructor() {
-      console.log('Hello ColorButtonComponent Component');
-      ColorButtonComponent.id++;
+    console.log('Hello ColorButtonComponent Component');
   }
 
 }

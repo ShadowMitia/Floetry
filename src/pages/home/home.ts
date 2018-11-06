@@ -12,10 +12,10 @@ export class HomePage {
 
     feelings;
 
-	constructor(public navCtrl: NavController) 
+	constructor(public navCtrl: NavController)
 	  {
       this.feelings = [
-          {emotion:"happy", color:"#F7D26C"},
+        {emotion:"happy", color:"#F7D26C"},
           {emotion:"sad", color:"#67829F"},
           {emotion:"angry", color:"#A70032"},
           {emotion:"anxious", color:"#D25668"},
@@ -30,7 +30,7 @@ export class HomePage {
 	{
 		  this.navCtrl.push(FeelsPage, {feel:feel.emotion, color:feel.color});
 	}
-	
+
 	goToProfile()
 	{
 		this.navCtrl.push(ProfilePage);
