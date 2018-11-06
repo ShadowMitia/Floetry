@@ -14,7 +14,7 @@ export class FeelsPage {
     feelsColor:string;
 	constructor(public navCtrl: NavController, public navParams: NavParams) 
 	{
-		  this.feels = this.navParams.get('feel');
+		this.feels = this.navParams.get('feel');
       this.feelsColor = this.navParams.get('color');
       this.feels = this.feels.toLowerCase();
       this.feels = this.feels.trim();

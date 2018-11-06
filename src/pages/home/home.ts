@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FeelsPage } from '../feels/feels';
+import { ProfilePage } from '../profile/profile';
 
 @Component({
   selector: 'page-home',
@@ -28,5 +29,10 @@ export class HomePage {
 	getFeels(feel, nBtn: number)
 	{
 		  this.navCtrl.push(FeelsPage, {feel:feel.emotion, color:feel.color});
+	}
+
+	goToProfile()
+	{
+		this.navCtrl.push(ProfilePage);
 	}
 }

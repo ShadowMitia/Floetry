@@ -11,6 +11,7 @@ import { PoemGridPageModule } from '../pages/poem-grid/poem-grid.module';
 import { PoemOverlayPageModule } from '../pages/poem-overlay/poem-overlay.module';
 import { ComponentsModule } from '../components/components.module';
 import { PipesModule } from '../pipes/pipes.module';
+import { ProfilePageModule } from '../pages/profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PipesModule } from '../pipes/pipes.module';
 	    FeelsPageModule,
       PoemGridPageModule,
       PoemOverlayPageModule,
-      PipesModule
+      PipesModule,
+	  ProfilePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
