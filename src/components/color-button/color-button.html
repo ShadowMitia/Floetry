@@ -1,8 +1,8 @@
 <!-- Generated template for the ColorButtonComponent component -->
 <div>
-    <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">
-    <circle [style.fill]="color" cx="50%" cy="50%" r="50%" />
-    <!-- <text x="50%" y="50%" text-anchor="middle" fill="white">{{text | capitalize}}</text> -->
-</svg>
+  <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">
+    <circle [attr.cx]="size" [attr.cy]="size" [attr.r]="size" [attr.fill]="fillColor" />
+      <text [attr.x]="(size)" [attr.y]="(size)" text-anchor="middle" fill="white">{{insideText | capitalize}}</text>
+    </svg>
 <p>{{text | capitalize}}</p>
 </div>
