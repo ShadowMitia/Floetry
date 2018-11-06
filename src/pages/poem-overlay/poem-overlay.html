@@ -12,10 +12,12 @@
           <button ion-button (click)="dismiss()">Close</button>
       </ion-buttons>
   </ion-navbar>
-  
+
 </ion-header>
 
 <ion-content padding>
-    <h1>{{title}}</h1>
-    <p>{{text}}</p>
+    <h1>{{title | titlecase}}</h1>
+    <p [innerHTML]="text | htmlify"></p>
+    <br><br>
+    <p>-- {{author| capitalize}}</p>
 </ion-content>

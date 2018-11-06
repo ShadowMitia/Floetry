@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { PoemOverlayPage } from '../poem-overlay/poem-overlay';
+import { PoemApiProvider } from '../../providers/poem-api/poem-api';
 
 /**
  * Generated class for the PoemGridPage page.
@@ -15,31 +16,27 @@ import { PoemOverlayPage } from '../poem-overlay/poem-overlay';
   templateUrl: 'poem-grid.html',
 })
 export class PoemGridPage {
-	
+
 	/*const fs = require('fs');*/
 
     feels: string;
     emotion: string;
 
-    testTitle: string;
-    testText: string;
-	
+  poems: any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, private poemApi: PoemApiProvider) {
         this.feels = this.navParams.get("feel");
         this.emotion = this.navParams.get("emotion");
-		
-		
 
-
-        this.testTitle = "Poem title";
-        this.testText = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan Sulla.  Nullam rutrum.  Nam vestibulum accumsan nisl."
+    this.poems = poemApi.getPoemsByFeeling(this.emotion, this.feels);
+    console.log(this.poems);
 
     }
 
 
-    openOverlay(title: string, text: string) {
-        let profileModal = this.modalCtrl.create(PoemOverlayPage, { title: title, text: text });
+  openOverlay(poem: any) {
+    let profileModal = this.modalCtrl.create(PoemOverlayPage, { poem: poem });
         profileModal.present();
     }
 

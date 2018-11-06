@@ -12,6 +12,8 @@ import { PoemOverlayPageModule } from '../pages/poem-overlay/poem-overlay.module
 import { ComponentsModule } from '../components/components.module';
 import { PipesModule } from '../pipes/pipes.module';
 import { ProfilePageModule } from '../pages/profile/profile.module';
+import { PoemApiProvider } from '../providers/poem-api/poem-api';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { ProfilePageModule } from '../pages/profile/profile.module';
 	    FeelsPageModule,
       PoemGridPageModule,
       PoemOverlayPageModule,
-      PipesModule,
+    PipesModule,
+    HttpClientModule,
 	  ProfilePageModule
   ],
   bootstrap: [IonicApp],
@@ -35,7 +38,8 @@ import { ProfilePageModule } from '../pages/profile/profile.module';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PoemApiProvider
   ]
 })
 export class AppModule {}

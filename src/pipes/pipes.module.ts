@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CapitalizePipe } from './capitalize/capitalize';
+import { HtmlifyPipe } from './htmlify/htmlify';
+
 @NgModule({
-	declarations: [CapitalizePipe],
+	declarations: [CapitalizePipe,
+    HtmlifyPipe],
 	imports: [],
-	exports: [CapitalizePipe]
+	exports: [CapitalizePipe,
+    HtmlifyPipe]
 })
 export class PipesModule {}

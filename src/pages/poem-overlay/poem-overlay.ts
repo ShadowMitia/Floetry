@@ -15,12 +15,16 @@ import { PoemGridPage } from '../poem-grid/poem-grid';
   templateUrl: 'poem-overlay.html',
 })
 export class PoemOverlayPage {
-    text: string;
-    title: string;
+  text: string;
+  author: string;
+  title: string;
+  poem: any;
 
     constructor(public viewCtrl: ViewController, public params: NavParams) {
-        this.title = this.params.get("title");
-        this.text = this.params.get("text");
+        this.poem = this.params.get("poem");
+      this.text = this.poem.text;
+      this.title = this.poem.title;
+      this.author = this.poem.author;
   }
 
   ionViewDidLoad() {

@@ -24,17 +24,9 @@
 
     <ion-grid>
         <ion-row>
-            <ion-col *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];" (click)="openOverlay(testTitle, testText)" >
-                <h1>{{testTitle}}</h1>
-                <p>{{testText}}</p>
-                <button>View more</button>
-            </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];" (click)="openOverlay('TITLE', 'TOTO')">
-                <h1>TITLE</h1>
-                <p>Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.</p>
-                <button>View more</button>
+            <ion-col *ngFor="let p of poems;" (click)="openOverlay(p)" col-2>
+                <h1>{{p.title}} by {{p.author | capitalize }}</h1>
+                <p [innerHTML]="p.text | slice:0:200 | htmlify"></p>
             </ion-col>
         </ion-row>
     </ion-grid>
