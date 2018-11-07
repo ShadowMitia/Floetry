@@ -19,7 +19,7 @@ export class HomePage {
           {emotion:"sad", color:"#67829F"},
           {emotion:"angry", color:"#A70032"},
           {emotion:"anxious", color:"#D25668"},
-          {emotion:"embarrassed", color:"#C383D7"},
+          {emotion:"ashamed", color:"#C383D7"},
           {emotion:"hurt", color:"#EB5593"},
           {emotion:"depressed", color:"#1C4267"},
           {emotion:"jealous", color:"#BEDFA4"}
@@ -31,14 +31,6 @@ export class HomePage {
 		  this.navCtrl.push(FeelsPage, {feel:feel.emotion, color:feel.color});
 	}
 
-  goToHome() {
-    this.navCtrl.popToRoot();
-  }
-
-  goToProfile()
-	{
-		this.navCtrl.push(ProfilePage);
-	}
 
 
 }
