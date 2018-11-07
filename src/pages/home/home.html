@@ -8,7 +8,7 @@
 
 		<ion-grid>
 			<ion-row>
-				  <ion-col width-50 *ngFor="let feel of feelings">
+				  <ion-col col-auto col-sm *ngFor="let feel of feelings">
             <color-button (click)="getFeels(feel)"  fillColor="{{feel.color}}" text="{{feel.emotion}}">{{feel.emotion}}</color-button>
           </ion-col>
 			</ion-row>
