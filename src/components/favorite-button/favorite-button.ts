@@ -13,7 +13,6 @@ import { Component } from '@angular/core';
 export class FavoriteButtonComponent {
 
   faved: boolean = false;
-  @Input() fillColor: string = "black";
 
   constructor() {
     console.log('Hello FavoriteButtonComponent Component');

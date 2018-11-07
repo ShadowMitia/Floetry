@@ -1,7 +1,13 @@
 <!-- Generated template for the FavoriteButtonComponent component -->
-<div *ngIf="faved">
-	<svg xmlns="http://www.w3.org/2000/svg" height="25" width="23">
+<div *ngIf="!faved">
+	<svg xmlns="http://www.w3.org/2000/svg" height="25" width="23" (click)="toggle()">
     <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+	</svg>
+	<p>Fave</p>
+</div>
+<div *ngIf="faved">
+	<svg xmlns="http://www.w3.org/2000/svg" height="25" width="23" (click)="toggle()">
+    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;" fill="#FDE025"/>
 	</svg>
 	<p>Fave</p>
 </div>
