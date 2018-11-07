@@ -12,7 +12,7 @@ export class FeelsPage {
 	feels: string;
 	  emoLst: Array<any>;
     feelsColor:string;
-	constructor(public navCtrl: NavController, public navParams: NavParams) 
+	constructor(public navCtrl: NavController, public navParams: NavParams)
 	{
 		this.feels = this.navParams.get('feel');
       this.feelsColor = this.navParams.get('color');
@@ -34,7 +34,7 @@ export class FeelsPage {
           "anxious":  {subEmotions: ['angsty', 'confused', 'distressed', 'nervous', 'tense', 'fearful'],
                        color: "#FF0000"
                       },
-          "embarrassed":  {subEmotions: ['awkward', 'shameful', 'unsettled', 'sheepish', 'shy', 'uneasy'],
+          "ashamed":  {subEmotions: ['awkward', 'shameful', 'unsettled', 'sheepish', 'shy', 'uneasy'],
                            color: "#FF0000"
                           },
           "hurt":  {subEmotions: ['ruined', 'wounded', 'damaged', 'abused', 'discomforted', 'injured'],
@@ -59,7 +59,7 @@ export class FeelsPage {
         this.navCtrl.push(PoemGridPage, {feel: this.feels, emotion: emotion});
     }
 
-	ionViewDidLoad() 
+	ionViewDidLoad()
 	{
 		console.log('ionViewDidLoad FeelsPage');
 	}
