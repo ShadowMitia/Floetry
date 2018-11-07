@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class PoemApiProvider {
-
+/*
   poems: [{
     author: string,
     title: string,
@@ -17,6 +17,8 @@ export class PoemApiProvider {
     feels: string,
     text: string
   }] = [
+*/
+  poems: any = [
     {
       author: "toto",
       emotion: "happy",
