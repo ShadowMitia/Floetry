@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ProfilePage } from '../../pages/profile/profile';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the MenuBarComponent component.
@@ -17,7 +17,7 @@ export class MenuBarComponent {
 
   text: string;
 
-  constructor(private navCtrl: NavController) {
+  constructor(private navCtrl: NavController, private toastCtrl : ToastController) {
     console.log('Hello MenuBarComponent Component');
     this.text = 'Hello World';
   }
@@ -30,6 +30,14 @@ export class MenuBarComponent {
 	{
 		this.navCtrl.push(ProfilePage);
 	}
+
+  goToDiscover() {
+    let toast = this.toastCtrl.create({
+      message: "Discover is coming soon", duration: 2000, position: 'top'
+    });
+
+    toast.present();
+  }
 
 
 }
