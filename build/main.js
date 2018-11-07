@@ -1,1 +1,1018 @@
-webpackJsonp([3],Array(19).concat([function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=19},,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=25},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=26},,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=30},,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=34},,,,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=42},,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=44},,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=49},,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=51},,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=53},,,function(n,l,e){"use strict";e.d(l,"a",function(){return o});e(3),e(160);var o=function(){return function(){}}()},function(n,l,e){"use strict";e.d(l,"a",function(){return o});e(3),e(68),e(20);var o=function(){return function(){}}()},,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=61},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=62},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=63},,,,,function(n,l,e){"use strict";e.d(l,"a",function(){return o});e(3);var o=function(){return function(){this.fillColor="red",this.size=50,console.log("Hello ColorButtonComponent Component")}}()},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=69},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=70},function(n,l,e){"use strict";e.d(l,"a",function(){return o});e(3),e(20);var o=function(){function n(n,l){this.navCtrl=n,this.navParams=l,this.show=!0,this.states={Info:["Name : Jean","Surname : Peuplus","Age : 56"],Fav:[]}}return n.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad ProfilePage")},n.prototype.getItems=function(n){return this.states[n]},n.prototype.toggle=function(n){"info"==n?this.show=!0:"fav"==n&&(this.show=!1)},n}()},,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=73},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=74},,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=77},,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=81},,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=85},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=86},,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=92},,,function(n,l,e){"use strict";e.d(l,"a",function(){return o});e(3),e(20),e(122);var o=function(){return function(){}}()},function(n,l,e){"use strict";e.d(l,"a",function(){return o});e(3),e(20),e(95);var o=function(){return function(){}}()},function(n,l,e){"use strict";e.d(l,"a",function(){return t});e(3),e(20);var o=e(122),t=function(){function n(n,l,e){this.navCtrl=n,this.navParams=l,this.modalCtrl=e,this.feels=this.navParams.get("feel"),this.emotion=this.navParams.get("emotion"),this.testTitle="Poem title",this.testText="Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan Sulla.  Nullam rutrum.  Nam vestibulum accumsan nisl."}return n.prototype.openOverlay=function(n,l){this.modalCtrl.create(o.a,{title:n,text:l}).present()},n.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad PoemGridPage")},n}()},function(n,l,e){"use strict";e.d(l,"a",function(){return t});e(3),e(20);var o=e(97),t=function(){function n(n,l){this.navCtrl=n,this.navParams=l,this.feels=this.navParams.get("feel"),this.feelsColor=this.navParams.get("color"),this.feels=this.feels.toLowerCase(),this.feels=this.feels.trim(),console.log("Got emotion: ",this.feels);this.emoLst={happy:{subEmotions:["glad","peppy","excited","lucky","content","gay"],color:"#FF0000"},sad:{subEmotions:["disappointed","mournful","regretful","pessimistic","dismayed","disillusioned"],color:"#FF0000"},angry:{subEmotions:["upset","enraged","violent","annoyed","furious","snappy"],color:"#FF0000"},anxious:{subEmotions:["angsty","confused","distressed","nervous","tense","fearful"],color:"#FF0000"},embarrassed:{subEmotions:["awkward","shameful","unsettled","sheepish","shy","uneasy"],color:"#FF0000"},hurt:{subEmotions:["ruined","wounded","damaged","abused","discomforted","injured"],color:"#FF0000"},depressed:{subEmotions:["downhearted","low","dispirited","gloomy","morose","oppressed"],color:"#FF0000"},jealous:{subEmotions:["bitter","envious","selfish","desirous","green","greedy"],color:"#FF0000"}}[this.feels],console.log("Sub emotion list: ",this.emoLst)}return n.prototype.openPage=function(n){this.navCtrl.push(o.a,{feel:this.feels,emotion:n})},n.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad FeelsPage")},n}()},,,,,,,,,,,,,,,,,,,,,,,,function(n,l,e){"use strict";e.d(l,"a",function(){return o});e(3),e(20);var o=function(){function n(n,l){this.viewCtrl=n,this.params=l,this.title=this.params.get("title"),this.text=this.params.get("text")}return n.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad PoemOverlayPage")},n.prototype.dismiss=function(){this.viewCtrl.dismiss()},n}()},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=123},function(n,l,e){"use strict";function o(n){return t["ɵvid"](0,[t["ɵpid"](0,u.a,[]),(n()(),t["ɵted"](-1,null,["\n"])),(n()(),t["ɵeld"](2,0,null,null,14,"div",[],null,null,null,null,null)),(n()(),t["ɵted"](-1,null,["\n  "])),(n()(),t["ɵeld"](4,0,null,null,7,":svg:svg",[["height","100"],["width","100"],["xmlns","http://www.w3.org/2000/svg"]],null,null,null,null,null)),(n()(),t["ɵted"](-1,null,["\n    "])),(n()(),t["ɵeld"](6,0,null,null,0,":svg:circle",[],[[1,"cx",0],[1,"cy",0],[1,"r",0],[1,"fill",0]],null,null,null,null)),(n()(),t["ɵted"](-1,null,["\n      "])),(n()(),t["ɵeld"](8,0,null,null,2,":svg:text",[["fill","white"],["text-anchor","middle"]],[[1,"x",0],[1,"y",0]],null,null,null,null)),(n()(),t["ɵted"](9,null,["",""])),t["ɵppd"](10,1),(n()(),t["ɵted"](-1,null,["\n    "])),(n()(),t["ɵted"](-1,null,["\n"])),(n()(),t["ɵeld"](13,0,null,null,2,"p",[],null,null,null,null,null)),(n()(),t["ɵted"](14,null,["",""])),t["ɵppd"](15,1),(n()(),t["ɵted"](-1,null,["\n"])),(n()(),t["ɵted"](-1,null,["\n"]))],null,function(n,l){var e=l.component;n(l,6,0,e.size,e.size,e.size,e.fillColor);n(l,8,0,e.size,e.size);n(l,9,0,t["ɵunv"](l,9,0,n(l,10,0,t["ɵnov"](l,0),e.insideText)));n(l,14,0,t["ɵunv"](l,14,0,n(l,15,0,t["ɵnov"](l,0),e.text)))})}e.d(l,"a",function(){return r}),l.b=o;var t=e(0),u=e(160),r=t["ɵcrt"]({encapsulation:2,styles:[],data:{}})},,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=128},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=129},,,,,function(n,l,e){"use strict";e.d(l,"a",function(){return o});e(3),e(20),e(96);var o=function(){return function(){}}()},function(n,l,e){"use strict";e.d(l,"a",function(){return o});e(3),e(20);var o=function(){return function(){}}()},,,,,,,,,,function(n,l){function e(n){return Promise.resolve().then(function(){throw new Error("Cannot find module '"+n+"'.")})}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=145},function(n,l,e){function o(n){var l=t[n];return l?e.e(l[1]).then(function(){return e(l[0])}):Promise.reject(new Error("Cannot find module '"+n+"'."))}var t={"../pages/feels/feels.module.ngfactory":[346,2],"../pages/poem-grid/poem-grid.module.ngfactory":[347,1],"../pages/profile/profile.module.ngfactory":[348,0]};o.keys=function(){return Object.keys(t)},o.id=146,n.exports=o},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=147},,,,function(n,l){function e(n){return Promise.resolve().then(function(){throw new Error("Cannot find module '"+n+"'.")})}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=151},,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=155},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=156},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=157},,,function(n,l,e){"use strict";e.d(l,"a",function(){return o});e(3);var o=function(){function n(){}return n.prototype.transform=function(n,l){if(void 0===l&&(l=!1),n)if(l){n=n.split(" ").map(function(n){return n.substring(0,1).toUpperCase()+n.substring(1)}).join(" ")}else n=n.substring(0,1).toUpperCase()+n.substring(1);return n},n}()},,,,,,,,,,,,,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=177},,,,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=185},,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=187},,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=189},,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=191},,,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=198},,,,,,,,,,,,,,,function(n,l,e){"use strict";function o(n){return t["ɵvid"](0,[(n()(),t["ɵted"](-1,null,["\n"])),(n()(),t["ɵeld"](1,0,null,null,19,"ion-header",[],null,null,null,null,null)),t["ɵdid"](2,16384,null,0,u.Header,[r.Config,t.ElementRef,t.Renderer,[2,i.ViewController]],null,null),(n()(),t["ɵted"](-1,null,["\n\n  "])),(n()(),t["ɵeld"](4,0,null,null,15,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,d.b,d.a)),t["ɵdid"](5,49152,null,0,a.Navbar,[s.App,[2,i.ViewController],[2,f.NavController],r.Config,t.ElementRef,t.Renderer],null,null),(n()(),t["ɵted"](-1,3,["\n      "])),(n()(),t["ɵeld"](7,0,null,3,2,"ion-title",[],null,null,null,c.b,c.a)),t["ɵdid"](8,49152,null,0,p.ToolbarTitle,[r.Config,t.ElementRef,t.Renderer,[2,m.Toolbar],[2,a.Navbar]],null,null),(n()(),t["ɵted"](-1,0,["PoemOverlay"])),(n()(),t["ɵted"](-1,3,["\n      "])),(n()(),t["ɵeld"](11,0,null,1,7,"ion-buttons",[["start",""]],null,null,null,null,null)),t["ɵdid"](12,16384,null,1,g.ToolbarItem,[r.Config,t.ElementRef,t.Renderer,[2,m.Toolbar],[2,a.Navbar]],null,null),t["ɵqud"](603979776,1,{_buttons:1}),(n()(),t["ɵted"](-1,null,["\n          "])),(n()(),t["ɵeld"](15,0,null,null,2,"button",[["ion-button",""]],null,[[null,"click"]],function(n,l,e){var o=!0;if("click"===l){o=!1!==n.component.dismiss()&&o}return o},v.b,v.a)),t["ɵdid"](16,1097728,[[1,4]],0,C.Button,[[8,""],r.Config,t.ElementRef,t.Renderer],null,null),(n()(),t["ɵted"](-1,0,["Close"])),(n()(),t["ɵted"](-1,null,["\n      "])),(n()(),t["ɵted"](-1,3,["\n  "])),(n()(),t["ɵted"](-1,null,["\n  \n"])),(n()(),t["ɵted"](-1,null,["\n\n"])),(n()(),t["ɵeld"](22,0,null,null,8,"ion-content",[["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,h.b,h.a)),t["ɵdid"](23,4374528,null,0,w.Content,[r.Config,b.Platform,y.DomController,t.ElementRef,t.Renderer,s.App,E.Keyboard,t.NgZone,[2,i.ViewController],[2,f.NavController]],null,null),(n()(),t["ɵted"](-1,1,["\n    "])),(n()(),t["ɵeld"](25,0,null,1,1,"h1",[],null,null,null,null,null)),(n()(),t["ɵted"](26,null,["",""])),(n()(),t["ɵted"](-1,1,["\n    "])),(n()(),t["ɵeld"](28,0,null,1,1,"p",[],null,null,null,null,null)),(n()(),t["ɵted"](29,null,["",""])),(n()(),t["ɵted"](-1,1,["\n"])),(n()(),t["ɵted"](-1,null,["\n"]))],null,function(n,l){var e=l.component;n(l,4,0,t["ɵnov"](l,5)._hidden,t["ɵnov"](l,5)._sbPadding);n(l,22,0,t["ɵnov"](l,23).statusbarPadding,t["ɵnov"](l,23)._hasRefresher);n(l,26,0,e.title);n(l,29,0,e.text)})}e.d(l,"a",function(){return x});var t=e(0),u=e(54),r=e(1),i=e(5),d=e(65),a=e(28),s=e(6),f=e(14),c=e(66),p=e(45),m=e(32),g=e(159),v=e(40),C=e(22),h=e(67),w=e(18),b=e(4),y=e(8),E=e(27),k=e(122),R=e(12),P=t["ɵcrt"]({encapsulation:2,styles:[],data:{}}),x=t["ɵccf"]("page-poem-overlay",k.a,function(n){return t["ɵvid"](0,[(n()(),t["ɵeld"](0,0,null,null,1,"page-poem-overlay",[],null,null,null,o,P)),t["ɵdid"](1,49152,null,0,k.a,[i.ViewController,R.NavParams],null,null)],null,null)},{},{},[])},function(n,l,e){"use strict";function o(n){return r["ɵvid"](0,[(n()(),r["ɵeld"](0,0,null,null,11,"ion-col",[["class","col"]],null,[[null,"click"]],function(n,l,e){var o=!0,t=n.component;if("click"===l){o=!1!==t.openOverlay(t.testTitle,t.testText)&&o}return o},null,null)),r["ɵdid"](1,16384,null,0,i.Col,[],null,null),(n()(),r["ɵted"](-1,null,["\n                "])),(n()(),r["ɵeld"](3,0,null,null,1,"h1",[],null,null,null,null,null)),(n()(),r["ɵted"](4,null,["",""])),(n()(),r["ɵted"](-1,null,["\n                "])),(n()(),r["ɵeld"](6,0,null,null,1,"p",[],null,null,null,null,null)),(n()(),r["ɵted"](7,null,["",""])),(n()(),r["ɵted"](-1,null,["\n                "])),(n()(),r["ɵeld"](9,0,null,null,1,"button",[],null,null,null,null,null)),(n()(),r["ɵted"](-1,null,["View more"])),(n()(),r["ɵted"](-1,null,["\n            "]))],null,function(n,l){var e=l.component;n(l,4,0,e.testTitle);n(l,7,0,e.testText)})}function t(n){return r["ɵvid"](0,[(n()(),r["ɵeld"](0,0,null,null,11,"ion-col",[["class","col"]],null,[[null,"click"]],function(n,l,e){var o=!0;if("click"===l){o=!1!==n.component.openOverlay("TITLE","TOTO")&&o}return o},null,null)),r["ɵdid"](1,16384,null,0,i.Col,[],null,null),(n()(),r["ɵted"](-1,null,["\n                "])),(n()(),r["ɵeld"](3,0,null,null,1,"h1",[],null,null,null,null,null)),(n()(),r["ɵted"](-1,null,["TITLE"])),(n()(),r["ɵted"](-1,null,["\n                "])),(n()(),r["ɵeld"](6,0,null,null,1,"p",[],null,null,null,null,null)),(n()(),r["ɵted"](-1,null,["Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi."])),(n()(),r["ɵted"](-1,null,["\n                "])),(n()(),r["ɵeld"](9,0,null,null,1,"button",[],null,null,null,null,null)),(n()(),r["ɵted"](-1,null,["View more"])),(n()(),r["ɵted"](-1,null,["\n            "]))],null,null)}function u(n){return r["ɵvid"](0,[(n()(),r["ɵted"](-1,null,["\n"])),(n()(),r["ɵeld"](1,0,null,null,28,"ion-header",[],null,null,null,null,null)),r["ɵdid"](2,16384,null,0,d.Header,[a.Config,r.ElementRef,r.Renderer,[2,s.ViewController]],null,null),(n()(),r["ɵted"](-1,null,["\n\n  "])),(n()(),r["ɵeld"](4,0,null,null,15,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,f.b,f.a)),r["ɵdid"](5,49152,null,0,c.Navbar,[p.App,[2,s.ViewController],[2,m.NavController],a.Config,r.ElementRef,r.Renderer],null,null),(n()(),r["ɵted"](-1,3,["\n      "])),(n()(),r["ɵeld"](7,0,null,3,11,"ion-title",[],null,null,null,g.b,g.a)),r["ɵdid"](8,49152,null,0,v.ToolbarTitle,[a.Config,r.ElementRef,r.Renderer,[2,C.Toolbar],[2,c.Navbar]],null,null),(n()(),r["ɵted"](-1,0,["\n          "])),(n()(),r["ɵeld"](10,0,null,0,7,"div",[["class","bar bar-header"]],null,null,null,null,null)),(n()(),r["ɵted"](-1,null,["\n\t\t\t    "])),(n()(),r["ɵeld"](12,0,null,null,1,"h1",[["class","title"]],null,null,null,null,null)),(n()(),r["ɵted"](-1,null,["Floetry"])),(n()(),r["ɵted"](-1,null,["\n\t\t\t\t"])),(n()(),r["ɵeld"](15,0,null,null,1,"button",[["href","../home/home.html"]],null,null,null,null,null)),(n()(),r["ɵted"](-1,null,["Home"])),(n()(),r["ɵted"](-1,null,["\n\t\t      "])),(n()(),r["ɵted"](-1,0,["\n      "])),(n()(),r["ɵted"](-1,3,["\n  "])),(n()(),r["ɵted"](-1,null,["\n  "])),(n()(),r["ɵeld"](21,0,null,null,7,"div",[],null,null,null,null,null)),(n()(),r["ɵted"](-1,null,["\n    "])),(n()(),r["ɵeld"](23,0,null,null,1,"color-button",[],null,null,null,h.b,h.a)),r["ɵdid"](24,49152,null,0,w.a,[],{insideText:[0,"insideText"]},null),(n()(),r["ɵted"](-1,null,["\n    "])),(n()(),r["ɵeld"](26,0,null,null,1,"color-button",[["size","25"]],null,null,null,h.b,h.a)),r["ɵdid"](27,49152,null,0,w.a,[],{insideText:[0,"insideText"],size:[1,"size"]},null),(n()(),r["ɵted"](-1,null,["\n  "])),(n()(),r["ɵted"](-1,null,["\n"])),(n()(),r["ɵted"](-1,null,["\n\n"])),(n()(),r["ɵeld"](31,0,null,null,22,"ion-content",[["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,b.b,b.a)),r["ɵdid"](32,4374528,null,0,y.Content,[a.Config,E.Platform,k.DomController,r.ElementRef,r.Renderer,p.App,R.Keyboard,r.NgZone,[2,s.ViewController],[2,m.NavController]],null,null),(n()(),r["ɵted"](-1,1,["\n\n    "])),(n()(),r["ɵeld"](34,0,null,1,18,"ion-grid",[["class","grid"]],null,null,null,null,null)),r["ɵdid"](35,16384,null,0,P.Grid,[],null,null),(n()(),r["ɵted"](-1,null,["\n        "])),(n()(),r["ɵeld"](37,0,null,null,6,"ion-row",[["class","row"]],null,null,null,null,null)),r["ɵdid"](38,16384,null,0,x.Row,[],null,null),(n()(),r["ɵted"](-1,null,["\n            "])),(n()(),r["ɵand"](16777216,null,null,2,null,o)),r["ɵdid"](41,802816,null,0,N.NgForOf,[r.ViewContainerRef,r.TemplateRef,r.IterableDiffers],{ngForOf:[0,"ngForOf"]},null),r["ɵpad"](42,10),(n()(),r["ɵted"](-1,null,["\n        "])),(n()(),r["ɵted"](-1,null,["\n        "])),(n()(),r["ɵeld"](45,0,null,null,6,"ion-row",[["class","row"]],null,null,null,null,null)),r["ɵdid"](46,16384,null,0,x.Row,[],null,null),(n()(),r["ɵted"](-1,null,["\n            "])),(n()(),r["ɵand"](16777216,null,null,2,null,t)),r["ɵdid"](49,802816,null,0,N.NgForOf,[r.ViewContainerRef,r.TemplateRef,r.IterableDiffers],{ngForOf:[0,"ngForOf"]},null),r["ɵpad"](50,10),(n()(),r["ɵted"](-1,null,["\n        "])),(n()(),r["ɵted"](-1,null,["\n    "])),(n()(),r["ɵted"](-1,1,["\n\n"])),(n()(),r["ɵted"](-1,null,["\n"]))],function(n,l){var e=l.component;n(l,24,0,r["ɵinlineInterpolate"](1,"",e.feels,""));n(l,27,0,r["ɵinlineInterpolate"](1,"",e.emotion,""),"25");n(l,41,0,n(l,42,0,1,2,3,4,5,6,7,8,9,10));n(l,49,0,n(l,50,0,1,2,3,4,5,6,7,8,9,10))},function(n,l){n(l,4,0,r["ɵnov"](l,5)._hidden,r["ɵnov"](l,5)._sbPadding);n(l,31,0,r["ɵnov"](l,32).statusbarPadding,r["ɵnov"](l,32)._hasRefresher)})}e.d(l,"a",function(){return I});var r=e(0),i=e(82),d=e(54),a=e(1),s=e(5),f=e(65),c=e(28),p=e(6),m=e(14),g=e(66),v=e(45),C=e(32),h=e(124),w=e(68),b=e(67),y=e(18),E=e(4),k=e(8),R=e(27),P=e(83),x=e(84),N=e(11),T=e(97),F=e(12),D=e(125),A=r["ɵcrt"]({encapsulation:2,styles:[],data:{}}),I=r["ɵccf"]("page-poem-grid",T.a,function(n){return r["ɵvid"](0,[(n()(),r["ɵeld"](0,0,null,null,1,"page-poem-grid",[],null,null,null,u,A)),r["ɵdid"](1,49152,null,0,T.a,[m.NavController,F.NavParams,D.ModalController],null,null)],null,null)},{},{},[])},function(n,l,e){"use strict";function o(n){return u["ɵvid"](0,[(n()(),u["ɵeld"](0,0,null,null,5,"ion-col",[["class","col"],["width-50",""]],null,[[null,"click"]],function(n,l,e){var o=!0;if("click"===l){o=!1!==n.component.openPage(n.context.$implicit)&&o}return o},null,null)),u["ɵdid"](1,16384,null,0,r.Col,[],null,null),(n()(),u["ɵted"](-1,null,["\n              "])),(n()(),u["ɵeld"](3,0,null,null,1,"color-button",[],null,null,null,i.b,i.a)),u["ɵdid"](4,49152,null,0,d.a,[],{text:[0,"text"],fillColor:[1,"fillColor"]},null),(n()(),u["ɵted"](-1,null,["\n          "]))],function(n,l){var e=l.component;n(l,4,0,u["ɵinlineInterpolate"](1,"",l.context.$implicit,""),u["ɵinlineInterpolate"](1,"",e.emoLst.color,""))},null)}function t(n){return u["ɵvid"](0,[(n()(),u["ɵeld"](0,0,null,null,16,"ion-header",[],null,null,null,null,null)),u["ɵdid"](1,16384,null,0,a.Header,[s.Config,u.ElementRef,u.Renderer,[2,f.ViewController]],null,null),(n()(),u["ɵted"](-1,null,["\n  "])),(n()(),u["ɵeld"](3,0,null,null,12,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,c.b,c.a)),u["ɵdid"](4,49152,null,0,p.Navbar,[m.App,[2,f.ViewController],[2,g.NavController],s.Config,u.ElementRef,u.Renderer],null,null),(n()(),u["ɵted"](-1,3,["\n    "])),(n()(),u["ɵeld"](6,0,null,3,8,"ion-title",[],null,null,null,v.b,v.a)),u["ɵdid"](7,49152,null,0,C.ToolbarTitle,[s.Config,u.ElementRef,u.Renderer,[2,h.Toolbar],[2,p.Navbar]],null,null),(n()(),u["ɵted"](-1,0,["\n\t\t"])),(n()(),u["ɵeld"](9,0,null,0,4,"div",[["class","bar bar-header"]],null,null,null,null,null)),(n()(),u["ɵted"](-1,null,["\n\t\t\t"])),(n()(),u["ɵeld"](11,0,null,null,1,"h1",[["class","title"]],null,null,null,null,null)),(n()(),u["ɵted"](-1,null,["Floetry"])),(n()(),u["ɵted"](-1,null,["\n\t\t"])),(n()(),u["ɵted"](-1,0,["\n    "])),(n()(),u["ɵted"](-1,3,["\n  "])),(n()(),u["ɵted"](-1,null,["\n"])),(n()(),u["ɵted"](-1,null,["\n\n\n"])),(n()(),u["ɵeld"](18,0,null,null,24,"ion-content",[["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,w.b,w.a)),u["ɵdid"](19,4374528,null,0,b.Content,[s.Config,y.Platform,E.DomController,u.ElementRef,u.Renderer,m.App,k.Keyboard,u.NgZone,[2,f.ViewController],[2,g.NavController]],null,null),(n()(),u["ɵted"](-1,1,["\n\t  "])),(n()(),u["ɵeld"](21,0,null,1,20,"div",[["text-center",""]],null,null,null,null,null)),(n()(),u["ɵted"](-1,null,["\n        "])),(n()(),u["ɵeld"](23,0,null,null,3,":svg:svg",[["height","100"],["width","100"],["xmlns","http://www.w3.org/2000/svg"]],null,null,null,null,null)),(n()(),u["ɵted"](-1,null,["\n            "])),(n()(),u["ɵeld"](25,0,null,null,0,":svg:circle",[["cx","50%"],["cy","50%"],["r","50%"]],[[4,"fill",null]],null,null,null,null)),(n()(),u["ɵted"](-1,null,["\n        "])),(n()(),u["ɵted"](-1,null,["\n\t\t"])),(n()(),u["ɵeld"](28,0,null,null,1,"p",[],null,null,null,null,null)),(n()(),u["ɵted"](-1,null,["Tell us more details..."])),(n()(),u["ɵted"](-1,null,["\n\n\t\t\t"])),(n()(),u["ɵeld"](31,0,null,null,9,"ion-grid",[["class","grid"]],null,null,null,null,null)),u["ɵdid"](32,16384,null,0,R.Grid,[],null,null),(n()(),u["ɵted"](-1,null,["\n\t\t\t"])),(n()(),u["ɵeld"](34,0,null,null,5,"ion-row",[["class","row"]],null,null,null,null,null)),u["ɵdid"](35,16384,null,0,P.Row,[],null,null),(n()(),u["ɵted"](-1,null,["\n\t\t\t\t  "])),(n()(),u["ɵand"](16777216,null,null,1,null,o)),u["ɵdid"](38,802816,null,0,x.NgForOf,[u.ViewContainerRef,u.TemplateRef,u.IterableDiffers],{ngForOf:[0,"ngForOf"]},null),(n()(),u["ɵted"](-1,null,["\n\t\t\t"])),(n()(),u["ɵted"](-1,null,["\n\t\t"])),(n()(),u["ɵted"](-1,null,["\n\t"])),(n()(),u["ɵted"](-1,1,["\n"])),(n()(),u["ɵted"](-1,null,["\n"]))],function(n,l){n(l,38,0,l.component.emoLst.subEmotions)},function(n,l){var e=l.component;n(l,3,0,u["ɵnov"](l,4)._hidden,u["ɵnov"](l,4)._sbPadding);n(l,18,0,u["ɵnov"](l,19).statusbarPadding,u["ɵnov"](l,19)._hasRefresher);n(l,25,0,e.feelsColor)})}e.d(l,"a",function(){return D});var u=e(0),r=e(82),i=e(124),d=e(68),a=e(54),s=e(1),f=e(5),c=e(65),p=e(28),m=e(6),g=e(14),v=e(66),C=e(45),h=e(32),w=e(67),b=e(18),y=e(4),E=e(8),k=e(27),R=e(83),P=e(84),x=e(11),N=e(98),T=e(12),F=u["ɵcrt"]({encapsulation:2,styles:[],data:{}}),D=u["ɵccf"]("page-feels",N.a,function(n){return u["ɵvid"](0,[(n()(),u["ɵeld"](0,0,null,null,1,"page-feels",[],null,null,null,t,F)),u["ɵdid"](1,49152,null,0,N.a,[g.NavController,T.NavParams],null,null)],null,null)},{},{},[])},function(n,l,e){"use strict";function o(n){return d["ɵvid"](0,[(n()(),d["ɵeld"](0,0,null,null,1,"p",[],null,null,null,null,null)),(n()(),d["ɵted"](1,null,["\n\t\t\t","\n\t\t"]))],null,function(n,l){n(l,1,0,l.context.$implicit)})}function t(n){return d["ɵvid"](0,[(n()(),d["ɵeld"](0,0,null,null,6,"div",[],null,null,null,null,null)),(n()(),d["ɵted"](-1,null,["\n\t\t"])),(n()(),d["ɵeld"](2,0,null,null,0,"img",[["src","../assets/imgs/Jean.jpg"]],null,null,null,null,null)),(n()(),d["ɵted"](-1,null,["\n\t\t"])),(n()(),d["ɵand"](16777216,null,null,1,null,o)),d["ɵdid"](5,802816,null,0,a.NgForOf,[d.ViewContainerRef,d.TemplateRef,d.IterableDiffers],{ngForOf:[0,"ngForOf"]},null),(n()(),d["ɵted"](-1,null,["\n\t"]))],function(n,l){var e=l.component;n(l,5,0,e.getItems(e.state))},null)}function u(n){return d["ɵvid"](0,[(n()(),d["ɵeld"](0,0,null,null,6,"ion-item",[["class","item item-block"]],null,null,null,s.b,s.a)),d["ɵdid"](1,1097728,null,3,f.Item,[c.Form,p.Config,d.ElementRef,d.Renderer,[2,m.ItemReorder]],null,null),d["ɵqud"](335544320,5,{contentLabel:0}),d["ɵqud"](603979776,6,{_buttons:1}),d["ɵqud"](603979776,7,{_icons:1}),d["ɵdid"](5,16384,null,0,g.ItemContent,[],null,null),(n()(),d["ɵted"](6,2,["\n\t\t","\n\t\t"]))],null,function(n,l){n(l,6,0,l.context.$implicit)})}function r(n){return d["ɵvid"](0,[(n()(),d["ɵeld"](0,0,null,null,12,"div",[],null,null,null,null,null)),(n()(),d["ɵted"](-1,null,["\n\t\t"])),(n()(),d["ɵeld"](2,0,null,null,6,"ion-list-header",[["class","item"]],null,null,null,s.b,s.a)),d["ɵdid"](3,1097728,null,3,f.Item,[c.Form,p.Config,d.ElementRef,d.Renderer,[2,m.ItemReorder]],null,null),d["ɵqud"](335544320,2,{contentLabel:0}),d["ɵqud"](603979776,3,{_buttons:1}),d["ɵqud"](603979776,4,{_icons:1}),d["ɵdid"](7,16384,null,0,v.ListHeader,[p.Config,d.Renderer,d.ElementRef,[8,null]],null,null),(n()(),d["ɵted"](8,2,["",""])),(n()(),d["ɵted"](-1,null,["\n\t\t"])),(n()(),d["ɵand"](16777216,null,null,1,null,u)),d["ɵdid"](11,802816,null,0,a.NgForOf,[d.ViewContainerRef,d.TemplateRef,d.IterableDiffers],{ngForOf:[0,"ngForOf"]},null),(n()(),d["ɵted"](-1,null,["\n\t"]))],function(n,l){var e=l.component;n(l,11,0,e.getItems(e.state))},function(n,l){n(l,8,0,l.component.state)})}function i(n){return d["ɵvid"](0,[(n()(),d["ɵted"](-1,null,["\n"])),(n()(),d["ɵeld"](1,0,null,null,26,"ion-header",[],null,null,null,null,null)),d["ɵdid"](2,16384,null,0,C.Header,[p.Config,d.ElementRef,d.Renderer,[2,h.ViewController]],null,null),(n()(),d["ɵted"](-1,null,["\n\n  "])),(n()(),d["ɵeld"](4,0,null,null,6,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,w.b,w.a)),d["ɵdid"](5,49152,null,0,b.Navbar,[y.App,[2,h.ViewController],[2,E.NavController],p.Config,d.ElementRef,d.Renderer],null,null),(n()(),d["ɵted"](-1,3,["\n    "])),(n()(),d["ɵeld"](7,0,null,3,2,"ion-title",[],null,null,null,k.b,k.a)),d["ɵdid"](8,49152,null,0,R.ToolbarTitle,[p.Config,d.ElementRef,d.Renderer,[2,P.Toolbar],[2,b.Navbar]],null,null),(n()(),d["ɵted"](-1,0,["Jean Peuplus"])),(n()(),d["ɵted"](-1,3,["\n  "])),(n()(),d["ɵted"](-1,null,["\n  \n   "])),(n()(),d["ɵeld"](12,0,null,null,14,"ion-segment",[["color","primary"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null],[2,"segment-disabled",null]],[[null,"ngModelChange"]],function(n,l,e){var o=!0;if("ngModelChange"===l){o=!1!==(n.component.state=e)&&o}return o},null,null)),d["ɵdid"](13,671744,null,0,x.NgModel,[[8,null],[8,null],[8,null],[8,null]],{model:[0,"model"]},{update:"ngModelChange"}),d["ɵprd"](2048,null,x.NgControl,null,[x.NgModel]),d["ɵdid"](15,16384,null,0,x.NgControlStatus,[x.NgControl],null,null),d["ɵdid"](16,1196032,null,1,N.Segment,[p.Config,d.ElementRef,d.Renderer,[2,x.NgControl]],{color:[0,"color"]},null),d["ɵqud"](603979776,1,{_buttons:1}),(n()(),d["ɵted"](-1,null,["\n    "])),(n()(),d["ɵeld"](19,0,null,null,2,"ion-segment-button",[["class","segment-button"],["role","button"],["tappable",""],["value","Info"]],[[2,"segment-button-disabled",null],[2,"segment-activated",null],[1,"aria-pressed",0]],[[null,"click"]],function(n,l,e){var o=!0,t=n.component;if("click"===l){o=!1!==d["ɵnov"](n,20).onClick()&&o}if("click"===l){o=!1!==t.toggle("info")&&o}return o},T.b,T.a)),d["ɵdid"](20,114688,[[1,4]],0,F.SegmentButton,[],{value:[0,"value"]},null),(n()(),d["ɵted"](-1,0,["\n      Informations\n    "])),(n()(),d["ɵted"](-1,null,["\n    "])),(n()(),d["ɵeld"](23,0,null,null,2,"ion-segment-button",[["class","segment-button"],["role","button"],["tappable",""],["value","Fav"]],[[2,"segment-button-disabled",null],[2,"segment-activated",null],[1,"aria-pressed",0]],[[null,"click"]],function(n,l,e){var o=!0,t=n.component;if("click"===l){o=!1!==d["ɵnov"](n,24).onClick()&&o}if("click"===l){o=!1!==t.toggle("fav")&&o}return o},T.b,T.a)),d["ɵdid"](24,114688,[[1,4]],0,F.SegmentButton,[],{value:[0,"value"]},null),(n()(),d["ɵted"](-1,0,["\n      Favourites\n    "])),(n()(),d["ɵted"](-1,null,["\n  "])),(n()(),d["ɵted"](-1,null,["\n\n"])),(n()(),d["ɵted"](-1,null,["\n\n\n"])),(n()(),d["ɵeld"](29,0,null,null,8,"ion-content",[["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,D.b,D.a)),d["ɵdid"](30,4374528,null,0,A.Content,[p.Config,I.Platform,M.DomController,d.ElementRef,d.Renderer,y.App,L.Keyboard,d.NgZone,[2,h.ViewController],[2,E.NavController]],null,null),(n()(),d["ɵted"](-1,1,["\n\t"])),(n()(),d["ɵand"](16777216,null,1,1,null,t)),d["ɵdid"](33,16384,null,0,a.NgIf,[d.ViewContainerRef,d.TemplateRef],{ngIf:[0,"ngIf"]},null),(n()(),d["ɵted"](-1,1,["\n\t"])),(n()(),d["ɵand"](16777216,null,1,1,null,r)),d["ɵdid"](36,16384,null,0,a.NgIf,[d.ViewContainerRef,d.TemplateRef],{ngIf:[0,"ngIf"]},null),(n()(),d["ɵted"](-1,1,["\n\n"])),(n()(),d["ɵted"](-1,null,["\n"]))],function(n,l){var e=l.component;n(l,13,0,e.state);n(l,16,0,"primary");n(l,20,0,"Info");n(l,24,0,"Fav");n(l,33,0,e.show);n(l,36,0,!e.show)},function(n,l){n(l,4,0,d["ɵnov"](l,5)._hidden,d["ɵnov"](l,5)._sbPadding);n(l,12,0,d["ɵnov"](l,15).ngClassUntouched,d["ɵnov"](l,15).ngClassTouched,d["ɵnov"](l,15).ngClassPristine,d["ɵnov"](l,15).ngClassDirty,d["ɵnov"](l,15).ngClassValid,d["ɵnov"](l,15).ngClassInvalid,d["ɵnov"](l,15).ngClassPending,d["ɵnov"](l,16)._disabled);n(l,19,0,d["ɵnov"](l,20)._disabled,d["ɵnov"](l,20).isActive,d["ɵnov"](l,20).isActive);n(l,23,0,d["ɵnov"](l,24)._disabled,d["ɵnov"](l,24).isActive,d["ɵnov"](l,24).isActive);n(l,29,0,d["ɵnov"](l,30).statusbarPadding,d["ɵnov"](l,30)._hasRefresher)})}e.d(l,"a",function(){return S});var d=e(0),a=e(11),s=e(152),f=e(21),c=e(17),p=e(1),m=e(64),g=e(116),v=e(118),C=e(54),h=e(5),w=e(65),b=e(28),y=e(6),E=e(14),k=e(66),R=e(45),P=e(32),x=e(10),N=e(188),T=e(339),F=e(88),D=e(67),A=e(18),I=e(4),M=e(8),L=e(27),_=e(71),O=e(12),V=d["ɵcrt"]({encapsulation:2,styles:[],data:{}}),S=d["ɵccf"]("page-profile",_.a,function(n){return d["ɵvid"](0,[(n()(),d["ɵeld"](0,0,null,null,1,"page-profile",[],null,null,null,i,V)),d["ɵdid"](1,49152,null,0,_.a,[E.NavController,O.NavParams],null,null)],null,null)},{},{},[])},function(n,l,e){"use strict";function o(n){return i["ɵvid"](0,[(n()(),i["ɵeld"](0,0,null,null,6,"ion-col",[["class","col"],["width-50",""]],null,null,null,null,null)),i["ɵdid"](1,16384,null,0,I.Col,[],null,null),(n()(),i["ɵted"](-1,null,["\n            "])),(n()(),i["ɵeld"](3,0,null,null,2,"color-button",[],null,[[null,"click"]],function(n,l,e){var o=!0;if("click"===l){o=!1!==n.component.getFeels(n.context.$implicit)&&o}return o},M.b,M.a)),i["ɵdid"](4,49152,null,0,L.a,[],{text:[0,"text"],fillColor:[1,"fillColor"]},null),(n()(),i["ɵted"](5,null,["",""])),(n()(),i["ɵted"](-1,null,["\n          "]))],function(n,l){n(l,4,0,i["ɵinlineInterpolate"](1,"",l.context.$implicit.emotion,""),i["ɵinlineInterpolate"](1,"",l.context.$implicit.color,""))},function(n,l){n(l,5,0,l.context.$implicit.emotion)})}function t(n){return i["ɵvid"](0,[(n()(),i["ɵeld"](0,0,null,null,19,"ion-header",[],null,null,null,null,null)),i["ɵdid"](1,16384,null,0,_.Header,[O.Config,i.ElementRef,i.Renderer,[2,V.ViewController]],null,null),(n()(),i["ɵted"](-1,null,["\n  "])),(n()(),i["ɵeld"](3,0,null,null,15,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,S.b,S.a)),i["ɵdid"](4,49152,null,0,H.Navbar,[G.App,[2,V.ViewController],[2,U.NavController],O.Config,i.ElementRef,i.Renderer],null,null),(n()(),i["ɵted"](-1,3,["\n    "])),(n()(),i["ɵeld"](6,0,null,3,11,"ion-title",[],null,null,null,q.b,q.a)),i["ɵdid"](7,49152,null,0,z.ToolbarTitle,[O.Config,i.ElementRef,i.Renderer,[2,Z.Toolbar],[2,H.Navbar]],null,null),(n()(),i["ɵted"](-1,0,["\n\t\t"])),(n()(),i["ɵeld"](9,0,null,0,7,"div",[["class","bar bar-header"]],null,null,null,null,null)),(n()(),i["ɵted"](-1,null,["\n\t\t\t"])),(n()(),i["ɵeld"](11,0,null,null,1,"h1",[["class","title"]],null,null,null,null,null)),(n()(),i["ɵted"](-1,null,["Floetry"])),(n()(),i["ɵted"](-1,null,["\n\t\t\t"])),(n()(),i["ɵeld"](14,0,null,null,1,"button",[],null,[[null,"click"]],function(n,l,e){var o=!0;if("click"===l){o=!1!==n.component.goToProfile()&&o}return o},null,null)),(n()(),i["ɵted"](-1,null,["Profile"])),(n()(),i["ɵted"](-1,null,["\n\t\t"])),(n()(),i["ɵted"](-1,0,["\n    "])),(n()(),i["ɵted"](-1,3,["\n  "])),(n()(),i["ɵted"](-1,null,["\n"])),(n()(),i["ɵted"](-1,null,["\n\n"])),(n()(),i["ɵeld"](21,0,null,null,19,"ion-content",[["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,B.b,B.a)),i["ɵdid"](22,4374528,null,0,j.Content,[O.Config,K.Platform,$.DomController,i.ElementRef,i.Renderer,G.App,J.Keyboard,i.NgZone,[2,V.ViewController],[2,U.NavController]],null,null),(n()(),i["ɵted"](-1,1,["\n\t"])),(n()(),i["ɵeld"](24,0,null,1,15,"div",[["text-center",""]],null,null,null,null,null)),(n()(),i["ɵted"](-1,null,["\n    "])),(n()(),i["ɵeld"](26,0,null,null,1,"p",[],null,null,null,null,null)),(n()(),i["ɵted"](-1,null,["How are you feeling today ?"])),(n()(),i["ɵted"](-1,null,["\n\n\t\t"])),(n()(),i["ɵeld"](29,0,null,null,9,"ion-grid",[["class","grid"]],null,null,null,null,null)),i["ɵdid"](30,16384,null,0,Y.Grid,[],null,null),(n()(),i["ɵted"](-1,null,["\n\t\t\t"])),(n()(),i["ɵeld"](32,0,null,null,5,"ion-row",[["class","row"]],null,null,null,null,null)),i["ɵdid"](33,16384,null,0,Q.Row,[],null,null),(n()(),i["ɵted"](-1,null,["\n\t\t\t\t  "])),(n()(),i["ɵand"](16777216,null,null,1,null,o)),i["ɵdid"](36,802816,null,0,W.NgForOf,[i.ViewContainerRef,i.TemplateRef,i.IterableDiffers],{ngForOf:[0,"ngForOf"]},null),(n()(),i["ɵted"](-1,null,["\n\t\t\t"])),(n()(),i["ɵted"](-1,null,["\n\t\t"])),(n()(),i["ɵted"](-1,null,["\n\t"])),(n()(),i["ɵted"](-1,1,["\n"])),(n()(),i["ɵted"](-1,null,["\n"]))],function(n,l){n(l,36,0,l.component.feelings)},function(n,l){n(l,3,0,i["ɵnov"](l,4)._hidden,i["ɵnov"](l,4)._sbPadding);n(l,21,0,i["ɵnov"](l,22).statusbarPadding,i["ɵnov"](l,22)._hasRefresher)})}function u(n){return i["ɵvid"](0,[i["ɵqud"](402653184,1,{nav:0}),(n()(),i["ɵeld"](1,0,null,null,2,"ion-nav",[],null,null,null,un.b,un.a)),i["ɵprd"](6144,null,rn.RootNode,null,[dn.Nav]),i["ɵdid"](3,4374528,[[1,4]],0,dn.Nav,[[2,V.ViewController],[2,U.NavController],G.App,O.Config,K.Platform,i.ElementRef,i.NgZone,i.Renderer,i.ComponentFactoryResolver,an.GestureController,sn.TransitionController,[2,fn.DeepLinker],$.DomController,i.ErrorHandler],{root:[0,"root"]},null),(n()(),i["ɵted"](-1,null,["\n"]))],function(n,l){n(l,3,0,l.component.rootPage)},null)}Object.defineProperty(l,"__esModule",{value:!0});var r=e(29),i=e(0),d=(e(3),e(134)),a=(e(20),e(93)),s=e(94),f=e(98),c=e(71),p=function(){function n(n){this.navCtrl=n,this.feelings=[{emotion:"happy",color:"#F7D26C"},{emotion:"sad",color:"#67829F"},{emotion:"angry",color:"#A70032"},{emotion:"anxious",color:"#D25668"},{emotion:"embarrassed",color:"#C383D7"},{emotion:"hurt",color:"#EB5593"},{emotion:"depressed",color:"#1C4267"},{emotion:"jealous",color:"#BEDFA4"}]}return n.prototype.getFeels=function(n,l){this.navCtrl.push(f.a,{feel:n.emotion,color:n.color})},n.prototype.goToProfile=function(){this.navCtrl.push(c.a)},n}(),m=function(){return function(n,l,e){this.rootPage=p,n.ready().then(function(){l.styleDefault(),e.hide()})}}(),g=e(57),v=e(56),C=function(){return function(){}}(),h=e(96),w=e(95),b=e(135),y=function(){return function(){}}(),E=e(76),k=e(203),R=e(204),P=e(205),x=e(206),N=e(207),T=e(208),F=e(209),D=e(210),A=e(211),I=e(82),M=e(124),L=e(68),_=e(54),O=e(1),V=e(5),S=e(65),H=e(28),G=e(6),U=e(14),q=e(66),z=e(45),Z=e(32),B=e(67),j=e(18),K=e(4),$=e(8),J=e(27),Y=e(83),Q=e(84),W=e(11),X=i["ɵcrt"]({encapsulation:2,styles:[],data:{}}),nn=i["ɵccf"]("page-home",p,function(n){return i["ɵvid"](0,[(n()(),i["ɵeld"](0,0,null,null,1,"page-home",[],null,null,null,t,X)),i["ɵdid"](1,49152,null,0,p,[U.NavController],null,null)],null,null)},{},{},[]),ln=e(213),en=e(214),on=e(215),tn=e(216),un=e(344),rn=e(55),dn=e(87),an=e(9),sn=e(36),fn=e(16),cn=i["ɵcrt"]({encapsulation:2,styles:[],data:{}}),pn=i["ɵccf"]("ng-component",m,function(n){return i["ɵvid"](0,[(n()(),i["ɵeld"](0,0,null,null,1,"ng-component",[],null,null,null,u,cn)),i["ɵdid"](1,49152,null,0,m,[K.Platform,s.a,a.a],null,null)],null,null)},{},{},[]),mn=e(163),gn=e(10),vn=e(170),Cn=e(172),hn=e(162),wn=e(17),bn=e(43),yn=e(179),En=e(212),kn=e(75),Rn=e(46),Pn=e(125),xn=e(126),Nn=e(183),Tn=e(166),Fn=e(197),Dn=e(345),An=e(164),In=e(50),Mn=e(112),Ln=e(169),_n=i["ɵcmf"](y,[E.IonicApp],function(n){return i["ɵmod"]([i["ɵmpd"](512,i.ComponentFactoryResolver,i["ɵCodegenComponentFactoryResolver"],[[8,[k.a,R.a,P.a,x.a,N.a,T.a,F.a,D.a,A.a,nn,ln.a,en.a,on.a,tn.a,pn]],[3,i.ComponentFactoryResolver],i.NgModuleRef]),i["ɵmpd"](5120,i.LOCALE_ID,i["ɵq"],[[3,i.LOCALE_ID]]),i["ɵmpd"](4608,W.NgLocalization,W.NgLocaleLocalization,[i.LOCALE_ID,[2,W["ɵa"]]]),i["ɵmpd"](5120,i.APP_ID,i["ɵi"],[]),i["ɵmpd"](5120,i.IterableDiffers,i["ɵn"],[]),i["ɵmpd"](5120,i.KeyValueDiffers,i["ɵo"],[]),i["ɵmpd"](4608,r.DomSanitizer,r["ɵe"],[W.DOCUMENT]),i["ɵmpd"](6144,i.Sanitizer,null,[r.DomSanitizer]),i["ɵmpd"](4608,r.HAMMER_GESTURE_CONFIG,mn.IonicGestureConfig,[]),i["ɵmpd"](5120,r.EVENT_MANAGER_PLUGINS,function(n,l,e,o,t){return[new r["ɵDomEventsPlugin"](n,l),new r["ɵKeyEventsPlugin"](e),new r["ɵHammerGesturesPlugin"](o,t)]},[W.DOCUMENT,i.NgZone,W.DOCUMENT,W.DOCUMENT,r.HAMMER_GESTURE_CONFIG]),i["ɵmpd"](4608,r.EventManager,r.EventManager,[r.EVENT_MANAGER_PLUGINS,i.NgZone]),i["ɵmpd"](135680,r["ɵDomSharedStylesHost"],r["ɵDomSharedStylesHost"],[W.DOCUMENT]),i["ɵmpd"](4608,r["ɵDomRendererFactory2"],r["ɵDomRendererFactory2"],[r.EventManager,r["ɵDomSharedStylesHost"]]),i["ɵmpd"](6144,i.RendererFactory2,null,[r["ɵDomRendererFactory2"]]),i["ɵmpd"](6144,r["ɵSharedStylesHost"],null,[r["ɵDomSharedStylesHost"]]),i["ɵmpd"](4608,i.Testability,i.Testability,[i.NgZone]),i["ɵmpd"](4608,r.Meta,r.Meta,[W.DOCUMENT]),i["ɵmpd"](4608,r.Title,r.Title,[W.DOCUMENT]),i["ɵmpd"](4608,gn["ɵi"],gn["ɵi"],[]),i["ɵmpd"](4608,gn.FormBuilder,gn.FormBuilder,[]),i["ɵmpd"](4608,vn.ActionSheetController,vn.ActionSheetController,[G.App,O.Config]),i["ɵmpd"](4608,Cn.AlertController,Cn.AlertController,[G.App,O.Config]),i["ɵmpd"](4608,hn.Events,hn.Events,[]),i["ɵmpd"](4608,wn.Form,wn.Form,[]),i["ɵmpd"](4608,bn.Haptic,bn.Haptic,[K.Platform]),i["ɵmpd"](4608,J.Keyboard,J.Keyboard,[O.Config,K.Platform,i.NgZone,$.DomController]),i["ɵmpd"](4608,yn.LoadingController,yn.LoadingController,[G.App,O.Config]),i["ɵmpd"](5120,W.LocationStrategy,En.provideLocationStrategy,[W.PlatformLocation,[2,W.APP_BASE_HREF],O.Config]),i["ɵmpd"](4608,W.Location,W.Location,[W.LocationStrategy]),i["ɵmpd"](5120,kn.UrlSerializer,kn.setupUrlSerializer,[G.App,kn.DeepLinkConfigToken]),i["ɵmpd"](5120,fn.DeepLinker,fn.setupDeepLinker,[G.App,kn.UrlSerializer,W.Location,Rn.ModuleLoader,i.ComponentFactoryResolver]),i["ɵmpd"](4608,Pn.ModalController,Pn.ModalController,[G.App,O.Config,fn.DeepLinker]),i["ɵmpd"](4608,xn.PickerController,xn.PickerController,[G.App,O.Config]),i["ɵmpd"](4608,Nn.PopoverController,Nn.PopoverController,[G.App,O.Config,fn.DeepLinker]),i["ɵmpd"](4608,Tn.TapClick,Tn.TapClick,[O.Config,K.Platform,$.DomController,G.App,an.GestureController]),i["ɵmpd"](4608,Fn.ToastController,Fn.ToastController,[G.App,O.Config]),i["ɵmpd"](4608,sn.TransitionController,sn.TransitionController,[K.Platform,O.Config]),i["ɵmpd"](4608,s.a,s.a,[]),i["ɵmpd"](4608,a.a,a.a,[]),i["ɵmpd"](512,W.CommonModule,W.CommonModule,[]),i["ɵmpd"](512,i.ErrorHandler,Dn.IonicErrorHandler,[]),i["ɵmpd"](256,O.ConfigToken,{},[]),i["ɵmpd"](1024,An.PlatformConfigToken,An.providePlatformConfigs,[]),i["ɵmpd"](1024,K.Platform,K.setupPlatform,[r.DOCUMENT,An.PlatformConfigToken,i.NgZone]),i["ɵmpd"](1024,O.Config,O.setupConfig,[O.ConfigToken,K.Platform]),i["ɵmpd"](512,$.DomController,$.DomController,[K.Platform]),i["ɵmpd"](512,In.MenuController,In.MenuController,[]),i["ɵmpd"](512,G.App,G.App,[O.Config,K.Platform,[2,In.MenuController]]),i["ɵmpd"](512,an.GestureController,an.GestureController,[G.App]),i["ɵmpd"](256,kn.DeepLinkConfigToken,{links:[{loadChildren:"../pages/feels/feels.module.ngfactory#FeelsPageModuleNgFactory",name:"FeelsPage",segment:"feels",priority:"low",defaultHistory:[]},{loadChildren:"../pages/poem-grid/poem-grid.module.ngfactory#PoemGridPageModuleNgFactory",name:"PoemGridPage",segment:"poem-grid",priority:"low",defaultHistory:[]},{loadChildren:"../pages/profile/profile.module.ngfactory#ProfilePageModuleNgFactory",name:"ProfilePage",segment:"profile",priority:"low",defaultHistory:[]}]},[]),i["ɵmpd"](512,i.Compiler,i.Compiler,[]),i["ɵmpd"](512,Mn.NgModuleLoader,Mn.NgModuleLoader,[i.Compiler]),i["ɵmpd"](1024,Rn.ModuleLoader,Rn.provideModuleLoader,[Mn.NgModuleLoader,i.Injector]),i["ɵmpd"](1024,i.APP_INITIALIZER,function(n,l,e,o,t,u,i,d,a,s,f,c,p){return[r["ɵh"](n),Ln.registerModeConfigs(l),hn.setupProvideEvents(e,o),Tn.setupTapClick(t,u,i,d,a),Rn.setupPreloading(s,f,c,p)]},[[2,i.NgProbeToken],O.Config,K.Platform,$.DomController,O.Config,K.Platform,$.DomController,G.App,an.GestureController,O.Config,kn.DeepLinkConfigToken,Rn.ModuleLoader,i.NgZone]),i["ɵmpd"](512,i.ApplicationInitStatus,i.ApplicationInitStatus,[[2,i.APP_INITIALIZER]]),i["ɵmpd"](131584,i.ApplicationRef,i.ApplicationRef,[i.NgZone,i["ɵConsole"],i.Injector,i.ErrorHandler,i.ComponentFactoryResolver,i.ApplicationInitStatus]),i["ɵmpd"](512,i.ApplicationModule,i.ApplicationModule,[i.ApplicationRef]),i["ɵmpd"](512,r.BrowserModule,r.BrowserModule,[[3,r.BrowserModule]]),i["ɵmpd"](512,gn["ɵba"],gn["ɵba"],[]),i["ɵmpd"](512,gn.FormsModule,gn.FormsModule,[]),i["ɵmpd"](512,gn.ReactiveFormsModule,gn.ReactiveFormsModule,[]),i["ɵmpd"](512,En.IonicModule,En.IonicModule,[]),i["ɵmpd"](512,v.a,v.a,[]),i["ɵmpd"](512,g.a,g.a,[]),i["ɵmpd"](512,En.IonicPageModule,En.IonicPageModule,[]),i["ɵmpd"](512,C,C,[]),i["ɵmpd"](512,w.a,w.a,[]),i["ɵmpd"](512,h.a,h.a,[]),i["ɵmpd"](512,d.a,d.a,[]),i["ɵmpd"](512,b.a,b.a,[]),i["ɵmpd"](512,y,y,[]),i["ɵmpd"](256,Rn.LAZY_LOADED_TOKEN,c.a,[]),i["ɵmpd"](256,E.AppRootToken,m,[]),i["ɵmpd"](256,W.APP_BASE_HREF,"/",[])])});Object(i.enableProdMode)(),Object(r.platformBrowser)().bootstrapModuleFactory(_n)},,,,,,,,,,,,,,,,,,,,,,,,,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=246},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=247},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=248},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=249},,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=252},,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=258},,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=260},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=261},,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=267},,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=272},,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=274},,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=280},,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=282},,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=284},,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=290},,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=293},,,,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=301},,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=307},function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=308},,,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=315},,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=317},,,,,,,,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=329},,,,,,,function(n,l){function e(n){throw new Error("Cannot find module '"+n+"'.")}e.keys=function(){return[]},e.resolve=e,n.exports=e,e.id=336}]),[217]);
+webpackJsonp([0],{
+
+/***/ 113:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 113;
+
+/***/ }),
+
+/***/ 114:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FeelsPageModule", function() { return FeelsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feels__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__poem_grid_poem_grid_module__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(47);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var FeelsPageModule = /** @class */ (function () {
+    function FeelsPageModule() {
+    }
+    FeelsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__feels__["a" /* FeelsPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* ComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__poem_grid_poem_grid_module__["PoemGridPageModule"],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__feels__["a" /* FeelsPage */]),
+            ],
+        })
+    ], FeelsPageModule);
+    return FeelsPageModule;
+}());
+
+//# sourceMappingURL=feels.module.js.map
+
+/***/ }),
+
+/***/ 156:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/feels/feels.module": [
+		114
+	],
+	"../pages/poem-grid/poem-grid.module": [
+		79
+	],
+	"../pages/profile/profile.module": [
+		162
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 156;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 157:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PoemGridPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__poem_overlay_poem_overlay__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_poem_api_poem_api__ = __webpack_require__(159);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the PoemGridPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var PoemGridPage = /** @class */ (function () {
+    function PoemGridPage(navCtrl, navParams, modalCtrl, poemApi) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.modalCtrl = modalCtrl;
+        this.poemApi = poemApi;
+        this.feels = this.navParams.get("feel");
+        this.emotion = this.navParams.get("emotion");
+        this.poems = poemApi.getPoemsByFeeling(this.emotion, this.feels);
+        console.log(this.poems);
+    }
+    PoemGridPage.prototype.openOverlay = function (poem) {
+        var profileModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__poem_overlay_poem_overlay__["a" /* PoemOverlayPage */], { poem: poem });
+        profileModal.present();
+    };
+    PoemGridPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PoemGridPage');
+    };
+    PoemGridPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-poem-grid',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/poem-grid/poem-grid.html"*/'<!--\n  Generated template for the PoemGridPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n      <ion-title>\n          <div class="bar bar-header">\n			    <h1 class="title">Floetry</h1>\n				<button href=\'../home/home.html\'>Home</button>\n		      </div>\n      </ion-title>\n  </ion-navbar>\n  <div>\n    <color-button insideText="{{feels}}"></color-button>\n    <color-button insideText="{{emotion}}" size="25"></color-button>\n  </div>\n</ion-header>\n\n<ion-content padding>\n\n    <ion-grid>\n        <ion-row>\n            <ion-col *ngFor="let p of poems;" (click)="openOverlay(p)" col-2>\n                <h1>{{p.title}} by {{p.author | capitalize }}</h1>\n                <p [innerHTML]="p.text | slice:0:200 | htmlify"></p>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/poem-grid/poem-grid.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */], __WEBPACK_IMPORTED_MODULE_3__providers_poem_api_poem_api__["a" /* PoemApiProvider */]])
+    ], PoemGridPage);
+    return PoemGridPage;
+}());
+
+//# sourceMappingURL=poem-grid.js.map
+
+/***/ }),
+
+/***/ 158:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PoemOverlayPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the PoemOverlayPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var PoemOverlayPage = /** @class */ (function () {
+    function PoemOverlayPage(viewCtrl, params) {
+        this.viewCtrl = viewCtrl;
+        this.params = params;
+        this.poem = this.params.get("poem");
+        this.text = this.poem.text;
+        this.title = this.poem.title;
+        this.author = this.poem.author;
+    }
+    PoemOverlayPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PoemOverlayPage');
+    };
+    PoemOverlayPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    PoemOverlayPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-poem-overlay',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/poem-overlay/poem-overlay.html"*/'<!--\n  Generated template for the PoemOverlayPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n      <ion-title>PoemOverlay</ion-title>\n      <ion-buttons start>\n          <button ion-button (click)="dismiss()">Close</button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n    <h1>{{title | titlecase}}</h1>\n    <p [innerHTML]="text | htmlify"></p>\n    <br><br>\n    <p>-- {{author| capitalize}}</p>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/poem-overlay/poem-overlay.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], PoemOverlayPage);
+    return PoemOverlayPage;
+}());
+
+//# sourceMappingURL=poem-overlay.js.map
+
+/***/ }),
+
+/***/ 159:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PoemApiProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/*
+  Generated class for the PoemApiProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var PoemApiProvider = /** @class */ (function () {
+    function PoemApiProvider(http) {
+        this.http = http;
+        /*
+          poems: [{
+            author: string,
+            title: string,
+            emotion: string,
+            feels: string,
+            text: string
+          }] = [
+        */
+        this.poems = [
+            {
+                author: "toto",
+                emotion: "happy",
+                feels: "glad",
+                title: "Poem title",
+                text: "This is a poem"
+            },
+            {
+                author: "toto",
+                emotion: "happy",
+                feels: "glad",
+                title: "Poem title",
+                text: "This is a poem with a loooooooooooooooooooooooooooooooooooooooooooooooooooong\n text and it's super super annoying that's it's supppppppppppppppppppppppper long.\n\n\nThis is a poem with a loooooooooooooooooooooooooooooooooooooooooooooooooooong text and it's super super annoying that's it's supppppppppppppppppppppppper long."
+            },
+        ];
+        console.log('Hello PoemApiProvider Provider');
+    }
+    PoemApiProvider.prototype.getPoemsByFeeling = function (feels, emotion) {
+        feels = feels.toLowerCase();
+        emotion = emotion.toLowerCase();
+        var poem = this.poems.filter(function (poem) { return poem.emotion === emotion; });
+        poem.filter(function (poem) { return poem.feels === feels; });
+        return poem;
+    };
+    PoemApiProvider.prototype.getPoemsByAuthor = function (author) {
+        author = author.toLowerCase();
+        return this.poems.filter(function (poem) { return poem.author === author; });
+    };
+    PoemApiProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], PoemApiProvider);
+    return PoemApiProvider;
+}());
+
+//# sourceMappingURL=poem-api.js.map
+
+/***/ }),
+
+/***/ 161:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PoemOverlayPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__poem_overlay_poem_overlay__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipes_pipes_module__ = __webpack_require__(41);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var PoemOverlayPageModule = /** @class */ (function () {
+    function PoemOverlayPageModule() {
+    }
+    PoemOverlayPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__poem_overlay_poem_overlay__["a" /* PoemOverlayPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_3__pipes_pipes_module__["a" /* PipesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__poem_overlay_poem_overlay__["a" /* PoemOverlayPage */]),
+            ],
+        })
+    ], PoemOverlayPageModule);
+    return PoemOverlayPageModule;
+}());
+
+//# sourceMappingURL=poem-overlay.module.js.map
+
+/***/ }),
+
+/***/ 162:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePageModule", function() { return ProfilePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(163);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var ProfilePageModule = /** @class */ (function () {
+    function ProfilePageModule() {
+    }
+    ProfilePageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__profile__["a" /* ProfilePage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__profile__["a" /* ProfilePage */]),
+            ],
+        })
+    ], ProfilePageModule);
+    return ProfilePageModule;
+}());
+
+//# sourceMappingURL=profile.module.js.map
+
+/***/ }),
+
+/***/ 163:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the ProfilePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ProfilePage = /** @class */ (function () {
+    function ProfilePage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.show = true;
+        this.states = {
+            'Info': [
+                'Name : Jean', 'Surname : Peuplus', 'Age : 56'
+            ],
+            'Fav': []
+        };
+    }
+    ProfilePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ProfilePage');
+    };
+    ProfilePage.prototype.getItems = function (type) {
+        return this.states[type];
+    };
+    ProfilePage.prototype.toggle = function (arg) {
+        if (arg == "info") {
+            this.show = true;
+        }
+        else if (arg == "fav") {
+            this.show = false;
+        }
+    };
+    ProfilePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-profile',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/profile/profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Jean Peuplus</ion-title>\n  </ion-navbar>\n  \n   <ion-segment [(ngModel)]="state" color="primary">\n    <ion-segment-button value="Info" (click)="toggle(\'info\')">\n      Informations\n    </ion-segment-button>\n    <ion-segment-button value="Fav" (click)="toggle(\'fav\')">\n      Favourites\n    </ion-segment-button>\n  </ion-segment>\n\n</ion-header>\n\n\n<ion-content padding>\n	<div *ngIf="show">\n		<img src="../assets/imgs/Jean.jpg">\n		<p *ngFor="let item of getItems(state)">\n			{{ item }}\n		</p>\n	</div>\n	<div *ngIf="!show">\n		<ion-list-header>{{ state }}</ion-list-header>\n		<ion-item *ngFor="let item of getItems(state)">\n		{{ item }}\n		</ion-item>\n	</div>\n\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/profile/profile.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], ProfilePage);
+    return ProfilePage;
+}());
+
+//# sourceMappingURL=profile.js.map
+
+/***/ }),
+
+/***/ 203:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeelsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__poem_grid_poem_grid__ = __webpack_require__(157);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var FeelsPage = /** @class */ (function () {
+    function FeelsPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.feels = this.navParams.get('feel');
+        this.feelsColor = this.navParams.get('color');
+        this.feels = this.feels.toLowerCase();
+        this.feels = this.feels.trim();
+        console.log("Got emotion: ", this.feels);
+        var emotions = {
+            "happy": { subEmotions: ['glad', 'peppy', 'excited', 'lucky', 'content', 'gay'],
+                color: "#FF0000"
+            },
+            "sad": { subEmotions: ['disappointed', 'mournful', 'regretful', 'pessimistic', 'dismayed', 'disillusioned'],
+                color: "#FF0000"
+            },
+            "angry": { subEmotions: ['upset', 'enraged', 'violent', 'annoyed', 'furious', 'snappy'],
+                color: "#FF0000"
+            },
+            "anxious": { subEmotions: ['angsty', 'confused', 'distressed', 'nervous', 'tense', 'fearful'],
+                color: "#FF0000"
+            },
+            "embarrassed": { subEmotions: ['awkward', 'shameful', 'unsettled', 'sheepish', 'shy', 'uneasy'],
+                color: "#FF0000"
+            },
+            "hurt": { subEmotions: ['ruined', 'wounded', 'damaged', 'abused', 'discomforted', 'injured'],
+                color: "#FF0000"
+            },
+            "depressed": { subEmotions: ['downhearted', 'low', 'dispirited', 'gloomy', 'morose', 'oppressed'],
+                color: "#FF0000"
+            },
+            "jealous": { subEmotions: ['bitter', 'envious', 'selfish', 'desirous', 'green', 'greedy'],
+                color: "#FF0000"
+            }
+        };
+        this.emoLst = emotions[this.feels];
+        console.log("Sub emotion list: ", this.emoLst);
+    }
+    FeelsPage.prototype.openPage = function (emotion) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__poem_grid_poem_grid__["a" /* PoemGridPage */], { feel: this.feels, emotion: emotion });
+    };
+    FeelsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad FeelsPage');
+    };
+    FeelsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-feels',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/feels/feels.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n		<div class="bar bar-header">\n			<h1 class="title">Floetry</h1>\n		</div>\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	  <div text-center>\n        <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">\n            <circle [style.fill]="feelsColor" cx="50%" cy="50%" r="50%" />\n        </svg>\n		<p>Tell us more details...</p>\n\n			<ion-grid>\n			<ion-row>\n				  <ion-col width-50 *ngFor="let emo of emoLst.subEmotions" (click)="openPage(emo)">\n              <color-button text="{{emo}}" fillColor="{{emoLst.color}}"></color-button>\n          </ion-col>\n			</ion-row>\n		</ion-grid>\n	</div>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/feels/feels.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], FeelsPage);
+    return FeelsPage;
+}());
+
+//# sourceMappingURL=feels.js.map
+
+/***/ }),
+
+/***/ 208:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feels_feels__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile__ = __webpack_require__(163);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var HomePage = /** @class */ (function () {
+    function HomePage(navCtrl) {
+        this.navCtrl = navCtrl;
+        this.feelings = [
+            { emotion: "happy", color: "#F7D26C" },
+            { emotion: "sad", color: "#67829F" },
+            { emotion: "angry", color: "#A70032" },
+            { emotion: "anxious", color: "#D25668" },
+            { emotion: "embarrassed", color: "#C383D7" },
+            { emotion: "hurt", color: "#EB5593" },
+            { emotion: "depressed", color: "#1C4267" },
+            { emotion: "jealous", color: "#BEDFA4" }
+        ];
+    }
+    HomePage.prototype.getFeels = function (feel, nBtn) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__feels_feels__["a" /* FeelsPage */], { feel: feel.emotion, color: feel.color });
+    };
+    HomePage.prototype.goToProfile = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__profile_profile__["a" /* ProfilePage */]);
+    };
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-home',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n		<div class="bar bar-header">\n			<h1 class="title">Floetry</h1>\n			<button (click)="goToProfile()">Profile</button>\n		</div>\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n	<div text-center>\n    <p>How are you feeling today ?</p>\n\n		<ion-grid>\n			<ion-row>\n				  <ion-col width-50 *ngFor="let feel of feelings">\n            <color-button (click)="getFeels(feel)"  fillColor="{{feel.color}}" text="{{feel.emotion}}">{{feel.emotion}}</color-button>\n          </ion-col>\n			</ion-row>\n		</ion-grid>\n	</div>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/home/home.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
+    ], HomePage);
+    return HomePage;
+}());
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 209:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(230);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 230:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_feels_feels_module__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home_module__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_poem_grid_poem_grid_module__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_poem_overlay_poem_overlay_module__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_components_module__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pipes_pipes_module__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_profile_profile_module__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_poem_api_poem_api__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_common_http__ = __webpack_require__(160);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_10__components_components_module__["a" /* ComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
+                    links: [
+                        { loadChildren: '../pages/feels/feels.module#FeelsPageModule', name: 'FeelsPage', segment: 'feels', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/poem-grid/poem-grid.module#PoemGridPageModule', name: 'PoemGridPage', segment: 'poem-grid', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] }
+                    ]
+                }),
+                __WEBPACK_IMPORTED_MODULE_7__pages_home_home_module__["a" /* HomePageModule */],
+                __WEBPACK_IMPORTED_MODULE_0__pages_feels_feels_module__["FeelsPageModule"],
+                __WEBPACK_IMPORTED_MODULE_8__pages_poem_grid_poem_grid_module__["PoemGridPageModule"],
+                __WEBPACK_IMPORTED_MODULE_9__pages_poem_overlay_poem_overlay_module__["a" /* PoemOverlayPageModule */],
+                __WEBPACK_IMPORTED_MODULE_11__pipes_pipes_module__["a" /* PipesModule */],
+                __WEBPACK_IMPORTED_MODULE_14__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_profile_profile_module__["ProfilePageModule"]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* IonicApp */]],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_2__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_13__providers_poem_api_poem_api__["a" /* PoemApiProvider */]
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 260:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CapitalizePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+/**
+ * Generated class for the CapitalizePipe pipe.
+ *
+ * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
+ */
+var CapitalizePipe = /** @class */ (function () {
+    function CapitalizePipe() {
+    }
+    /**
+     * Takes a value and makes it uppercase, first word in string by default.
+     */
+    CapitalizePipe.prototype.transform = function (value, allWords) {
+        if (allWords === void 0) { allWords = false; }
+        if (value) {
+            if (allWords) {
+                var words = value.split(' ');
+                value = words.map(function (word) { return word.substring(0, 1).toUpperCase() + word.substring(1); }).join(' ');
+            }
+            else {
+                value = value.substring(0, 1).toUpperCase() + value.substring(1);
+            }
+        }
+        return value;
+    };
+    CapitalizePipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Pipe */])({
+            name: 'capitalize',
+        })
+    ], CapitalizePipe);
+    return CapitalizePipe;
+}());
+
+//# sourceMappingURL=capitalize.js.map
+
+/***/ }),
+
+/***/ 261:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HtmlifyPipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+/**
+ * Generated class for the HtmlifyPipe pipe.
+ *
+ * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
+ */
+var HtmlifyPipe = /** @class */ (function () {
+    function HtmlifyPipe() {
+    }
+    /**
+     * Takes a value and makes it lowercase.
+     */
+    HtmlifyPipe.prototype.transform = function (value) {
+        var args = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            args[_i - 1] = arguments[_i];
+        }
+        return value.replace(/\n/g, '<br/>');
+    };
+    HtmlifyPipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Pipe */])({
+            name: 'htmlify',
+        })
+    ], HtmlifyPipe);
+    return HtmlifyPipe;
+}());
+
+//# sourceMappingURL=htmlify.js.map
+
+/***/ }),
+
+/***/ 262:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ColorButtonComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/**
+ * Generated class for the ColorButtonComponent component.
+ *
+ * See https://angular.io/api/core/Component for more info on Angular
+ * Components.
+ */
+var ColorButtonComponent = /** @class */ (function () {
+    function ColorButtonComponent() {
+        this.fillColor = "red";
+        this.size = 50;
+        console.log('Hello ColorButtonComponent Component');
+    }
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", String)
+    ], ColorButtonComponent.prototype, "text", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", String)
+    ], ColorButtonComponent.prototype, "insideText", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", String)
+    ], ColorButtonComponent.prototype, "fillColor", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Number)
+    ], ColorButtonComponent.prototype, "size", void 0);
+    ColorButtonComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'color-button',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/components/color-button/color-button.html"*/'<!-- Generated template for the ColorButtonComponent component -->\n<div>\n  <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">\n    <circle [attr.cx]="size" [attr.cy]="size" [attr.r]="size" [attr.fill]="fillColor" />\n      <text [attr.x]="(size)" [attr.y]="(size)" text-anchor="middle" fill="white">{{insideText | capitalize}}</text>\n    </svg>\n<p>{{text | capitalize}}</p>\n</div>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/components/color-button/color-button.html"*/
+        }),
+        __metadata("design:paramtypes", [])
+    ], ColorButtonComponent);
+    return ColorButtonComponent;
+}());
+
+//# sourceMappingURL=color-button.js.map
+
+/***/ }),
+
+/***/ 287:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(208);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var MyApp = /** @class */ (function () {
+    function MyApp(platform, statusBar, splashScreen) {
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
+        platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            statusBar.styleDefault();
+            splashScreen.hide();
+        });
+    }
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
+    ], MyApp.prototype, "nav", void 0);
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/app/app.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    ], MyApp);
+    return MyApp;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 288:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__ = __webpack_require__(41);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var HomePageModule = /** @class */ (function () {
+    function HomePageModule() {
+    }
+    HomePageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* ComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__["a" /* PipesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
+            ],
+        })
+    ], HomePageModule);
+    return HomePageModule;
+}());
+
+//# sourceMappingURL=home.module.js.map
+
+/***/ }),
+
+/***/ 41:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipesModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__capitalize_capitalize__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__htmlify_htmlify__ = __webpack_require__(261);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var PipesModule = /** @class */ (function () {
+    function PipesModule() {
+    }
+    PipesModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_1__capitalize_capitalize__["a" /* CapitalizePipe */],
+                __WEBPACK_IMPORTED_MODULE_2__htmlify_htmlify__["a" /* HtmlifyPipe */]],
+            imports: [],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__capitalize_capitalize__["a" /* CapitalizePipe */],
+                __WEBPACK_IMPORTED_MODULE_2__htmlify_htmlify__["a" /* HtmlifyPipe */]]
+        })
+    ], PipesModule);
+    return PipesModule;
+}());
+
+//# sourceMappingURL=pipes.module.js.map
+
+/***/ }),
+
+/***/ 47:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__color_button_color_button__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__ = __webpack_require__(41);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var ComponentsModule = /** @class */ (function () {
+    function ComponentsModule() {
+    }
+    ComponentsModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_1__color_button_color_button__["a" /* ColorButtonComponent */]],
+            imports: [__WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* IonicModule */], __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__["a" /* PipesModule */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__color_button_color_button__["a" /* ColorButtonComponent */]]
+        })
+    ], ComponentsModule);
+    return ComponentsModule;
+}());
+
+//# sourceMappingURL=components.module.js.map
+
+/***/ }),
+
+/***/ 79:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoemGridPageModule", function() { return PoemGridPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__poem_grid__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__poem_overlay_poem_overlay_module__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(47);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+var PoemGridPageModule = /** @class */ (function () {
+    function PoemGridPageModule() {
+    }
+    PoemGridPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__poem_grid__["a" /* PoemGridPage */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_3__poem_overlay_poem_overlay_module__["a" /* PoemOverlayPageModule */],
+                __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__["a" /* PipesModule */],
+                __WEBPACK_IMPORTED_MODULE_5__components_components_module__["a" /* ComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__poem_grid__["a" /* PoemGridPage */]),
+            ],
+        })
+    ], PoemGridPageModule);
+    return PoemGridPageModule;
+}());
+
+//# sourceMappingURL=poem-grid.module.js.map
+
+/***/ })
+
+},[209]);
+//# sourceMappingURL=main.js.map
