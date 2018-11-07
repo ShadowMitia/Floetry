@@ -3,11 +3,13 @@
   <ion-title>
     <ion-title>
       <ion-row>
-        <!-- <color-button color="#F7D26C" size="30"></color-button> -->
-        <span ion-col col-8>Floetry</span>
-        <span ion-col (click)="goToHome()">Home</span>
-        <span ion-col (click)="goToDiscover()">Discover</span>
-        <span ion-col (click)="goToProfile()">Profile</span>
+      <h1 ion-col col-10>Floetry</h1>
+        <ion-buttons ion-col col-auto>
+          <button ion-button (click)="goToHome()">Home</button>
+          <button ion-button (click)="goToDiscover()">Discovery</button>
+          <button ion-button (click)="goToProfile()">Profile</button>
+          <ion-avatar *ngIf="showProfilePic" ion-button><img src="../assets/imgs/Jean.jpg"></ion-avatar>
+        </ion-buttons>
       </ion-row>
     </ion-title>
   </ion-title>

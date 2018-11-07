@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PoemApiProvider } from '../../providers/poem-api/poem-api';
+
+import { Storage } from '@ionic/storage';
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 /**
  * Generated class for the ProfilePage page.
@@ -14,42 +19,57 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-	
-	state : 'Info';
-	show: boolean = true;
-	
-	states: any = {
-		'Info': [
-		'Name : Jean', 'Surname : Peuplus', 'Age : 56'
-		],
-		'Fav': [
-		
-		]
-	};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) 
+	show: boolean = true;
+
+  userInfo: {
+    email: string,
+    displayName: string,
+    photoURL: string,
+    favorites: Array<number>,
+    firstname: string,
+    lastname: string
+  };
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private poemApi : PoemApiProvider, private storage : Storage, private auth: AuthenticationProvider, private db : AngularFireDatabase)
   {
-	  
+
+    let node = this.db.database.ref("users/"+auth.getUserID());
+    this.userInfo = {
+      displayName: auth.getUserDisplayName(),
+      photoURL: auth.getUserPhotoURL(),
+      email: auth.getUserEmail(),
+      favorites: [],
+      firstname: "",
+      lastname: ""
+    };
+
+    node.once("value", (val) => {
+      console.log("val", val);
+      console.log("val()", val.val());
+      console.log("key", val.key);
+      let data = val.val()[Object.keys(val.val())[0]];
+
+      this.userInfo.firstname = data.firstname;
+      this.userInfo.lastname = data.lastname;
+    });
+
+
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
   }
-  
-  getItems(type: any) {
-    return this.states[type];
-  }
-  
+
 	toggle(arg)
 	{
-		if (arg == "info")
-		{
-			this.show = true;
-		}
-		else if(arg == "fav")
-		{
-			this.show = false;
-		}
+    this.show = !this.show;
 	}
+
+  logout() {
+    this.auth.logout();
+    this.navCtrl.popToRoot()
+  }
 
 }

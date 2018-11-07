@@ -37,6 +37,12 @@ export class PoemApiProvider {
 
   constructor(public http: HttpClient) {
     console.log('Hello PoemApiProvider Provider');
+
+    let counter = 0;
+    for (let p of this.poems) {
+      p.id = counter;
+      counter++;
+    }
   }
 
   getPoemsByFeeling(feels: string, emotion: string) {
@@ -54,4 +60,7 @@ export class PoemApiProvider {
     return this.poems.filter(poem => poem.author === author);
   }
 
+  getPoemsById(id: number) {
+    return this.poems.filter(poem => poem.id === id);
+  }
 }

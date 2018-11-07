@@ -16,6 +16,16 @@ import { PoemApiProvider } from '../providers/poem-api/poem-api';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPageModule } from '../pages/login/login.module';
 import { IonicStorageModule } from '@ionic/storage';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+import { firebaseConfig } from '../config';
+import { AuthenticationProvider } from '../providers/authentication/authentication';
+import { SignupPageModule } from '../pages/signup/signup.module';
+
 
 @NgModule({
   declarations: [
@@ -29,11 +39,17 @@ import { IonicStorageModule } from '@ionic/storage';
       HomePageModule,
 	    FeelsPageModule,
       PoemGridPageModule,
-      PoemOverlayPageModule,
+    PoemOverlayPageModule,
+    SignupPageModule,
     PipesModule,
     LoginPageModule,
     HttpClientModule,
-	  ProfilePageModule
+	  ProfilePageModule,
+    AngularFireModule.initializeApp(firebaseConfig.fire),
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule,
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,7 +59,8 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PoemApiProvider
+    PoemApiProvider,
+    AuthenticationProvider
   ]
 })
 export class AppModule {}

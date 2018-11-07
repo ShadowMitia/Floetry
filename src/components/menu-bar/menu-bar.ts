@@ -5,6 +5,7 @@ import { NavController, ToastController } from 'ionic-angular';
 import { LoginPage } from '../../pages/login/login';
 
 import { Storage } from '@ionic/storage';
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
 /**
  * Generated class for the MenuBarComponent component.
@@ -18,29 +19,34 @@ import { Storage } from '@ionic/storage';
 })
 export class MenuBarComponent {
 
-  text: string;
+  showProfilePic: boolean = false;
 
-  constructor(private navCtrl: NavController, private toastCtrl : ToastController, private storage : Storage) {
+  constructor(private navCtrl: NavController, private toastCtrl : ToastController, private storage : Storage, public auth: AuthenticationProvider) {
     console.log('Hello MenuBarComponent Component');
-    this.text = 'Hello World';
+    this.checkLoggedIn();
   }
 
-  goToHome() {
-    this.navCtrl.popToRoot();
+  checkLoggedIn() {
+    this.showProfilePic = this.auth.isUserLoggedIn();
+  }
+
+    goToHome() {
+      this.checkLoggedIn();
+      this.navCtrl.popToRoot();
   }
 
   goToProfile()
 	{
-    this.storage.get('username').then((val) => {
-      if (val) {
+    if (this.auth.isUserLoggedIn()) {
+      this.checkLoggedIn();
         this.navCtrl.push(ProfilePage);
       } else {
         this.navCtrl.push(LoginPage);
       }
-    });
 	}
 
-  goToDiscover() {
+    goToDiscover() {
+      this.checkLoggedIn();
     let toast = this.toastCtrl.create({
       message: "Discover is coming soon", duration: 2000, position: 'top'
     });

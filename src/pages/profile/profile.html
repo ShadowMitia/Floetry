@@ -7,33 +7,38 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Jean Peuplus</ion-title>
+    <ion-title>{{userInfo.displayName}}</ion-title>
+    <button ion-button (click)="logout()">Logout</button>
   </ion-navbar>
-  
-   <ion-segment [(ngModel)]="state" color="primary">
-    <ion-segment-button value="Info" (click)="toggle('info')">
-      Informations
+
+   <ion-segment [(ngModel)]="state">
+    <ion-segment-button value="info" (click)="toggle('info')">
+      Profile
     </ion-segment-button>
-    <ion-segment-button value="Fav" (click)="toggle('fav')">
-      Favourites
+    <ion-segment-button value="fav" (click)="toggle('fav')">
+      Favorites
     </ion-segment-button>
   </ion-segment>
-
 </ion-header>
 
-
 <ion-content padding>
-	<div *ngIf="show">
-		<img src="../assets/imgs/Jean.jpg">
-		<p *ngFor="let item of getItems(state)">
-			{{ item }}
-		</p>
-	</div>
 	<div *ngIf="!show">
-		<ion-list-header>{{ state }}</ion-list-header>
-		<ion-item *ngFor="let item of getItems(state)">
-		{{ item }}
-		</ion-item>
+    <ion-avatar>
+		  <img src="../assets/imgs/Jean.jpg">
+    </ion-avatar>
+    <p>Username: {{userInfo.displayName}}</p>
+    <p>Email: {{userInfo.email}} </p>
+    <p>First name: {{userInfo.firstname}}</p>
+    <p>Last name: {{userInfo.lastname}}</p>
+	</div>
+	<div *ngIf="show">
+    <ion-list>
+		  <ion-list-header>Favorites</ion-list-header>
+		  <ion-item *ngFor="let item of userInfo.favorites">
+		    Favorite poem
+		  </ion-item>
+    </ion-list>
+
 	</div>
 
 </ion-content>

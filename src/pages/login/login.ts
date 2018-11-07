@@ -4,6 +4,9 @@ import { IonicPage, NavController, NavParams, Events, ToastController } from 'io
 import { Storage } from '@ionic/storage';
 
 import { ProfilePage } from '../../pages/profile/profile';
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
+import { SignupPage } from '../signup/signup';
+
 
 /**
  * Generated class for the LoginPage page.
@@ -21,11 +24,11 @@ import { ProfilePage } from '../../pages/profile/profile';
 export class LoginPage {
 
     info = {
-        username: "",
-        pass: ""
+        email: "",
+        password: ""
     };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private events: Events, private toastCtrl : ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private events: Events, private toastCtrl : ToastController, private auth: AuthenticationProvider) {
 
   }
 
@@ -33,25 +36,30 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-    tryLogin() {
-      console.log(this.info);
-        if (this.info.username == "toto" && this.info.pass == "toto") {
-            this.storage.set('username', this.info.username);
-            setTimeout(() => {
-                this.events.publish('user:login');
-              this.navCtrl.popToRoot();
-              this.navCtrl.push(ProfilePage);
-              this.toastCtrl.create({
-                message: "Login successfull!",
-                duration: 2000
-              }).present();
-            }, 300);
-        } else {
+  tryLogin() {
+    this.auth.signInWithEmail(this.info)
+      .then((value)=>{
+        setTimeout(() => {
+          this.navCtrl.popToRoot();
+          this.navCtrl.push(ProfilePage);
           this.toastCtrl.create({
-            message: "Unknown username or password",
-            duration: 2000,
-            position: "bottom"
+            message: "Login successfull!",
+            duration: 2000
           }).present();
-        }
-    }
+        }, 300);
+      })
+      .catch((value) => {
+        console.error(value);
+      this.toastCtrl.create({
+        message: "Unknown username or password",
+        duration: 2000,
+        position: "bottom"
+      }).present();
+    });
+
+  }
+
+  goToSignupPage() {
+    this.navCtrl.push(SignupPage);
+  }
 }
