@@ -4,12 +4,15 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from 'ionic-angular';
 import { PipesModule } from '../pipes/pipes.module';
 import { MenuBarComponent } from './menu-bar/menu-bar';
+import { FavoriteButtonComponent } from './favorite-button/favorite-button';
 
 @NgModule({
 	declarations: [ColorButtonComponent,
-    MenuBarComponent],
+    MenuBarComponent,
+    FavoriteButtonComponent],
 	imports: [CommonModule,IonicModule, PipesModule],
 	exports: [ColorButtonComponent,
-    MenuBarComponent]
+    MenuBarComponent,
+    FavoriteButtonComponent]
 })
 export class ComponentsModule {}
