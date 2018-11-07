@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, ToastController } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 
@@ -21,13 +21,11 @@ import { ProfilePage } from '../../pages/profile/profile';
 export class LoginPage {
 
     info = {
-        email: "",
+        username: "",
         pass: ""
     };
 
-    loginError: boolean = false;
-
-    constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private events: Events) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private events: Events, private toastCtrl : ToastController) {
 
   }
 
@@ -36,19 +34,24 @@ export class LoginPage {
   }
 
     tryLogin() {
-
-        if (this.info.email == "toto" && this.info.pass == "toto") {
-            this.loginError = false;
-            this.storage.set('username', this.info.email);
-            this.storage.set('password', "toto");
+      console.log(this.info);
+        if (this.info.username == "toto" && this.info.pass == "toto") {
+            this.storage.set('username', this.info.username);
             setTimeout(() => {
                 this.events.publish('user:login');
               this.navCtrl.popToRoot();
               this.navCtrl.push(ProfilePage);
+              this.toastCtrl.create({
+                message: "Login successfull!",
+                duration: 2000
+              }).present();
             }, 300);
-
         } else {
-            this.loginError = true;
+          this.toastCtrl.create({
+            message: "Unknown username or password",
+            duration: 2000,
+            position: "bottom"
+          }).present();
         }
     }
 }
