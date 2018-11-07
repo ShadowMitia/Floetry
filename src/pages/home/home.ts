@@ -31,8 +31,14 @@ export class HomePage {
 		  this.navCtrl.push(FeelsPage, {feel:feel.emotion, color:feel.color});
 	}
 
-	goToProfile()
+  goToHome() {
+    this.navCtrl.popToRoot();
+  }
+
+  goToProfile()
 	{
 		this.navCtrl.push(ProfilePage);
 	}
+
+
 }
