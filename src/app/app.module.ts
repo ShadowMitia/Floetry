@@ -14,6 +14,8 @@ import { PipesModule } from '../pipes/pipes.module';
 import { ProfilePageModule } from '../pages/profile/profile.module';
 import { PoemApiProvider } from '../providers/poem-api/poem-api';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginPageModule } from '../pages/login/login.module';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
       BrowserModule,
       ComponentsModule,
-      IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
       HomePageModule,
 	    FeelsPageModule,
       PoemGridPageModule,
       PoemOverlayPageModule,
     PipesModule,
+    LoginPageModule,
     HttpClientModule,
 	  ProfilePageModule
   ],

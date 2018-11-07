@@ -1,0 +1,39 @@
+<!--
+     Generated template for the LoginPage page.
+
+     See http://ionicframework.com/docs/components/#navigation for more info on
+     Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Login</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngIf="loginError" style="width: 100%; text-align: center; color: white; background-color: #C81000; margin: 0px; padding: 0px; box-shadow: 1px 1px 12px #555;" id="erreur"> <!-- class="errurLogin" à mettre dans le scss car je le contille pas sur mon serve -->
+        Mauvais e-mail ou mot de passe
+    </div>
+    <div class="inp">
+        <label class="item item-input">
+            <input type="text" placeholder="e-mail" [(ngModel)]="info.email">
+        </label>
+        <label class="item item-input">
+            <input type="password" placeholder="password" [(ngModel)]="info.pass">
+        </label>
+        <div class="btnlogin">
+            <button class="button" (click)="tryLogin()">
+                <div class="row">
+                    <div class="col btlog">
+                        <span> log in</span>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </div>
+
+
+</ion-content>

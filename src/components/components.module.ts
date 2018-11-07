@@ -8,7 +8,7 @@ import { MenuBarComponent } from './menu-bar/menu-bar';
 @NgModule({
 	declarations: [ColorButtonComponent,
     MenuBarComponent],
-	  imports: [CommonModule,IonicModule, PipesModule],
+	imports: [CommonModule,IonicModule, PipesModule],
 	exports: [ColorButtonComponent,
     MenuBarComponent]
 })
