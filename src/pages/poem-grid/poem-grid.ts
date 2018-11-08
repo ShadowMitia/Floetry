@@ -34,14 +34,12 @@ export class PoemGridPage {
     node.once("value", (value) => {
       for (let poemKey of Object.keys(value.val())) {
         let poem = value.val()[poemKey];
-        console.log(poem.emotion, this.emotion.toLowerCase());
         if (poem.emotion == this.feels.toLowerCase() && poem.feeling == this.emotion.toLowerCase()) {
-          console.log("add poem");
           this.poems = [...this.poems, poem];
         }
       }
-      console.log(this.poems);
     });
+
     }
 
   openOverlay(poem: any) {
