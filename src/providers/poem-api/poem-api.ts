@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 /*
   Generated class for the PoemApiProvider provider.
@@ -9,58 +9,25 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class PoemApiProvider {
-/*
-  poems: [{
-    author: string,
-    title: string,
-    emotion: string,
-    feels: string,
-    text: string
-  }] = [
-*/
-  poems: any = [
-    {
-      author: "toto",
-      emotion: "happy",
-      feels: "glad",
-      title: "Poem title",
-      text: "This is a poem"
-    },
-    {
-      author: "toto",
-      emotion: "happy",
-      feels: "glad",
-      title: "Poem title",
-      text: "This is a poem with a loooooooooooooooooooooooooooooooooooooooooooooooooooong\n text and it's super super annoying that's it's supppppppppppppppppppppppper long.\n\n\nThis is a poem with a loooooooooooooooooooooooooooooooooooooooooooooooooooong text and it's super super annoying that's it's supppppppppppppppppppppppper long."
-    },
-  ];
 
-  constructor(public http: HttpClient) {
+  constructor(private db : AngularFireDatabase) {
     console.log('Hello PoemApiProvider Provider');
-
-    let counter = 0;
-    for (let p of this.poems) {
-      p.id = counter;
-      counter++;
-    }
   }
 
   getPoemsByFeeling(feels: string, emotion: string) {
     feels = feels.toLowerCase();
     emotion = emotion.toLowerCase();
 
-    let poem = this.poems.filter(poem => poem.emotion === emotion);
-    poem.filter(poem => poem.feels === feels);
+    console.log(feels, emotion);
 
-    return poem;
+    let result = [];
   }
 
   getPoemsByAuthor(author: string) {
-    author = author.toLowerCase();
-    return this.poems.filter(poem => poem.author === author);
+    return [];
   }
 
   getPoemsById(id: number) {
-    return this.poems.filter(poem => poem.id === id);
+    return [];
   }
 }

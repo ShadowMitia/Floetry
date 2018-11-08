@@ -31,10 +31,10 @@ export class ProfilePage {
     lastname: string
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private poemApi : PoemApiProvider, private storage : Storage, private auth: AuthenticationProvider, private db : AngularFireDatabase)
+  constructor(public navCtrl: NavController, public navParams: NavParams, private poemApi : PoemApiProvider, private auth: AuthenticationProvider, private db : AngularFireDatabase)
   {
 
-    let node = this.db.database.ref("users/"+auth.getUserID());
+
     this.userInfo = {
       displayName: auth.getUserDisplayName(),
       photoURL: auth.getUserPhotoURL(),
@@ -43,16 +43,6 @@ export class ProfilePage {
       firstname: "",
       lastname: ""
     };
-
-    node.once("value", (val) => {
-      console.log("val", val);
-      console.log("val()", val.val());
-      console.log("key", val.key);
-      let data = val.val()[Object.keys(val.val())[0]];
-
-      this.userInfo.firstname = data.firstname;
-      this.userInfo.lastname = data.lastname;
-    });
 
 
 

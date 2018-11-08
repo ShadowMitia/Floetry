@@ -5,13 +5,6 @@ import { auth }  from 'firebase/app';
 import { ToastController } from 'ionic-angular';
 import { AngularFireDatabase } from '@angular/fire/database';
 
-
-export interface UserData {
-  favorites: Array<number>,
-  firstname: string,
-  lastname: string
-}
-
 /*
   Generated class for the AuthenticationProvider provider.
 
@@ -22,7 +15,11 @@ export interface UserData {
 export class AuthenticationProvider {
 
   private user: firebase.User;
-  private userData : UserData;
+  private userData: {
+    favorites: Array<number>,
+    firstname: string,
+    lastname: string
+  };
 
   constructor(public afAuth: AngularFireAuth, private toastCtrl : ToastController, private db : AngularFireDatabase) {
     console.log('Hello AuthenticationProvider Provider');
@@ -47,7 +44,20 @@ export class AuthenticationProvider {
           this.db.database.ref("users/"+this.user.uid).push({
             firstname: info.firstname,
             lastname: info.lastname,
-            favorites: []
+            favorites: false
+          }).then((val) => {
+
+            let node = this.db.database.ref("users/"+this.getUserID());
+            node.on("value", (val) => {
+              console.log("val", val);
+              console.log("val()", val.val());
+              console.log("key", val.key);
+              let data = val.val()[Object.keys(val.val())[0]];
+
+              this.userData.firstname = data.firstname;
+              this.userData.lastname = data.lastname;
+            });
+
           });
 
         });
@@ -96,6 +106,10 @@ export class AuthenticationProvider {
 
   getUserID() {
     return this.user.uid;
+  }
+
+  getUserFavorties() {
+    return this.userData.favorites;
   }
 
 }
