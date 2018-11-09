@@ -31,7 +31,7 @@ export class ProfilePage {
     lastname: string
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private poemApi : PoemApiProvider, private auth: AuthenticationProvider, private db : AngularFireDatabase)
+  constructor(public navCtrl: NavController, public navParams: NavParams, private poemApi : PoemApiProvider, private auth: AuthenticationProvider)
   {
 
 
@@ -40,8 +40,8 @@ export class ProfilePage {
       photoURL: auth.getUserPhotoURL(),
       email: auth.getUserEmail(),
       favorites: [],
-      firstname: "",
-      lastname: ""
+      firstname: auth.getUserFirstname(),
+      lastname: auth.getUserLastname()
     };
 
 

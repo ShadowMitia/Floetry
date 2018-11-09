@@ -19,6 +19,10 @@ export class AuthenticationProvider {
     favorites: Array<number>,
     firstname: string,
     lastname: string
+  } = {
+    favorites: [],
+    firstname:"",
+    lastname: ""
   };
 
   constructor(public afAuth: AngularFireAuth, private toastCtrl : ToastController, private db : AngularFireDatabase) {
@@ -47,17 +51,6 @@ export class AuthenticationProvider {
             favorites: false
           }).then((val) => {
 
-            let node = this.db.database.ref("users/"+this.getUserID());
-            node.on("value", (val) => {
-              console.log("val", val);
-              console.log("val()", val.val());
-              console.log("key", val.key);
-              let data = val.val()[Object.keys(val.val())[0]];
-
-              this.userData.firstname = data.firstname;
-              this.userData.lastname = data.lastname;
-            });
-
           });
 
         });
@@ -85,6 +78,18 @@ export class AuthenticationProvider {
     console.log(this.user);
     if (this.user) {
       console.log("User logged in");
+      if (!this.userData.firstname) {
+      let node = this.db.database.ref("users/"+this.getUserID());
+      node.on("value", (val) => {
+        console.log("val", val);
+        console.log("val()", val.val());
+        console.log("key", val.key);
+        let data = val.val()[Object.keys(val.val())[0]];
+
+        this.userData.firstname = data.firstname;
+        this.userData.lastname = data.lastname;
+      });
+      }
       return true;
     } else {
       console.log("User not logged in");
@@ -112,4 +117,11 @@ export class AuthenticationProvider {
     return this.userData.favorites;
   }
 
+  getUserFirstname() {
+    return this.userData.firstname;
+  }
+
+  getUserLastname() {
+    return this.userData.lastname;
+  }
 }
