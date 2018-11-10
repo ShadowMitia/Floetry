@@ -8,7 +8,8 @@ webpackJsonp([0],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_poem_api_poem_api__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_database__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,6 +23,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the ProfilePage page.
  *
@@ -29,20 +31,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ProfilePage = /** @class */ (function () {
-    function ProfilePage(navCtrl, navParams, poemApi, auth) {
+    function ProfilePage(navCtrl, navParams, poemApi, auth, db) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.poemApi = poemApi;
         this.auth = auth;
+        this.db = db;
         this.show = true;
+        this.favoritePoems = [];
         this.userInfo = {
-            displayName: auth.getUserDisplayName(),
-            photoURL: auth.getUserPhotoURL(),
-            email: auth.getUserEmail(),
-            favorites: [],
-            firstname: auth.getUserFirstname(),
-            lastname: auth.getUserLastname()
+            displayName: this.auth.getUserDisplayName(),
+            photoURL: this.auth.getUserPhotoURL(),
+            email: this.auth.getUserEmail(),
+            favorites: this.auth.getUserFavorites(),
+            firstname: this.auth.getUserFirstname(),
+            lastname: this.auth.getUserLastname()
         };
+        var node = this.db.database.ref("poems/");
+        node.once("value", function (value) {
+            for (var _i = 0, _a = _this.userInfo.favorites; _i < _a.length; _i++) {
+                var poemKey = _a[_i];
+                var poem = value.val()[poemKey];
+                _this.favoritePoems = _this.favoritePoems.concat([poem]);
+            }
+        });
     }
     ProfilePage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ProfilePage');
@@ -56,9 +69,9 @@ var ProfilePage = /** @class */ (function () {
     };
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/profile/profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{userInfo.displayName}}</ion-title>\n    <button ion-button (click)="logout()">Logout</button>\n  </ion-navbar>\n\n   <ion-segment [(ngModel)]="state">\n    <ion-segment-button value="info" (click)="toggle(\'info\')">\n      Profile\n    </ion-segment-button>\n    <ion-segment-button value="fav" (click)="toggle(\'fav\')">\n      Favorites\n    </ion-segment-button>\n  </ion-segment>\n</ion-header>\n\n<ion-content padding>\n	<div *ngIf="!show">\n    <ion-avatar>\n		  <img src="../assets/imgs/Jean.jpg">\n    </ion-avatar>\n    <p>Username: {{userInfo.displayName}}</p>\n    <p>Email: {{userInfo.email}} </p>\n    <p>First name: {{userInfo.firstname}}</p>\n    <p>Last name: {{userInfo.lastname}}</p>\n	</div>\n	<div *ngIf="show">\n    <ion-list>\n		  <ion-list-header>Favorites</ion-list-header>\n		  <ion-item *ngFor="let item of userInfo.favorites">\n		    Favorite poem\n		  </ion-item>\n    </ion-list>\n\n	</div>\n\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/profile/profile.html"*/,
+            selector: 'page-profile',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/profile/profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{userInfo.displayName}}</ion-title>\n    <button ion-button (click)="logout()">Logout</button>\n  </ion-navbar>\n\n   <ion-segment [(ngModel)]="state">\n    <ion-segment-button value="info" (click)="toggle(\'info\')">\n      Profile\n    </ion-segment-button>\n    <ion-segment-button value="fav" (click)="toggle(\'fav\')">\n      Favorites\n    </ion-segment-button>\n  </ion-segment>\n</ion-header>\n\n<ion-content padding>\n	<div *ngIf="!show">\n    <ion-avatar>\n		  <img src="../assets/imgs/Jean.jpg">\n    </ion-avatar>\n    <p>Username: {{userInfo.displayName}}</p>\n    <p>Email: {{userInfo.email}} </p>\n    <p>First name: {{userInfo.firstname}}</p>\n    <p>Last name: {{userInfo.lastname}}</p>\n	</div>\n	<div *ngIf="show">\n    <ion-list>\n		  <ion-list-header>Favorites</ion-list-header>\n		  <ion-item *ngFor="let item of favoritePoems">\n		    <ion-label>{{item.title}}</ion-label>\n		  </ion-item>\n    </ion-list>\n\n	</div>\n\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/profile/profile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_poem_api_poem_api__["a" /* PoemApiProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__["a" /* AuthenticationProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_poem_api_poem_api__["a" /* PoemApiProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_4__angular_fire_database__["a" /* AngularFireDatabase */]])
     ], ProfilePage);
     return ProfilePage;
 }());
@@ -73,7 +86,7 @@ var ProfilePage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PoemApiProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -130,7 +143,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__poem_grid__ = __webpack_require__(333);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__poem_overlay_poem_overlay_module__ = __webpack_require__(335);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(72);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -193,7 +206,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feels__ = __webpack_require__(377);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__poem_grid_poem_grid_module__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(72);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -310,7 +323,7 @@ var LoginPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(124);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_profile_profile__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_authentication_authentication__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_authentication_authentication__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__signup_signup__ = __webpack_require__(332);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -394,7 +407,7 @@ var LoginPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_authentication_authentication__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_authentication_authentication__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -462,7 +475,7 @@ var SignupPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__poem_overlay_poem_overlay__ = __webpack_require__(334);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_poem_api_poem_api__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_database__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_database__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -499,6 +512,7 @@ var PoemGridPage = /** @class */ (function () {
             for (var _i = 0, _a = Object.keys(value.val()); _i < _a.length; _i++) {
                 var poemKey = _a[_i];
                 var poem = value.val()[poemKey];
+                poem.poemId = poemKey;
                 if (poem.emotion.toLowerCase() == _this.feels.toLowerCase() && poem.feeling.toLowerCase() == _this.emotion.toLowerCase()) {
                     _this.poems = _this.poems.concat([poem]);
                 }
@@ -557,6 +571,8 @@ var PoemOverlayPage = /** @class */ (function () {
         this.text = this.poem.text;
         this.title = this.poem.title;
         this.author = this.poem.author;
+        this.poemId = this.poem.poemId;
+        console.log("poeeeem", this.poem);
     }
     PoemOverlayPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad PoemOverlayPage');
@@ -566,7 +582,7 @@ var PoemOverlayPage = /** @class */ (function () {
     };
     PoemOverlayPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-poem-overlay',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/poem-overlay/poem-overlay.html"*/'<!--\n  Generated template for the PoemOverlayPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n      <ion-title>PoemOverlay</ion-title>\n      <ion-buttons start>\n          <button ion-button (click)="dismiss()">Close</button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n    <h1>{{title | titlecase}}</h1>\n    <p [innerHTML]="text | htmlify"></p>\n    <br><br>\n    <p>-- {{author| capitalize}}</p>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/poem-overlay/poem-overlay.html"*/,
+            selector: 'page-poem-overlay',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/poem-overlay/poem-overlay.html"*/'<!--\n  Generated template for the PoemOverlayPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>{{title | titlecase}}</ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">Close</button>\n      <favorite-button poemId="{{poem.poemId}}"></favorite-button>\n		  <share-button></share-button>\n      </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n    <p [innerHTML]="text | htmlify"></p>\n    <br><br>\n    <p>-- {{author| capitalize}}</p>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/poem-overlay/poem-overlay.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], PoemOverlayPage);
@@ -586,12 +602,14 @@ var PoemOverlayPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__poem_overlay_poem_overlay__ = __webpack_require__(334);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipes_pipes_module__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(72);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -606,6 +624,7 @@ var PoemOverlayPageModule = /** @class */ (function () {
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3__pipes_pipes_module__["a" /* PipesModule */],
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* ComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__poem_overlay_poem_overlay__["a" /* PoemOverlayPage */]),
             ],
         })
@@ -778,7 +797,7 @@ var FeelsPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feels_feels__ = __webpack_require__(377);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -812,7 +831,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/home/home.html"*/'<ion-header>\n  <menu-bar></menu-bar>\n</ion-header>\n\n<ion-content padding>\n	<div text-center>\n    <p>How are you feeling today ?</p>\n\n		<ion-grid>\n			<ion-row>\n				  <ion-col col-auto col-sm *ngFor="let feel of feelings">\n            <color-button (click)="getFeels(feel)"  fillColor="{{feel.color}}" text="{{feel.emotion}}">{{feel.emotion}}</color-button>\n          </ion-col>\n			</ion-row>\n		</ion-grid>\n		\n		<favorite-button></favorite-button>\n		<share-button></share-button>\n	</div>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/home/home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/home/home.html"*/'<ion-header>\n  <menu-bar></menu-bar>\n</ion-header>\n\n<ion-content padding>\n	<div text-center>\n    <p>How are you feeling today ?</p>\n\n		<ion-grid>\n			<ion-row>\n				  <ion-col col-auto col-sm *ngFor="let feel of feelings">\n            <color-button (click)="getFeels(feel)"  fillColor="{{feel.color}}" text="{{feel.emotion}}">{{feel.emotion}}</color-button>\n          </ion-col>\n			</ion-row>\n		</ion-grid>\n	</div>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/home/home.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */]])
     ], HomePage);
@@ -852,7 +871,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home_module__ = __webpack_require__(739);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_poem_grid_poem_grid_module__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_poem_overlay_poem_overlay_module__ = __webpack_require__(335);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_components_module__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_components_module__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pipes_pipes_module__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_profile_profile_module__ = __webpack_require__(336);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_poem_api_poem_api__ = __webpack_require__(126);
@@ -863,9 +882,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__angular_fire_auth__ = __webpack_require__(330);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_fire_firestore__ = __webpack_require__(741);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_fire_storage__ = __webpack_require__(747);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_fire_database__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_fire_database__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__config__ = __webpack_require__(752);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_authentication_authentication__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_authentication_authentication__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_signup_signup_module__ = __webpack_require__(337);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -954,7 +973,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 70:
+/***/ 50:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -962,7 +981,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__ = __webpack_require__(330);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -989,11 +1008,22 @@ var AuthenticationProvider = /** @class */ (function () {
         this.toastCtrl = toastCtrl;
         this.db = db;
         this.userData = {
-            favorites: [],
+            favorites: new Array(),
             firstname: "",
             lastname: ""
         };
         console.log('Hello AuthenticationProvider Provider');
+        this.afAuth.authState.subscribe(function (user) {
+            _this.user = user;
+            var node = _this.db.database.ref("users/" + _this.user.uid);
+            node.on("value", function (val) {
+                var data = val.val();
+                _this.userData.firstname = data.firstname ? data.firstname : "";
+                _this.userData.lastname = data.lastname ? data.lastname : "";
+                _this.userData.favorites = data.favorites ? data.favorites : new Array();
+                console.log(data);
+            });
+        });
         var poems = [{
                 title: "C'est merveilleux",
                 author: "Edith Piaf",
@@ -1004,17 +1034,17 @@ var AuthenticationProvider = /** @class */ (function () {
             {
                 title: "C'est merveilleux",
                 author: "Edith Piaf",
-                text: "C'est merveilleux\nQuand on est tous les deux\nLe bonheur nous surveille\nC'est merveilleux\nQuand on est amoureux\nLes beaux jours se r\u00E9veillent\nC'est merveilleux\nLa vie est peinte en bleu\nA grands coups de soleil\nPuisque je t'aime et que tu m'aimes\nC'est merveilleux",
+                text: "C'est merveilleux\nQuand on est tous les deux\nLe bonheur nous surveille\nC'est merveilleux\nQuand on est amoureux\nLes beaux jours se r\u00E9veillent\nC'est merveilleux\nLa vie est peinte en bleu\nA grands coups de soleil\nBisque je t'aime et que tu m'aimes\nC'est merveilleux",
                 emotion: "happy",
                 feeling: "in Love"
             }];
-        afAuth.authState.subscribe(function (user) {
-            _this.user = user;
-        });
         // for (let p of poems) {
         //   this.db.database.ref("poems").push(p);
         // }
     }
+    AuthenticationProvider.prototype.ngOnInit = function () {
+        console.log("ini", this.user, this.userData);
+    };
     AuthenticationProvider.prototype.createAccount = function (info) {
         var _this = this;
         this.afAuth.auth.createUserWithEmailAndPassword(info.email, info.password)
@@ -1030,8 +1060,7 @@ var AuthenticationProvider = /** @class */ (function () {
                 _this.db.database.ref("users/" + _this.user.uid).push({
                     firstname: info.firstname,
                     lastname: info.lastname,
-                    favorites: false
-                }).then(function (val) {
+                    favorites: new Array()
                 });
             });
         })
@@ -1050,21 +1079,9 @@ var AuthenticationProvider = /** @class */ (function () {
             .catch(function (value) { return console.error(value); });
     };
     AuthenticationProvider.prototype.isUserLoggedIn = function () {
-        var _this = this;
         console.log(this.user);
         if (this.user) {
             console.log("User logged in");
-            if (!this.userData.firstname) {
-                var node = this.db.database.ref("users/" + this.getUserID());
-                node.on("value", function (val) {
-                    console.log("val", val);
-                    console.log("val()", val.val());
-                    console.log("key", val.key);
-                    var data = val.val()[Object.keys(val.val())[0]];
-                    _this.userData.firstname = data.firstname;
-                    _this.userData.lastname = data.lastname;
-                });
-            }
             return true;
         }
         else {
@@ -1084,7 +1101,7 @@ var AuthenticationProvider = /** @class */ (function () {
     AuthenticationProvider.prototype.getUserID = function () {
         return this.user.uid;
     };
-    AuthenticationProvider.prototype.getUserFavorties = function () {
+    AuthenticationProvider.prototype.getUserFavorites = function () {
         return this.userData.favorites;
     };
     AuthenticationProvider.prototype.getUserFirstname = function () {
@@ -1092,6 +1109,18 @@ var AuthenticationProvider = /** @class */ (function () {
     };
     AuthenticationProvider.prototype.getUserLastname = function () {
         return this.userData.lastname;
+    };
+    AuthenticationProvider.prototype.addPoemToFavorites = function (poemId) {
+        console.log("add", this.userData.favorites);
+        if (!this.userData.favorites.find(function (val) { return val == poemId; })) {
+            this.userData.favorites = this.userData.favorites.concat([poemId]);
+        }
+        var node = this.db.database.ref("users/" + this.getUserID() + "/favorites").set(Array.from(this.userData.favorites));
+        console.log("after add", this.userData.favorites);
+    };
+    AuthenticationProvider.prototype.removePoemFromFavorites = function (poemId) {
+        this.userData.favorites = this.userData.favorites.filter(function (val) { return val != poemId; });
+        var node = this.db.database.ref("users/" + this.getUserID() + "/favorites").set(Array.from(this.userData.favorites));
     };
     AuthenticationProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
@@ -1299,7 +1328,7 @@ var ColorButtonComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_login_login__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_authentication_authentication__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_authentication_authentication__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1329,8 +1358,10 @@ var MenuBarComponent = /** @class */ (function () {
         this.auth = auth;
         this.showProfilePic = false;
         console.log('Hello MenuBarComponent Component');
-        this.checkLoggedIn();
     }
+    MenuBarComponent.prototype.ngOnInit = function () {
+        this.checkLoggedIn();
+    };
     MenuBarComponent.prototype.checkLoggedIn = function () {
         this.showProfilePic = this.auth.isUserLoggedIn();
     };
@@ -1373,6 +1404,7 @@ var MenuBarComponent = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FavoriteButtonComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_authentication_authentication__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1383,6 +1415,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 /**
  * Generated class for the FavoriteButtonComponent component.
  *
@@ -1390,23 +1423,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Components.
  */
 var FavoriteButtonComponent = /** @class */ (function () {
-    function FavoriteButtonComponent() {
-        this.faved = false;
+    function FavoriteButtonComponent(auth) {
+        this.auth = auth;
+        this.isFavorited = false;
         console.log('Hello FavoriteButtonComponent Component');
     }
+    FavoriteButtonComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        console.log("fav button", this.auth.getUserFavorites());
+        var favs = this.auth.getUserFavorites();
+        console.log("toto", favs, this.poemId);
+        if (favs.find(function (val) { return val == _this.poemId; }))
+            this.isFavorited = true;
+    };
     FavoriteButtonComponent.prototype.toggle = function () {
-        if (this.faved == false) {
-            this.faved = true;
+        this.isFavorited = !this.isFavorited;
+        if (this.isFavorited) {
+            this.auth.addPoemToFavorites(this.poemId);
         }
-        else if (this.faved == true) {
-            this.faved = false;
+        else {
+            this.auth.removePoemFromFavorites(this.poemId);
         }
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", String)
+    ], FavoriteButtonComponent.prototype, "poemId", void 0);
     FavoriteButtonComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'favorite-button',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/components/favorite-button/favorite-button.html"*/'<!-- Generated template for the FavoriteButtonComponent component -->\n<div *ngIf="!faved">\n	<svg xmlns="http://www.w3.org/2000/svg" height="25" width="23" (click)="toggle()">\n    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>\n	</svg>\n	<p>Fave</p>\n</div>\n<div *ngIf="faved">\n	<svg xmlns="http://www.w3.org/2000/svg" height="25" width="23" (click)="toggle()">\n    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;" fill="#FDE025"/>\n	</svg>\n	<p>Fave</p>\n</div>'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/components/favorite-button/favorite-button.html"*/
+            selector: 'favorite-button',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/components/favorite-button/favorite-button.html"*/'<!-- Generated template for the FavoriteButtonComponent component -->\n<div *ngIf="!isFavorited">\n	<svg xmlns="http://www.w3.org/2000/svg" height="25" width="23" (click)="toggle()">\n    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>\n	</svg>\n</div>\n<div *ngIf="isFavorited">\n	<svg xmlns="http://www.w3.org/2000/svg" height="25" width="23" (click)="toggle()">\n    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;" fill="#FDE025"/>\n	</svg>\n</div>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/components/favorite-button/favorite-button.html"*/
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_authentication_authentication__["a" /* AuthenticationProvider */]])
     ], FavoriteButtonComponent);
     return FavoriteButtonComponent;
 }());
@@ -1452,6 +1499,56 @@ var ShareButtonComponent = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=share-button.js.map
+
+/***/ }),
+
+/***/ 72:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__color_button_color_button__ = __webpack_require__(714);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__menu_bar_menu_bar__ = __webpack_require__(715);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__favorite_button_favorite_button__ = __webpack_require__(716);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__share_button_share_button__ = __webpack_require__(717);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+var ComponentsModule = /** @class */ (function () {
+    function ComponentsModule() {
+    }
+    ComponentsModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_1__color_button_color_button__["a" /* ColorButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__menu_bar_menu_bar__["a" /* MenuBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__favorite_button_favorite_button__["a" /* FavoriteButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__share_button_share_button__["a" /* ShareButtonComponent */]],
+            imports: [__WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* IonicModule */], __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__["a" /* PipesModule */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__color_button_color_button__["a" /* ColorButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__menu_bar_menu_bar__["a" /* MenuBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__favorite_button_favorite_button__["a" /* FavoriteButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__share_button_share_button__["a" /* ShareButtonComponent */]]
+        })
+    ], ComponentsModule);
+    return ComponentsModule;
+}());
+
+//# sourceMappingURL=components.module.js.map
 
 /***/ }),
 
@@ -1513,7 +1610,7 @@ var MyApp = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(382);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__ = __webpack_require__(71);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1564,56 +1661,6 @@ var firebaseConfig = {
     }
 };
 //# sourceMappingURL=config.js.map
-
-/***/ }),
-
-/***/ 90:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__color_button_color_button__ = __webpack_require__(714);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__menu_bar_menu_bar__ = __webpack_require__(715);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__favorite_button_favorite_button__ = __webpack_require__(716);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__share_button_share_button__ = __webpack_require__(717);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-var ComponentsModule = /** @class */ (function () {
-    function ComponentsModule() {
-    }
-    ComponentsModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [__WEBPACK_IMPORTED_MODULE_1__color_button_color_button__["a" /* ColorButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__menu_bar_menu_bar__["a" /* MenuBarComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__favorite_button_favorite_button__["a" /* FavoriteButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__share_button_share_button__["a" /* ShareButtonComponent */]],
-            imports: [__WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* IonicModule */], __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__["a" /* PipesModule */]],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__color_button_color_button__["a" /* ColorButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__menu_bar_menu_bar__["a" /* MenuBarComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__favorite_button_favorite_button__["a" /* FavoriteButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__share_button_share_button__["a" /* ShareButtonComponent */]]
-        })
-    ], ComponentsModule);
-    return ComponentsModule;
-}());
-
-//# sourceMappingURL=components.module.js.map
 
 /***/ })
 
