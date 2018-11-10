@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 /**
  * Generated class for the FavoriteButtonComponent component.
@@ -12,22 +14,29 @@ import { Component } from '@angular/core';
 })
 export class FavoriteButtonComponent {
 
-  faved: boolean = false;
+  isFavorited: boolean = false;
+  @Input() poemId: string;
 
-  constructor() {
+  constructor(private auth: AuthenticationProvider) {
     console.log('Hello FavoriteButtonComponent Component');
+
   }
-  
+
+  ngOnInit(){
+    console.log("fav button", this.auth.getUserFavorites());
+    let favs = this.auth.getUserFavorites();
+    console.log("toto", favs, this.poemId);
+    if (favs.find((val) => val == this.poemId)) this.isFavorited = true;
+  }
+
 	toggle()
 	{
-		if (this.faved == false)
-		{
-			this.faved = true;
-		}
-		else if(this.faved == true)
-		{
-			this.faved = false;
-		}
+    this.isFavorited = !this.isFavorited;
+    if (this.isFavorited) {
+      this.auth.addPoemToFavorites(this.poemId);
+    } else {
+      this.auth.removePoemFromFavorites(this.poemId);
+    }
 	}
 
 }

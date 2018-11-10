@@ -23,6 +23,10 @@ export class MenuBarComponent {
 
   constructor(private navCtrl: NavController, private toastCtrl : ToastController, private storage : Storage, public auth: AuthenticationProvider) {
     console.log('Hello MenuBarComponent Component');
+
+  }
+
+  ngOnInit() {
     this.checkLoggedIn();
   }
 

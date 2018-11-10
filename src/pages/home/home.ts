@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FeelsPage } from '../feels/feels';
 import { ProfilePage } from '../profile/profile';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'page-home',
@@ -10,9 +11,9 @@ import { ProfilePage } from '../profile/profile';
 
 export class HomePage {
 
-    feelings;
+  feelings;
 
-	constructor(public navCtrl: NavController)
+	constructor(public navCtrl: NavController, private db: AngularFireDatabase)
 	  {
       this.feelings = [
         {emotion:"happy", color:"#F7D26C"},
@@ -24,10 +25,13 @@ export class HomePage {
           {emotion:"depressed", color:"#1C4267"},
           {emotion:"jealous", color:"#BEDFA4"}
       ];
+
 	}
 
 	getFeels(feel, nBtn: number)
 	{
+
+
 		  this.navCtrl.push(FeelsPage, {feel:feel.emotion, color:feel.color});
 	}
 

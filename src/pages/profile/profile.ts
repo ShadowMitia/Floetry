@@ -26,30 +26,38 @@ export class ProfilePage {
     email: string,
     displayName: string,
     photoURL: string,
-    favorites: Array<number>,
+    favorites: string[],
     firstname: string,
     lastname: string
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private poemApi : PoemApiProvider, private auth: AuthenticationProvider)
+  favoritePoems: any = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private poemApi : PoemApiProvider, private auth: AuthenticationProvider, private db : AngularFireDatabase)
   {
 
-
     this.userInfo = {
-      displayName: auth.getUserDisplayName(),
-      photoURL: auth.getUserPhotoURL(),
-      email: auth.getUserEmail(),
-      favorites: [],
-      firstname: auth.getUserFirstname(),
-      lastname: auth.getUserLastname()
+      displayName: this.auth.getUserDisplayName(),
+      photoURL: this.auth.getUserPhotoURL(),
+      email: this.auth.getUserEmail(),
+      favorites: this.auth.getUserFavorites(),
+      firstname: this.auth.getUserFirstname(),
+      lastname: this.auth.getUserLastname()
     };
 
-
+    let node = this.db.database.ref("poems/");
+    node.once("value", (value) => {
+      for (let poemKey of this.userInfo.favorites) {
+        let poem = value.val()[poemKey];
+        this.favoritePoems = [...this.favoritePoems, poem];
+      }
+    });
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+
   }
 
 	toggle(arg)

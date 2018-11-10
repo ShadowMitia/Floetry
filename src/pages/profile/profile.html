@@ -34,8 +34,8 @@
 	<div *ngIf="show">
     <ion-list>
 		  <ion-list-header>Favorites</ion-list-header>
-		  <ion-item *ngFor="let item of userInfo.favorites">
-		    Favorite poem
+		  <ion-item *ngFor="let item of favoritePoems">
+		    <ion-label>{{item.title}}</ion-label>
 		  </ion-item>
     </ion-list>
 

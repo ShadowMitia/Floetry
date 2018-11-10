@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavParams, ViewController } from 'ionic-angular';
 
-import { PoemGridPage } from '../poem-grid/poem-grid';
-
 /**
  * Generated class for the PoemOverlayPage page.
  *
@@ -19,12 +17,15 @@ export class PoemOverlayPage {
   author: string;
   title: string;
   poem: any;
+  poemId: String;
 
-    constructor(public viewCtrl: ViewController, public params: NavParams) {
-        this.poem = this.params.get("poem");
-      this.text = this.poem.text;
-      this.title = this.poem.title;
-      this.author = this.poem.author;
+  constructor(public viewCtrl: ViewController, public params: NavParams) {
+    this.poem = this.params.get("poem");
+    this.text = this.poem.text;
+    this.title = this.poem.title;
+    this.author = this.poem.author;
+    this.poemId = this.poem.poemId;
+    console.log("poeeeem", this.poem);
   }
 
   ionViewDidLoad() {

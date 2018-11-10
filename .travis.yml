@@ -2,9 +2,11 @@
 language: node_js
 node_js:
   - "stable"
+
 cache:
   directories:
-    - node_modules
+  - "$HOME/.npm"
+
 # Handle git submodules yourself
 git:
     submodules: false

@@ -34,7 +34,8 @@ export class PoemGridPage {
     node.once("value", (value) => {
       for (let poemKey of Object.keys(value.val())) {
         let poem = value.val()[poemKey];
-        if (poem.emotion == this.feels.toLowerCase() && poem.feeling == this.emotion.toLowerCase()) {
+        poem.poemId = poemKey;
+        if (poem.emotion.toLowerCase() == this.feels.toLowerCase() && poem.feeling.toLowerCase() == this.emotion.toLowerCase()) {
           this.poems = [...this.poems, poem];
         }
       }

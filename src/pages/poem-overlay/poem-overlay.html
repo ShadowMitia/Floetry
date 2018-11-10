@@ -5,18 +5,19 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-      <ion-title>PoemOverlay</ion-title>
-      <ion-buttons start>
-          <button ion-button (click)="dismiss()">Close</button>
+    <ion-title>{{title | titlecase}}</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">Close</button>
+      <favorite-button poemId="{{poem.poemId}}"></favorite-button>
+		  <share-button></share-button>
       </ion-buttons>
+
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
-    <h1>{{title | titlecase}}</h1>
     <p [innerHTML]="text | htmlify"></p>
     <br><br>
     <p>-- {{author| capitalize}}</p>

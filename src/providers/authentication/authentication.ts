@@ -16,11 +16,11 @@ export class AuthenticationProvider {
 
   private user: firebase.User;
   private userData: {
-    favorites: Array<number>,
+    favorites: Array<string>,
     firstname: string,
     lastname: string
   } = {
-    favorites: [],
+    favorites: new Array<string>(),
     firstname:"",
     lastname: ""
   };
@@ -28,9 +28,63 @@ export class AuthenticationProvider {
   constructor(public afAuth: AngularFireAuth, private toastCtrl : ToastController, private db : AngularFireDatabase) {
     console.log('Hello AuthenticationProvider Provider');
 
-    afAuth.authState.subscribe(user => {
+    this.afAuth.authState.subscribe(user => {
 			this.user = user;
+      let node = this.db.database.ref("users/"+this.user.uid);
+      node.on("value", (val) => {
+        let data = val.val();
+        this.userData.firstname = data.firstname ? data.firstname : "";
+        this.userData.lastname = data.lastname ? data.lastname : "";
+        this.userData.favorites = data.favorites ? data.favorites : new Array<string>();
+        console.log(data);
+      });
     });
+
+    let poems = [{
+title: "C'est merveilleux",
+author: "Edith Piaf",
+text:`C'est merveilleux
+Quand on est tous les deux
+Le bonheur nous surveille
+C'est merveilleux
+Quand on est amoureux
+Les beaux jours se réveillent
+C'est merveilleux
+La vie est peinte en bleu
+A grands coups de soleil
+Puisque je t'aime et que tu m'aimes
+C'est merveilleux`,
+      emotion: "happy",
+      feeling: "in Love"
+},
+{
+  title: "C'est merveilleux",
+  author: "Edith Piaf",
+  text:`C'est merveilleux
+Quand on est tous les deux
+Le bonheur nous surveille
+C'est merveilleux
+Quand on est amoureux
+Les beaux jours se réveillent
+C'est merveilleux
+La vie est peinte en bleu
+A grands coups de soleil
+Bisque je t'aime et que tu m'aimes
+C'est merveilleux`,
+  emotion: "happy",
+  feeling: "in Love"
+}];
+
+
+
+    // for (let p of poems) {
+    //   this.db.database.ref("poems").push(p);
+    // }
+  }
+
+  ngOnInit() {
+
+    console.log("ini", this.user, this.userData);
   }
 
   createAccount(info) {
@@ -48,11 +102,8 @@ export class AuthenticationProvider {
           this.db.database.ref("users/"+this.user.uid).push({
             firstname: info.firstname,
             lastname: info.lastname,
-            favorites: false
-          }).then((val) => {
-
+            favorites: new Array<string>()
           });
-
         });
 
 
@@ -78,18 +129,6 @@ export class AuthenticationProvider {
     console.log(this.user);
     if (this.user) {
       console.log("User logged in");
-      if (!this.userData.firstname) {
-      let node = this.db.database.ref("users/"+this.getUserID());
-      node.on("value", (val) => {
-        console.log("val", val);
-        console.log("val()", val.val());
-        console.log("key", val.key);
-        let data = val.val()[Object.keys(val.val())[0]];
-
-        this.userData.firstname = data.firstname;
-        this.userData.lastname = data.lastname;
-      });
-      }
       return true;
     } else {
       console.log("User not logged in");
@@ -113,7 +152,7 @@ export class AuthenticationProvider {
     return this.user.uid;
   }
 
-  getUserFavorties() {
+  getUserFavorites() {
     return this.userData.favorites;
   }
 
@@ -123,5 +162,20 @@ export class AuthenticationProvider {
 
   getUserLastname() {
     return this.userData.lastname;
+  }
+
+  addPoemToFavorites(poemId: string) {
+    console.log("add", this.userData.favorites);
+    if (!this.userData.favorites.find((val) => val == poemId)) {
+      this.userData.favorites = [...this.userData.favorites, poemId];
+    }
+    let node = this.db.database.ref("users/"+this.getUserID()+"/favorites").set(Array.from(this.userData.favorites));
+    console.log("after add", this.userData.favorites);
+
+  }
+
+  removePoemFromFavorites(poemId: String) {
+    this.userData.favorites = this.userData.favorites.filter((val) => val != poemId);
+    let node = this.db.database.ref("users/"+this.getUserID()+"/favorites").set(Array.from(this.userData.favorites));
   }
 }
