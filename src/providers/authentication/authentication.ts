@@ -95,11 +95,11 @@ C'est merveilleux`,
 			    this.user = user;
           this.user.sendEmailVerification();
           this.user.updateProfile({
-            displayName: info.displayname,
+            displayName: info.username,
             photoURL: ""
           });
 
-          this.db.database.ref("users/"+this.user.uid).push({
+          this.db.database.ref("users/"+this.user.uid).set({
             firstname: info.firstname,
             lastname: info.lastname,
             favorites: new Array<string>()

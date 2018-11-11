@@ -50,7 +50,8 @@ export class SignupPage {
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
       confirmPassword: ['', Validators.compose([Validators.required,Validators.minLength(6)])],
       firstname: [''],
-      lastname: ['']
+      lastname: [''],
+      username: ['', Validators.required]
     }, {validator: matchingPasswords('password', 'confirmPassword')});
 
   }
@@ -60,12 +61,16 @@ export class SignupPage {
   }
 
   createAccount() {
-    if (this.info.password === this.info.password2) {
+      this.info = {
+        email: this.signup.value["email"],
+        password: this.signup.value["password"],
+        password2: "",
+        username: this.signup.value["username"],
+        firstname: this.signup.value["firstname"] || "",
+        lastname: this.signup.value["lastname"] || ""
+      };
       this.auth.createAccount(this.info);
       this.navCtrl.popToRoot();
-    } else {
-      this.toast.create({message: "Invalid form"}).present();
-    }
 
   }
 
