@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
@@ -26,7 +27,32 @@ export class SignupPage {
 
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthenticationProvider, private toast : ToastController) {
+  signup: FormGroup;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthenticationProvider, private toast : ToastController, private formBuilder: FormBuilder) {
+
+
+    function matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
+      return (group: FormGroup): {[key: string]: any} => {
+        let password = group.controls[passwordKey];
+        let confirmPassword = group.controls[confirmPasswordKey];
+
+        if (password.value !== confirmPassword.value) {
+          return {
+            mismatchedPasswords: true
+          };
+        }
+      }
+    }
+
+    this.signup = this.formBuilder.group({
+      email: ['', Validators.required && Validators.email ],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+      confirmPassword: ['', Validators.compose([Validators.required,Validators.minLength(6)])],
+      firstname: [''],
+      lastname: ['']
+    }, {validator: matchingPasswords('password', 'confirmPassword')});
+
   }
 
   ionViewDidLoad() {

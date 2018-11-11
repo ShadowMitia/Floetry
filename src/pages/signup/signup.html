@@ -1,8 +1,8 @@
 <!--
-  Generated template for the SignupPage page.
+     Generated template for the SignupPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
+     See http://ionicframework.com/docs/components/#navigation for more info on
+     Ionic pages and navigation.
 -->
 <ion-header>
 
@@ -14,30 +14,32 @@
 
 
 <ion-content padding>
-  <ion-item>
-    <ion-label floating>Email</ion-label>
-    <ion-input type="email" [(ngModel)]="info.email" clearInput="true"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Username</ion-label>
-    <ion-input type="text" [(ngModel)]="info.displayname" clearInput="true"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password" min="6" [(ngModel)]="info.password" clearInput="true"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Confirm password</ion-label>
-    <ion-input type="password" min="6" [(ngModel)]="info.password2" clearInput="true"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>First name</ion-label>
-    <ion-input type="text" [(ngModel)]="info.firstname" clearInput="true"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Last name</ion-label>
-    <ion-input type="text" [(ngModel)]="info.lastname" clearInput="true"></ion-input>
-  </ion-item>
+  <form [formGroup]="signup" (ngSubmit)="createAccount()">
+      <ion-item>
+        <ion-label floating>Email (required) </ion-label>
+        <ion-input type="email" formControlName="email" clearInput="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Username (required)</ion-label>
+        <ion-input type="text" clearInput="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password (required, 6 characters min.) </ion-label>
+        <ion-input formControlName="password" type="password" min="6"  clearInput="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Confirm password (required) </ion-label>
+        <ion-input formControlName="confirmPassword" type="password" min="6" clearInput="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>First name (optional)</ion-label>
+        <ion-input formControlName="firstname" type="text"clearInput="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Last name (optional)</ion-label>
+        <ion-input formControlName="lastname" type="text" clearInput="true"></ion-input>
+      </ion-item>
 
-  <button ion-button (click)="createAccount()">Create account!</button>
+      <button ion-button type="submit" [disabled]="!signup.valid">Create account!</button>
+  </form>
 </ion-content>
