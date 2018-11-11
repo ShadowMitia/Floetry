@@ -23,28 +23,28 @@ export class FeelsPage {
 
 		  let emotions = {
           "happy": {subEmotions: ['glad', 'peppy', 'excited', 'lucky', 'content', 'gay'],
-                    color: "#FF0000"
+                    color: "#F7D26C"
                    },
           "sad":  {subEmotions: ['disappointed', 'mournful', 'regretful', 'pessimistic', 'dismayed', 'disillusioned'],
-                   color: "#FF0000"
+                   color: "#67829F"
                   },
           "angry":  {subEmotions: ['upset', 'enraged', 'violent', 'annoyed', 'furious', 'snappy'],
-                     color: "#FF0000"
+                     color: "#A70032"
                     },
           "anxious":  {subEmotions: ['angsty', 'confused', 'distressed', 'nervous', 'tense', 'fearful'],
-                       color: "#FF0000"
+                       color: "#D25668"
                       },
           "ashamed":  {subEmotions: ['awkward', 'shameful', 'unsettled', 'sheepish', 'shy', 'uneasy'],
-                           color: "#FF0000"
+                           color: "#C383D7"
                           },
           "hurt":  {subEmotions: ['ruined', 'wounded', 'damaged', 'abused', 'discomforted', 'injured'],
-                    color: "#FF0000"
+                    color: "#EB5593"
                    },
           "depressed":  {subEmotions: ['downhearted', 'low', 'dispirited', 'gloomy', 'morose', 'oppressed'],
-                         color: "#FF0000"
+                         color: "#1C4267"
                         },
           "jealous":  {subEmotions: ['bitter', 'envious', 'selfish', 'desirous', 'green', 'greedy'],
-                       color: "#FF0000"
+                       color: "#BEDFA4"
                       }
       };
 
