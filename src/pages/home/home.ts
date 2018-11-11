@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { FeelsPage } from '../feels/feels';
 import { ProfilePage } from '../profile/profile';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
 @Component({
   selector: 'page-home',
@@ -13,7 +14,7 @@ export class HomePage {
 
   feelings;
 
-	constructor(public navCtrl: NavController, private db: AngularFireDatabase)
+	constructor(public navCtrl: NavController, private auth: AuthenticationProvider)
 	  {
       this.feelings = [
         {emotion:"happy", color:"#F7D26C"},
@@ -25,14 +26,11 @@ export class HomePage {
           {emotion:"depressed", color:"#1C4267"},
           {emotion:"jealous", color:"#BEDFA4"}
       ];
-
 	}
 
 	getFeels(feel, nBtn: number)
 	{
-
-
-		  this.navCtrl.push(FeelsPage, {feel:feel.emotion, color:feel.color});
+		this.navCtrl.push(FeelsPage, {feel:feel.emotion, color:feel.color});
 	}
 
 

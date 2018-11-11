@@ -126,8 +126,9 @@ C'est merveilleux`,
   }
 
   isUserLoggedIn() {
-    console.log(this.user);
-    if (this.user) {
+    var user = this.afAuth.auth.currentUser;
+    console.log(user);
+    if (user) {
       console.log("User logged in");
       return true;
     } else {
@@ -165,13 +166,10 @@ C'est merveilleux`,
   }
 
   addPoemToFavorites(poemId: string) {
-    console.log("add", this.userData.favorites);
     if (!this.userData.favorites.find((val) => val == poemId)) {
       this.userData.favorites = [...this.userData.favorites, poemId];
     }
     let node = this.db.database.ref("users/"+this.getUserID()+"/favorites").set(Array.from(this.userData.favorites));
-    console.log("after add", this.userData.favorites);
-
   }
 
   removePoemFromFavorites(poemId: String) {

@@ -6,6 +6,7 @@ import { LoginPage } from '../../pages/login/login';
 
 import { Storage } from '@ionic/storage';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 /**
  * Generated class for the MenuBarComponent component.
@@ -21,9 +22,11 @@ export class MenuBarComponent {
 
   showProfilePic: boolean = false;
 
-  constructor(private navCtrl: NavController, private toastCtrl : ToastController, private storage : Storage, public auth: AuthenticationProvider) {
+  constructor(private navCtrl: NavController, private toastCtrl : ToastController, public auth: AuthenticationProvider, private db : AngularFireDatabase) {
     console.log('Hello MenuBarComponent Component');
+    let node = this.db.database.ref("poems/");
 
+    setTimeout(()=>this.checkLoggedIn(), 1000);
   }
 
   ngOnInit() {

@@ -31,7 +31,7 @@ export class SignupPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthenticationProvider, private toast : ToastController, private formBuilder: FormBuilder) {
 
-
+    // https://stackoverflow.com/questions/31788681/angular2-validator-which-relies-on-multiple-form-fields/34582914#34582914
     function matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
       return (group: FormGroup): {[key: string]: any} => {
         let password = group.controls[passwordKey];
