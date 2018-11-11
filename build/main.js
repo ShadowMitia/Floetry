@@ -69,7 +69,7 @@ var ProfilePage = /** @class */ (function () {
     };
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/profile/profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{userInfo.displayName}}</ion-title>\n    <button ion-button (click)="logout()">Logout</button>\n  </ion-navbar>\n\n   <ion-segment [(ngModel)]="state">\n    <ion-segment-button value="info" (click)="toggle(\'info\')">\n      Profile\n    </ion-segment-button>\n    <ion-segment-button value="fav" (click)="toggle(\'fav\')">\n      Favorites\n    </ion-segment-button>\n  </ion-segment>\n</ion-header>\n\n<ion-content padding>\n	<div *ngIf="!show">\n    <ion-avatar>\n		  <img src="../assets/imgs/Jean.jpg">\n    </ion-avatar>\n    <p>Username: {{userInfo.displayName}}</p>\n    <p>Email: {{userInfo.email}} </p>\n    <p>First name: {{userInfo.firstname}}</p>\n    <p>Last name: {{userInfo.lastname}}</p>\n	</div>\n	<div *ngIf="show">\n    <ion-list>\n		  <ion-list-header>Favorites</ion-list-header>\n		  <ion-item *ngFor="let item of favoritePoems">\n		    <ion-label>{{item.title}}</ion-label>\n		  </ion-item>\n    </ion-list>\n\n	</div>\n\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/profile/profile.html"*/,
+            selector: 'page-profile',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/profile/profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{userInfo.displayName}}</ion-title>\n    <button ion-button (click)="logout()">Logout</button>\n  </ion-navbar>\n\n   <ion-segment [(ngModel)]="state">\n    <ion-segment-button value="info" (click)="toggle(\'info\')">\n      Profile\n    </ion-segment-button>\n    <ion-segment-button value="fav" (click)="toggle(\'fav\')">\n      Favorites\n    </ion-segment-button>\n  </ion-segment>\n</ion-header>\n\n<ion-content padding>\n	<div *ngIf="!show">\n    <ion-avatar>\n		  <img src="../assets/imgs/Jean.jpg">\n    </ion-avatar>\n    <p>Username: {{userInfo.displayName}}</p>\n    <p>Email: {{userInfo.email}} </p>\n    <p>First name: {{userInfo.firstname}}</p>\n    <p>Last name: {{userInfo.lastname}}</p>\n	</div>\n	<div *ngIf="show">\n    <ion-list>\n		  <ion-list-header>Favorites</ion-list-header>\n		  <ion-item *ngFor="let item of favoritePoems">\n		    <ion-label>{{item.title}}</ion-label>\n		  </ion-item>\n    </ion-list>\n    <!-- <ion-list>\n         <ion-item-sliding #item>\n         <ion-item>\n         Item\n         </ion-item>\n         <ion-item-options side="left">\n         <button ion-button (click)="favorite(item)">Favorite</button>\n         <button ion-button color="danger" (click)="share(item)">Share</button>\n         </ion-item-options>\n\n         <ion-item-options side="right">\n         <button ion-button (click)="unread(item)">Unread</button>\n         </ion-item-options>\n         </ion-item-sliding>\n         </ion-list> -->\n	</div>\n\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/profile/profile.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_poem_api_poem_api__["a" /* PoemApiProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_4__angular_fire_database__["a" /* AngularFireDatabase */]])
     ], ProfilePage);
@@ -406,8 +406,9 @@ var LoginPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_authentication_authentication__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -420,6 +421,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the SignupPage page.
  *
@@ -427,11 +429,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var SignupPage = /** @class */ (function () {
-    function SignupPage(navCtrl, navParams, auth, toast) {
+    function SignupPage(navCtrl, navParams, auth, toast, formBuilder) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.auth = auth;
         this.toast = toast;
+        this.formBuilder = formBuilder;
         this.info = {
             email: "",
             password: "",
@@ -440,24 +443,46 @@ var SignupPage = /** @class */ (function () {
             firstname: "",
             lastname: ""
         };
+        function matchingPasswords(passwordKey, confirmPasswordKey) {
+            return function (group) {
+                var password = group.controls[passwordKey];
+                var confirmPassword = group.controls[confirmPasswordKey];
+                if (password.value !== confirmPassword.value) {
+                    return {
+                        mismatchedPasswords: true
+                    };
+                }
+            };
+        }
+        this.signup = this.formBuilder.group({
+            email: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].email],
+            password: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].minLength(6)])],
+            confirmPassword: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].minLength(6)])],
+            firstname: [''],
+            lastname: [''],
+            username: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required]
+        }, { validator: matchingPasswords('password', 'confirmPassword') });
     }
     SignupPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SignupPage');
     };
     SignupPage.prototype.createAccount = function () {
-        if (this.info.password === this.info.password2) {
-            this.auth.createAccount(this.info);
-            this.navCtrl.popToRoot();
-        }
-        else {
-            this.toast.create({ message: "Invalid form" }).present();
-        }
+        this.info = {
+            email: this.signup.value["email"],
+            password: this.signup.value["password"],
+            password2: "",
+            username: this.signup.value["username"],
+            firstname: this.signup.value["firstname"] || "",
+            lastname: this.signup.value["lastname"] || ""
+        };
+        this.auth.createAccount(this.info);
+        this.navCtrl.popToRoot();
     };
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signup',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Signup to Floetry !</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-item>\n    <ion-label floating>Email</ion-label>\n    <ion-input type="email" [(ngModel)]="info.email" clearInput="true"></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label floating>Username</ion-label>\n    <ion-input type="text" [(ngModel)]="info.displayname" clearInput="true"></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label floating>Password</ion-label>\n    <ion-input type="password" min="6" [(ngModel)]="info.password" clearInput="true"></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label floating>Confirm password</ion-label>\n    <ion-input type="password" min="6" [(ngModel)]="info.password2" clearInput="true"></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label floating>First name</ion-label>\n    <ion-input type="text" [(ngModel)]="info.firstname" clearInput="true"></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label floating>Last name</ion-label>\n    <ion-input type="text" [(ngModel)]="info.lastname" clearInput="true"></ion-input>\n  </ion-item>\n\n  <button ion-button (click)="createAccount()">Create account!</button>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/signup/signup.html"*/,
+            selector: 'page-signup',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/signup/signup.html"*/'<!--\n     Generated template for the SignupPage page.\n\n     See http://ionicframework.com/docs/components/#navigation for more info on\n     Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Signup to Floetry !</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="signup" (ngSubmit)="createAccount()">\n      <ion-item>\n        <ion-label floating>Email (required) </ion-label>\n        <ion-input type="email" formControlName="email" clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Username (required)</ion-label>\n        <ion-input formControlName="username" type="text" clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Password (required, 6 characters min.) </ion-label>\n        <ion-input formControlName="password" type="password" min="6"  clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Confirm password (required) </ion-label>\n        <ion-input formControlName="confirmPassword" type="password" min="6" clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>First name (optional)</ion-label>\n        <ion-input formControlName="firstname" type="text"clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Last name (optional)</ion-label>\n        <ion-input formControlName="lastname" type="text" clearInput="true"></ion-input>\n      </ion-item>\n\n      <button ion-button type="submit" [disabled]="!signup.valid">Create account!</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/signup/signup.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]])
     ], SignupPage);
     return SignupPage;
 }());
@@ -1054,10 +1079,10 @@ var AuthenticationProvider = /** @class */ (function () {
                 _this.user = user;
                 _this.user.sendEmailVerification();
                 _this.user.updateProfile({
-                    displayName: info.displayname,
+                    displayName: info.username,
                     photoURL: ""
                 });
-                _this.db.database.ref("users/" + _this.user.uid).push({
+                _this.db.database.ref("users/" + _this.user.uid).set({
                     firstname: info.firstname,
                     lastname: info.lastname,
                     favorites: new Array()
