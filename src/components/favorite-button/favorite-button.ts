@@ -23,7 +23,6 @@ export class FavoriteButtonComponent {
   }
 
   ngOnInit(){
-    console.log("fav button", this.auth.getUserFavorites());
     let favs = this.auth.getUserFavorites();
     console.log("toto", favs, this.poemId);
     if (favs.find((val) => val == this.poemId)) this.isFavorited = true;

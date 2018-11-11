@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { PoemApiProvider } from '../../providers/poem-api/poem-api';
 
 import { Storage } from '@ionic/storage';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 import { AngularFireDatabase } from '@angular/fire/database';
+
+import { PoemOverlayPage } from '../poem-overlay/poem-overlay';
+
 
 /**
  * Generated class for the ProfilePage page.
@@ -20,7 +23,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class ProfilePage {
 
-	show: boolean = true;
+	show: boolean = false;
 
   userInfo: {
     email: string,
@@ -32,9 +35,12 @@ export class ProfilePage {
   };
 
   favoritePoems: any = [];
+  state: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private poemApi : PoemApiProvider, private auth: AuthenticationProvider, private db : AngularFireDatabase)
+  constructor(public navCtrl: NavController, public navParams: NavParams, private poemApi : PoemApiProvider, private auth: AuthenticationProvider, private db : AngularFireDatabase, private modalCtrl: ModalController)
   {
+
+    this.state = "info";
 
     this.userInfo = {
       displayName: this.auth.getUserDisplayName(),
@@ -49,10 +55,16 @@ export class ProfilePage {
     node.once("value", (value) => {
       for (let poemKey of this.userInfo.favorites) {
         let poem = value.val()[poemKey];
+        poem.poemId = poemKey;
         this.favoritePoems = [...this.favoritePoems, poem];
       }
     });
 
+  }
+
+  openOverlay(poem: any) {
+    let profileModal = this.modalCtrl.create(PoemOverlayPage, { poem: poem });
+    profileModal.present();
   }
 
   ionViewDidLoad() {
@@ -62,7 +74,7 @@ export class ProfilePage {
 
 	toggle(arg)
 	{
-    this.show = !this.show;
+    this.show = this.state == "fav";
 	}
 
   logout() {
