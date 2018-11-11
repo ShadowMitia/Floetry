@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController, NavParams } from 'ionic-angular';
+import { ShareOverlayPage } from '../../pages/share-overlay/share-overlay';
 
 /**
  * Generated class for the ShareButtonComponent component.
@@ -19,4 +20,9 @@ export class ShareButtonComponent {
     console.log('Hello ShareButtonComponent Component');
   }
 
+  openModal()
+  {
+	  let myModal = this.modalCtrl.create(ShareOverlayPage);
+	  myModal.present();
+  }
 }

@@ -15,6 +15,7 @@ import { ProfilePageModule } from '../pages/profile/profile.module';
 import { PoemApiProvider } from '../providers/poem-api/poem-api';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPageModule } from '../pages/login/login.module';
+import { ShareOverlayPageModule } from '../pages/share-overlay/share-overlay.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -25,6 +26,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { firebaseConfig } from '../config';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
 import { SignupPageModule } from '../pages/signup/signup.module';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 @NgModule({
@@ -40,6 +42,7 @@ import { SignupPageModule } from '../pages/signup/signup.module';
 	    FeelsPageModule,
       PoemGridPageModule,
     PoemOverlayPageModule,
+	ShareOverlayPageModule,
     SignupPageModule,
     PipesModule,
     LoginPageModule,
@@ -60,7 +63,8 @@ import { SignupPageModule } from '../pages/signup/signup.module';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PoemApiProvider,
-    AuthenticationProvider
+    AuthenticationProvider,
+	SocialSharing
   ]
 })
 export class AppModule {}

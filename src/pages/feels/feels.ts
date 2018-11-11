@@ -22,30 +22,24 @@ export class FeelsPage {
       console.log("Got emotion: ", this.feels);
 
 		  let emotions = {
-          "happy": {subEmotions: ['glad', 'peppy', 'excited', 'lucky', 'content', 'gay'],
+          "happy": {subEmotions: ['content', 'in love', 'inspired', 'thankful'],
                     color: "#F7D26C"
                    },
-          "sad":  {subEmotions: ['disappointed', 'mournful', 'regretful', 'pessimistic', 'dismayed', 'disillusioned'],
+          "sad":  {subEmotions: ['depressed', 'mournful', 'regretful', 'disappointed'],
                    color: "#67829F"
                   },
-          "angry":  {subEmotions: ['upset', 'enraged', 'violent', 'annoyed', 'furious', 'snappy'],
+          "angry":  {subEmotions: ['defensive', 'disgusted', 'frustrated', 'offended'],
                      color: "#A70032"
                     },
-          "anxious":  {subEmotions: ['angsty', 'confused', 'distressed', 'nervous', 'tense', 'fearful'],
+          "anxious":  {subEmotions: ['afraid', 'worried', 'stressed', 'nervous'],
                        color: "#D25668"
                       },
-          "ashamed":  {subEmotions: ['awkward', 'shameful', 'unsettled', 'sheepish', 'shy', 'uneasy'],
+          "ashamed":  {subEmotions: ['isolated', 'pathetic', 'inferior', 'guilty'],
                            color: "#C383D7"
                           },
-          "hurt":  {subEmotions: ['ruined', 'wounded', 'damaged', 'abused', 'discomforted', 'injured'],
+          "hurt":  {subEmotions: ['abandonned', 'betrayed', 'shocked', 'victimized'],
                     color: "#EB5593"
-                   },
-          "depressed":  {subEmotions: ['downhearted', 'low', 'dispirited', 'gloomy', 'morose', 'oppressed'],
-                         color: "#1C4267"
-                        },
-          "jealous":  {subEmotions: ['bitter', 'envious', 'selfish', 'desirous', 'green', 'greedy'],
-                       color: "#BEDFA4"
-                      }
+                   }
       };
 
       this.emoLst = emotions[this.feels];

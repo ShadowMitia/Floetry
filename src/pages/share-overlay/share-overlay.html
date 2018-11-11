@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Social Sharing
+	  <button (click)="dismiss()">Close</button>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+      <ion-row>
+	  
+        <ion-col>
+          <button ion-button icon-only (click)="shareSheetShare()" color="primary" clear>
+        <ion-icon class="share-icon" name="share"></ion-icon>
+      </button>
+        </ion-col>
+		
+        <ion-col>
+          <button ion-button icon-only (click)="whatsappShare()" color="primary" clear>
+        <ion-icon class="share-icon" name="logo-whatsapp"></ion-icon>
+      </button>
+        </ion-col>
+		
+        <ion-col>
+          <button ion-button icon-only (click)="facebookShare()" color="primary" clear>
+        <ion-icon  class="share-icon" name="logo-facebook"></ion-icon>
+      </button>
+        </ion-col>
+
+	  </ion-row>
+    </ion-grid>
+</ion-content>
