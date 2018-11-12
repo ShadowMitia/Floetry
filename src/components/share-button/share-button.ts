@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the ShareButtonComponent component.
@@ -14,9 +15,8 @@ export class ShareButtonComponent {
 
   text: string;
 
-  constructor() {
+  constructor(public modalCtrl: ModalController) {
     console.log('Hello ShareButtonComponent Component');
-    this.text = 'Hello World';
   }
 
 }
