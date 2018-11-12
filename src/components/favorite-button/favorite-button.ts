@@ -19,13 +19,12 @@ export class FavoriteButtonComponent {
 
   constructor(private auth: AuthenticationProvider) {
     console.log('Hello FavoriteButtonComponent Component');
-
   }
 
   ngOnInit(){
     let favs = this.auth.getUserFavorites();
     console.log("toto", favs, this.poemId);
-    if (favs.find((val) => val == this.poemId)) this.isFavorited = true;
+    if (favs.find((val) => val == this.poemId) != undefined) this.isFavorited = true;
   }
 
 	toggle()

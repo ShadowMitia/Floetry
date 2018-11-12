@@ -33,10 +33,9 @@ export class AuthenticationProvider {
       let node = this.db.database.ref("users/"+this.user.uid);
       node.on("value", (val) => {
         let data = val.val();
-        this.userData.firstname = data.firstname ? data.firstname : "";
-        this.userData.lastname = data.lastname ? data.lastname : "";
-        this.userData.favorites = data.favorites ? data.favorites : new Array<string>();
-        console.log(data);
+        this.userData.firstname = data.firstname;
+        this.userData.lastname = data.lastname;
+        this.userData.favorites = data.favorites;
       });
     });
 
@@ -84,7 +83,6 @@ C'est merveilleux`,
 
   ngOnInit() {
 
-    console.log("ini", this.user, this.userData);
   }
 
   createAccount(info) {
@@ -127,7 +125,6 @@ C'est merveilleux`,
 
   isUserLoggedIn() {
     var user = this.afAuth.auth.currentUser;
-    console.log(user);
     if (user) {
       console.log("User logged in");
       return true;
@@ -137,20 +134,8 @@ C'est merveilleux`,
     }
   }
 
-  getUserDisplayName() {
-    return this.user.displayName;
-  }
-
-  getUserPhotoURL() {
-    return this.user.photoURL;
-  }
-
-  getUserEmail() {
-    return this.user.email;
-  }
-
-  getUserID() {
-    return this.user.uid;
+  getUser() {
+    return this.user;
   }
 
   getUserFavorites() {
@@ -169,11 +154,11 @@ C'est merveilleux`,
     if (!this.userData.favorites.find((val) => val == poemId)) {
       this.userData.favorites = [...this.userData.favorites, poemId];
     }
-    let node = this.db.database.ref("users/"+this.getUserID()+"/favorites").set(Array.from(this.userData.favorites));
+    let node = this.db.database.ref("users/"+this.user.uid+"/favorites").set(Array.from(this.userData.favorites));
   }
 
   removePoemFromFavorites(poemId: String) {
     this.userData.favorites = this.userData.favorites.filter((val) => val != poemId);
-    let node = this.db.database.ref("users/"+this.getUserID()+"/favorites").set(Array.from(this.userData.favorites));
+    let node = this.db.database.ref("users/"+this.user.uid+"/favorites").set(Array.from(this.userData.favorites));
   }
 }

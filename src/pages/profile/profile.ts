@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { PoemApiProvider } from '../../providers/poem-api/poem-api';
 
@@ -25,23 +25,14 @@ export class ProfilePage {
 
 	show: boolean = false;
 
-  userInfo: {
-    email: string,
-    displayName: string,
-    photoURL: string,
-    favorites: string[],
-    firstname: string,
-    lastname: string
-  };
-
   favoritePoems: any = [];
   state: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private poemApi : PoemApiProvider, private auth: AuthenticationProvider, private db : AngularFireDatabase, private modalCtrl: ModalController)
+  constructor(public navCtrl: NavController, public navParams: NavParams, private poemApi : PoemApiProvider, private auth: AuthenticationProvider, private modalCtrl: ModalController)
   {
 
     this.state = "info";
-
+/*
     this.userInfo = {
       displayName: this.auth.getUserDisplayName(),
       photoURL: this.auth.getUserPhotoURL(),
@@ -50,16 +41,23 @@ export class ProfilePage {
       firstname: this.auth.getUserFirstname(),
       lastname: this.auth.getUserLastname()
     };
+*/
 
-    let node = this.db.database.ref("poems/");
-    node.once("value", (value) => {
-      for (let poemKey of this.userInfo.favorites) {
-        let poem = value.val()[poemKey];
-        poem.poemId = poemKey;
-        this.favoritePoems = [...this.favoritePoems, poem];
-      }
-    });
 
+    for (let poemId of this.auth.getUserFavorites()) {
+      console.log("adding ", poemId);
+      this.poemApi.getPoemById(poemId)
+        .then((res:any) =>
+              {
+                console.log(res);
+                this.favoritePoems = [...this.favoritePoems,res.val()]
+              })
+        .catch(err => console.error(err));
+    }
+
+  }
+
+  ngOnInit() {
   }
 
   openOverlay(poem: any) {

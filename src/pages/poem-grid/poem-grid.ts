@@ -30,16 +30,10 @@ export class PoemGridPage {
     this.feels = this.navParams.get("feel");
     this.emotion = this.navParams.get("emotion");
 
-    let node = this.db.database.ref("poems");
-    node.once("value", (value) => {
-      for (let poemKey of Object.keys(value.val())) {
-        let poem = value.val()[poemKey];
-        poem.poemId = poemKey;
-        if (poem.emotion.toLowerCase() == this.feels.toLowerCase() && poem.feeling.toLowerCase() == this.emotion.toLowerCase()) {
-          this.poems = [...this.poems, poem];
-        }
-      }
-    });
+
+    this.poemApi.getPoemsByFeelings(this.emotion, this.feels)
+      .then((res) => {console.log(res); this.poems = res})
+      .catch(err => console.error(err));
 
     }
 

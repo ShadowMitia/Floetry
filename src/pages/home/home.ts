@@ -4,6 +4,7 @@ import { FeelsPage } from '../feels/feels';
 import { ProfilePage } from '../profile/profile';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
+import { PoemApiProvider } from '../../providers/poem-api/poem-api';
 
 @Component({
   selector: 'page-home',
@@ -14,7 +15,7 @@ export class HomePage {
 
   feelings;
 
-	constructor(public navCtrl: NavController, private auth: AuthenticationProvider)
+	constructor(public navCtrl: NavController, private auth: AuthenticationProvider, private poemApi: PoemApiProvider)
 	  {
       this.feelings = [
         {emotion:"happy", color:"#F7D26C"},
@@ -27,6 +28,22 @@ export class HomePage {
           {emotion:"jealous", color:"#BEDFA4"}
       ];
 	}
+
+  ngOnInit() {
+    /*
+    console.log("poem api");
+
+    this.poemApi.getPoemsByFeelings("Happy", "Content")
+      .then((val) => {
+        console.log("query", val);
+      });
+
+    this.poemApi.getPoemById("-LQsRqtkOAazmtfL7E0u")
+      .then((val) => {
+        console.log(val);
+      });
+*/
+  }
 
 	getFeels(feel, nBtn: number)
 	{

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{userInfo.displayName}}</ion-title>
+    <ion-title>{{(auth.getUser())?.displayName}}</ion-title>
     <button ion-button (click)="logout()">Logout</button>
   </ion-navbar>
 
@@ -26,16 +26,13 @@
     <ion-avatar>
 		  <img src="../assets/imgs/Jean.jpg">
     </ion-avatar>
-    <p>Username: {{userInfo.displayName}}</p>
-    <p>Email: {{userInfo.email}} </p>
-    <p>First name: {{userInfo.firstname}}</p>
-    <p>Last name: {{userInfo.lastname}}</p>
+    <p>Username: {{(auth.getUser())?.displayName}}</p>
+    <p>Email:  {{(auth.getUser())?.email}}</p>
 	</div>
 	<div *ngIf="show">
     <ion-list>
-		  <ion-list-header>Favorites</ion-list-header>
 		  <ion-item *ngFor="let item of favoritePoems" (click)="openOverlay(item)">
-		    <ion-label>{{item.title}}</ion-label>
+		    <ion-label>{{item.title | titlecase}}</ion-label>
 		  </ion-item>
     </ion-list>
 	</div>

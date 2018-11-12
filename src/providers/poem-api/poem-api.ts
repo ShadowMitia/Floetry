@@ -7,6 +7,12 @@ import { AngularFireDatabase } from '@angular/fire/database';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+
+/*
+For later:
+- pagination: https://howtofirebase.com/collection-queries-with-firebase-b95a0193745d
+ */
+
 @Injectable()
 export class PoemApiProvider {
 
@@ -14,20 +20,36 @@ export class PoemApiProvider {
     console.log('Hello PoemApiProvider Provider');
   }
 
-  getPoemsByFeeling(feels: string, emotion: string) {
-    feels = feels.toLowerCase();
+  getPoemsByFeelings(emotion: string, feelings: string) {
+    feelings = feelings.toLowerCase();
     emotion = emotion.toLowerCase();
-
-    console.log(feels, emotion);
-
-    let result = [];
+    console.log("feels", feelings, emotion);
+    let res = this.db.database.ref("poems/");
+    return new Promise((resolve, reject) => {
+      res.on("value", value => {
+        let poems = [];
+        for (let poemKey of Object.keys(value.val())) {
+          let poem = value.val()[poemKey];
+          poem.poemId = poemKey;
+          if (poem.emotion.toLowerCase() == feelings.toLowerCase()
+              && poem.feeling.toLowerCase() == emotion.toLowerCase()) {
+            console.log(poem);
+            poems = [...poems, poem];
+          }
+        }
+        if (poems == null) reject(null);
+        resolve(poems);
+      });
+    });
   }
 
-  getPoemsByAuthor(author: string) {
-    return [];
-  }
-
-  getPoemsById(id: number) {
-    return [];
+  getPoemById(id: string) {
+    let res = this.db.database.ref("poems/" + id + "/");
+    return new Promise((resolve, reject) => {
+      res.on("value", val => {
+        if (val == null) reject("No poem with this id: " + id)
+        resolve(val);
+      });
+    });
   }
 }
