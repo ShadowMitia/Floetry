@@ -1152,7 +1152,7 @@ var AuthenticationProvider = /** @class */ (function () {
         }
     };
     AuthenticationProvider.prototype.getUser = function () {
-        return this.user;
+        return this.afAuth.auth.currentUser;
     };
     AuthenticationProvider.prototype.getUserFavorites = function () {
         return this.userData.favorites;
