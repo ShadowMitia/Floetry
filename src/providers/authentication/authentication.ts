@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth }  from 'firebase/app';
 import { ToastController } from 'ionic-angular';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { subscribeOn } from 'rxjs/operator/subscribeOn';
 
 /*
   Generated class for the AuthenticationProvider provider.
@@ -20,7 +21,7 @@ export class AuthenticationProvider {
     firstname: string,
     lastname: string
   } = {
-    favorites: new Array<string>(),
+    favorites: [],
     firstname:"",
     lastname: ""
   };
@@ -29,13 +30,15 @@ export class AuthenticationProvider {
     console.log('Hello AuthenticationProvider Provider');
 
     this.afAuth.authState.subscribe(user => {
+      console.log("subscribed!");
 			this.user = user;
       let node = this.db.database.ref("users/"+this.user.uid);
       node.on("value", (val) => {
+        console.log("value", this.user.uid);
         let data = val.val();
         this.userData.firstname = data.firstname;
         this.userData.lastname = data.lastname;
-        this.userData.favorites = data.favorites;
+        this.userData.favorites = data.favorites ? data.favorites : new Array<string>();
       });
     });
 
@@ -135,11 +138,11 @@ C'est merveilleux`,
   }
 
   getUser() {
-    return this.user;
+    return this.afAuth.auth.currentUser;
   }
 
   getUserFavorites() {
-    return this.userData.favorites;
+    return this.userData.favorites ? this.userData.favorites : [];
   }
 
   getUserFirstname() {
@@ -151,14 +154,18 @@ C'est merveilleux`,
   }
 
   addPoemToFavorites(poemId: string) {
-    if (!this.userData.favorites.find((val) => val == poemId)) {
+    if (!this.userData) return;
+    if (this.userData.favorites && !this.userData.favorites.find((val) => val == poemId)) {
       this.userData.favorites = [...this.userData.favorites, poemId];
+      let node = this.db.database.ref("users/"+this.afAuth.auth.currentUser.uid+"/favorites").set(Array.from(this.userData.favorites));
     }
-    let node = this.db.database.ref("users/"+this.user.uid+"/favorites").set(Array.from(this.userData.favorites));
   }
 
   removePoemFromFavorites(poemId: String) {
+    if (!this.userData) return;
+    if (this.userData.favorites.find((val) => val != poemId)) {
     this.userData.favorites = this.userData.favorites.filter((val) => val != poemId);
-    let node = this.db.database.ref("users/"+this.user.uid+"/favorites").set(Array.from(this.userData.favorites));
+      let node = this.db.database.ref("users/"+this.afAuth.auth.currentUser.uid+"/favorites").set(Array.from(this.userData.favorites));
+    }
   }
 }

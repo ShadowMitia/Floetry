@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 import { ProfilePage } from '../../pages/profile/profile';
 import { NavController, ToastController } from 'ionic-angular';
 import { LoginPage } from '../../pages/login/login';
-
-import { Storage } from '@ionic/storage';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 import { AngularFireDatabase } from '@angular/fire/database';
 

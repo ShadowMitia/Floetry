@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FeelsPage } from '../feels/feels';
-import { ProfilePage } from '../profile/profile';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { AuthenticationProvider } from '../../providers/authentication/authentication';
-import { PoemApiProvider } from '../../providers/poem-api/poem-api';
 
 /**
 * Home page.
@@ -25,7 +21,7 @@ export class HomePage {
 
   feelings;
 
-	constructor(public navCtrl: NavController, private auth: AuthenticationProvider, private poemApi: PoemApiProvider)
+	constructor(public navCtrl: NavController)
 	  {
       this.feelings = [
         {emotion:"happy", color:"#F7D26C"},
@@ -55,7 +51,7 @@ export class HomePage {
       });
 */
   }
-	
+
 	/** Go to next page, using the clicked emotion and color as parameters */
 	getFeels(feel, nBtn: number)
 	{

@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
-import { AngularFireDatabase } from '@angular/fire/database';
 
 /**
  * FavoriteButtoncomponent.
@@ -30,9 +29,11 @@ export class FavoriteButtonComponent {
   * must indeed show up as being favorited when the page is up.
   */
   ngOnInit(){
+    if (this.auth.isUserLoggedIn()) {
     let favs = this.auth.getUserFavorites();
     console.log("toto", favs, this.poemId);
-    if (favs.find((val) => val == this.poemId)) this.isFavorited = true;
+      if (favs && favs.find((val) => val == this.poemId)) this.isFavorited = true;
+    }
   }
 
   /**
@@ -40,11 +41,13 @@ export class FavoriteButtonComponent {
   */
 	toggle()
 	{
+    if (this.auth.isUserLoggedIn()) {
     this.isFavorited = !this.isFavorited;
     if (this.isFavorited) {
       this.auth.addPoemToFavorites(this.poemId);
     } else {
       this.auth.removePoemFromFavorites(this.poemId);
+    }
     }
 	}
 

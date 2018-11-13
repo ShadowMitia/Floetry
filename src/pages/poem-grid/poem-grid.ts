@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { PoemOverlayPage } from '../poem-overlay/poem-overlay';
 import { PoemApiProvider } from '../../providers/poem-api/poem-api';
-import { AngularFireDatabase } from '@angular/fire/database';
 
 /**
  * PoemGrid page.
@@ -30,7 +29,7 @@ export class PoemGridPage {
   poems: any = []; /** List of poems tied to the emotion and advanced emotion combo */
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, private poemApi: PoemApiProvider, private db : AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, private poemApi: PoemApiProvider) {
     this.feels = this.navParams.get("feel");
     this.emotion = this.navParams.get("emotion");
 
