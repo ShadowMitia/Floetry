@@ -25,10 +25,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the ProfilePage page.
+ * Profile page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * Shows the user profile. Profile contains two views : the user info and their favorite list.
+ *
+ * @constructor
+ * @param {NavController} navCtrl - Required for navigation on the website.
+ * @param {NavParams} navParams - Parameters retrieved from last page.
+ * @param {PoemApiProvider} poemApi - Provider to manage the poem API.
+ * @param {AuthenticationProvider} auth - User's account authentication.
+ * @param {AngularFireDatabase} db - Website's database.
+ * @param {ModalController} modalCtrl - In charge of showing the modal screen.
  */
 var ProfilePage = /** @class */ (function () {
     function ProfilePage(navCtrl, navParams, poemApi, auth, modalCtrl) {
@@ -38,19 +45,17 @@ var ProfilePage = /** @class */ (function () {
         this.poemApi = poemApi;
         this.auth = auth;
         this.modalCtrl = modalCtrl;
-        this.show = false;
-        this.favoritePoems = [];
+        this.show = false; /** Used to determine the content of the profile page. False is info, true is favorites */
+        this.favoritePoems = []; /** List of favorite poems */
         this.state = "info";
-        /*
-            this.userInfo = {
-              displayName: this.auth.getUserDisplayName(),
-              photoURL: this.auth.getUserPhotoURL(),
-              email: this.auth.getUserEmail(),
-              favorites: this.auth.getUserFavorites(),
-              firstname: this.auth.getUserFirstname(),
-              lastname: this.auth.getUserLastname()
-            };
-        */
+        //    this.userInfo = {
+        //    email: string, /** Email adress of the user */
+        //    displayName: string, /** Pseudonym of the user */
+        //    photoURL: string, /** Image profile of the user */
+        //    favorites: string[], /** List of favorite poem's names */
+        //    firstname: string, /** The user's first name */
+        //    lastname: string /** The user's last name */
+        //    };
         for (var _i = 0, _a = this.auth.getUserFavorites(); _i < _a.length; _i++) {
             var poemId = _a[_i];
             console.log("adding ", poemId);
@@ -64,23 +69,33 @@ var ProfilePage = /** @class */ (function () {
     }
     ProfilePage.prototype.ngOnInit = function () {
     };
+    /** Opens a poem overlay */
     ProfilePage.prototype.openOverlay = function (poem) {
         var profileModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__poem_overlay_poem_overlay__["a" /* PoemOverlayPage */], { poem: poem });
         profileModal.present();
     };
+    /**
+    * (unused) Shows a message on the console. Used for debugging purposes.
+    */
     ProfilePage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ProfilePage');
     };
+    /**
+    * Toggles the view between favorites and profile.
+    */
     ProfilePage.prototype.toggle = function (arg) {
         this.show = this.state == "fav";
     };
+    /**
+    * Disconnects the user.
+    */
     ProfilePage.prototype.logout = function () {
         this.auth.logout();
         this.navCtrl.popToRoot();
     };
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/profile/profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{(auth.getUser())?.displayName}}</ion-title>\n    <button ion-button (click)="logout()">Logout</button>\n  </ion-navbar>\n\n   <ion-segment [(ngModel)]="state">\n    <ion-segment-button value="info" (click)="toggle(\'info\')">\n      Profile\n    </ion-segment-button>\n    <ion-segment-button value="fav" (click)="toggle(\'fav\')">\n      Favorites\n    </ion-segment-button>\n  </ion-segment>\n</ion-header>\n\n<ion-content padding>\n	<div *ngIf="!show">\n    <ion-avatar>\n		  <img src="../assets/imgs/Jean.jpg">\n    </ion-avatar>\n    <p>Username: {{(auth.getUser())?.displayName}}</p>\n    <p>Email:  {{(auth.getUser())?.email}}</p>\n	</div>\n	<div *ngIf="show">\n    <ion-list>\n		  <ion-item *ngFor="let item of favoritePoems" (click)="openOverlay(item)">\n		    <ion-label>{{item.title | titlecase}}</ion-label>\n		  </ion-item>\n    </ion-list>\n	</div>\n\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/profile/profile.html"*/,
+            selector: 'page-profile',template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/pages/profile/profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{(auth.getUser())?.displayName}}</ion-title>\n    <button ion-button (click)="logout()">Logout</button>\n  </ion-navbar>\n\n   <ion-segment [(ngModel)]="state">\n    <ion-segment-button value="info" (click)="toggle(\'info\')">\n      Profile\n    </ion-segment-button>\n    <ion-segment-button value="fav" (click)="toggle(\'fav\')">\n      Favorites\n    </ion-segment-button>\n  </ion-segment>\n</ion-header>\n\n<ion-content padding>\n	<div *ngIf="!show">\n    <ion-avatar>\n		  <img src="../assets/imgs/IMG_0214.jpg">\n    </ion-avatar>\n    <p>Username: {{(auth.getUser())?.displayName}}</p>\n    <p>Email:  {{(auth.getUser())?.email}}</p>\n	</div>\n	<div *ngIf="show">\n    <ion-list>\n		  <ion-item *ngFor="let item of favoritePoems" (click)="openOverlay(item)">\n		    <ion-label>{{item.title | titlecase}}</ion-label>\n		  </ion-item>\n    </ion-list>\n	</div>\n\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/pages/profile/profile.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_poem_api_poem_api__["a" /* PoemApiProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
     ], ProfilePage);
@@ -110,10 +125,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the PoemOverlayPage page.
+ * PoemOverlayPage page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * Page containing a poem with a favourite and a share button.
+ * Meant to be used as a modal page.
+ * @constructor
+ * @params {viewController} viewControl - controls the view for modal implementation.
+ * @params {navController} navParams - needed to navigate through the website.
  */
 var PoemOverlayPage = /** @class */ (function () {
     function PoemOverlayPage(viewCtrl, params) {
@@ -126,15 +144,21 @@ var PoemOverlayPage = /** @class */ (function () {
         this.poemId = this.poem.poemId;
         console.log("poeeeem", this.poem);
     }
+    /**
+    * (unused) Shows a message on the console. Used for debugging purposes.
+    */
     PoemOverlayPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad PoemOverlayPage');
     };
+    /**
+    * Close the modal page.
+    */
     PoemOverlayPage.prototype.dismiss = function () {
         this.viewCtrl.dismiss();
     };
     PoemOverlayPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-poem-overlay',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/poem-overlay/poem-overlay.html"*/'<!--\n  Generated template for the PoemOverlayPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>{{title | titlecase}}</ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">Close</button>\n      <favorite-button poemId="{{poem.poemId}}"></favorite-button>\n		  <share-button></share-button>\n      </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n    <p [innerHTML]="text | htmlify"></p>\n    <br><br>\n    <p>-- {{author| capitalize}}</p>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/poem-overlay/poem-overlay.html"*/,
+            selector: 'page-poem-overlay',template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/pages/poem-overlay/poem-overlay.html"*/'<!--\n  Generated template for the PoemOverlayPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>{{title | titlecase}}</ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">Close</button>\n      <favorite-button poemId="{{poem.poemId}}"></favorite-button>\n		  <share-button></share-button>\n      </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n    <p [innerHTML]="text | htmlify"></p>\n    <br><br>\n    <p>-- {{author| capitalize}}</p>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/pages/poem-overlay/poem-overlay.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], PoemOverlayPage);
@@ -354,10 +378,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the LoginPage page.
+ * Login page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * Used to log on the website.
+ *
+ * @constructor
+ * @param {NavController} navCtrl - Required for navigation on the website.
+ * @param {NavParams} navParams - Parameters retrieved from last page.
+ * @param {ToastController} toastCtrl - Allows you to use pop up notification coming
+ * from either the top or the bottom of the screen.
+ * @param {AuthenticationProvider} auth - User's account authentication.
  */
 var LoginPage = /** @class */ (function () {
     function LoginPage(navCtrl, navParams, storage, events, toastCtrl, auth) {
@@ -375,6 +405,9 @@ var LoginPage = /** @class */ (function () {
     LoginPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad LoginPage');
     };
+    /** Tries to log in, using the user's email adress and password
+    * @param {String, String} info - the user's account information, email and password respectively.
+    */
     LoginPage.prototype.tryLogin = function () {
         var _this = this;
         this.auth.signInWithEmail(this.info)
@@ -397,12 +430,13 @@ var LoginPage = /** @class */ (function () {
             }).present();
         });
     };
+    /** Goes to the signup Page */
     LoginPage.prototype.goToSignupPage = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__signup_signup__["a" /* SignupPage */]);
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/login/login.html"*/'<!--\n     Generated template for the LoginPage page.\n\n     See http://ionicframework.com/docs/components/#navigation for more info on\n     Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Login</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-item>\n    <ion-label floating>Email</ion-label>\n    <ion-input type="email" [(ngModel)]="info.email"></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label floating>Password</ion-label>\n    <ion-input type="password" [(ngModel)]="info.password"></ion-input>\n  </ion-item>\n  <button ion-button (click)="tryLogin()">Login</button><br><br><br>\n  <button ion-button (click)="goToSignupPage()">Don\'t have an account?</button>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/pages/login/login.html"*/'<!--\n     Generated template for the LoginPage page.\n\n     See http://ionicframework.com/docs/components/#navigation for more info on\n     Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Login</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-item>\n    <ion-label floating>Email</ion-label>\n    <ion-input type="email" [(ngModel)]="info.email"></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label floating>Password</ion-label>\n    <ion-input type="password" [(ngModel)]="info.password"></ion-input>\n  </ion-item>\n  <button ion-button (click)="tryLogin()">Login</button><br><br><br>\n  <button ion-button (click)="goToSignupPage()">Don\'t have an account?</button>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/pages/login/login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */], __WEBPACK_IMPORTED_MODULE_4__providers_authentication_authentication__["a" /* AuthenticationProvider */]])
     ], LoginPage);
@@ -436,10 +470,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the SignupPage page.
+ * Signup page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * @constructor
+ * @param {NavController} navCtrl - Required for navigation on the website.
+ * @param {NavParams} navParams - Parameters retrieved from last page.
+ * @param {AuthenticationProvider} auth - User's account authentication.
+ * @param {ToastController} toast - Controller for that one window that pops up from the top or the bottom.
+ * @param {FormBuilder} formBuilder - Used to build forms (duh !).
  */
 var SignupPage = /** @class */ (function () {
     function SignupPage(navCtrl, navParams, auth, toast, formBuilder) {
@@ -454,7 +492,7 @@ var SignupPage = /** @class */ (function () {
             password2: "",
             username: "",
             firstname: "",
-            lastname: ""
+            lastname: "" /** Last name. */
         };
         // https://stackoverflow.com/questions/31788681/angular2-validator-which-relies-on-multiple-form-fields/34582914#34582914
         function matchingPasswords(passwordKey, confirmPasswordKey) {
@@ -477,9 +515,13 @@ var SignupPage = /** @class */ (function () {
             username: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required]
         }, { validator: matchingPasswords('password', 'confirmPassword') });
     }
+    /**
+    * (unused) Shows a message on the console. Used for debugging purposes.
+    */
     SignupPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SignupPage');
     };
+    /** Adds the user account to the database */
     SignupPage.prototype.createAccount = function () {
         this.info = {
             email: this.signup.value["email"],
@@ -494,7 +536,7 @@ var SignupPage = /** @class */ (function () {
     };
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signup',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/signup/signup.html"*/'<!--\n     Generated template for the SignupPage page.\n\n     See http://ionicframework.com/docs/components/#navigation for more info on\n     Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Signup to Floetry !</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="signup" (ngSubmit)="createAccount()">\n      <ion-item>\n        <ion-label floating>Email (required) </ion-label>\n        <ion-input type="email" formControlName="email" clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Username (required)</ion-label>\n        <ion-input formControlName="username" type="text" clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Password (required, 6 characters min.) </ion-label>\n        <ion-input formControlName="password" type="password" min="6"  clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Confirm password (required) </ion-label>\n        <ion-input formControlName="confirmPassword" type="password" min="6" clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>First name (optional)</ion-label>\n        <ion-input formControlName="firstname" type="text"clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Last name (optional)</ion-label>\n        <ion-input formControlName="lastname" type="text" clearInput="true"></ion-input>\n      </ion-item>\n\n      <button ion-button type="submit" [disabled]="!signup.valid">Create account!</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/signup/signup.html"*/,
+            selector: 'page-signup',template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/pages/signup/signup.html"*/'<!--\n     Generated template for the SignupPage page.\n\n     See http://ionicframework.com/docs/components/#navigation for more info on\n     Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Signup to Floetry !</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="signup" (ngSubmit)="createAccount()">\n      <ion-item>\n        <ion-label floating>Email (required) </ion-label>\n        <ion-input type="email" formControlName="email" clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Username (required)</ion-label>\n        <ion-input formControlName="username" type="text" clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Password (required, 6 characters min.) </ion-label>\n        <ion-input formControlName="password" type="password" min="6"  clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Confirm password (required) </ion-label>\n        <ion-input formControlName="confirmPassword" type="password" min="6" clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>First name (optional)</ion-label>\n        <ion-input formControlName="firstname" type="text"clearInput="true"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Last name (optional)</ion-label>\n        <ion-input formControlName="lastname" type="text" clearInput="true"></ion-input>\n      </ion-item>\n\n      <button ion-button type="submit" [disabled]="!signup.valid">Create account!</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/pages/signup/signup.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]])
     ], SignupPage);
@@ -530,10 +572,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the PoemGridPage page.
+ * PoemGrid page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * That page contains all the poems related to an emotion and one of its advanced emotion state.
+ * @param {NavController} navCtrl - Required for navigation on the website.
+ * @param {NavParams} navParams - Parameters retrieved from last page.
+ * @param {ModalController} modalCtrl - In charge of showing the modal screen (related to poem-overlay).
+ * @param {PoemApiProvider} poemApi - Provider to manage the poem API.
+ * @param {AngularFireDatabase} db - Website's database.
  */
 var PoemGridPage = /** @class */ (function () {
     function PoemGridPage(navCtrl, navParams, modalCtrl, poemApi, db) {
@@ -543,23 +589,25 @@ var PoemGridPage = /** @class */ (function () {
         this.modalCtrl = modalCtrl;
         this.poemApi = poemApi;
         this.db = db;
-        this.poems = [];
+        this.poems = []; /** List of poems tied to the emotion and advanced emotion combo */
         this.feels = this.navParams.get("feel");
         this.emotion = this.navParams.get("emotion");
         this.poemApi.getPoemsByFeelings(this.emotion, this.feels)
             .then(function (res) { console.log(res); _this.poems = res; })
             .catch(function (err) { return console.error(err); });
     }
+    /** Opens the poem-overlay modal */
     PoemGridPage.prototype.openOverlay = function (poem) {
         var profileModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__poem_overlay_poem_overlay__["a" /* PoemOverlayPage */], { poem: poem });
         profileModal.present();
     };
+    /** Test function to check if the page loaded correctly */
     PoemGridPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad PoemGridPage');
     };
     PoemGridPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-poem-grid',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/poem-grid/poem-grid.html"*/'<!--\n  Generated template for the PoemGridPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <menu-bar></menu-bar>\n\n  <div>\n    <color-button insideText="{{feels}}"></color-button>\n    <color-button insideText="{{emotion}}" size="25"></color-button>\n  </div>\n</ion-header>\n\n<ion-content padding>\n\n    <ion-grid>\n        <ion-row>\n           <ion-col *ngFor="let p of poems;" (click)="openOverlay(p)" col-auto>\n               <h1>{{p.title | titlecase}} by {{p.author | capitalize }}</h1>\n               <p [innerHTML]="p.text | slice:0:200 | htmlify">... (More)</p>\n               </ion-col>\n        </ion-row>\n    </ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/poem-grid/poem-grid.html"*/,
+            selector: 'page-poem-grid',template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/pages/poem-grid/poem-grid.html"*/'<!--\n  Generated template for the PoemGridPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <menu-bar></menu-bar>\n\n  <div>\n    <color-button insideText="{{feels}}"></color-button>\n    <color-button insideText="{{emotion}}" size="25"></color-button>\n  </div>\n</ion-header>\n\n<ion-content padding>\n\n    <ion-grid>\n        <ion-row>\n           <ion-col *ngFor="let p of poems;" (click)="openOverlay(p)" col-auto>\n               <h1>{{p.title | titlecase}} by {{p.author | capitalize }}</h1>\n               <p [innerHTML]="p.text | slice:0:200 | htmlify">... (More)</p>\n               </ion-col>\n        </ion-row>\n    </ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/pages/poem-grid/poem-grid.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */], __WEBPACK_IMPORTED_MODULE_3__providers_poem_api_poem_api__["a" /* PoemApiProvider */], __WEBPACK_IMPORTED_MODULE_4__angular_fire_database__["a" /* AngularFireDatabase */]])
     ], PoemGridPage);
@@ -709,6 +757,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+/**
+* Feels page
+*
+* Contain all the advanced emotions from the base emotion selected in the home page.
+* Leads to the poems page.
+*
+* @constructor
+* @param {NavController} navCtrl - Required for navigation on the website.
+* @param {NavParams} navParams - Parameters retrieved from last page.
+*/
 var FeelsPage = /** @class */ (function () {
     function FeelsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
@@ -719,43 +777,45 @@ var FeelsPage = /** @class */ (function () {
         this.feels = this.feels.trim();
         console.log("Got emotion: ", this.feels);
         var emotions = {
-            "happy": { subEmotions: ['glad', 'peppy', 'excited', 'lucky', 'content', 'gay'],
+            "happy": { subEmotions: ['content', 'in love', 'inspired', 'thankful'],
                 color: "#F7D26C"
             },
-            "sad": { subEmotions: ['disappointed', 'mournful', 'regretful', 'pessimistic', 'dismayed', 'disillusioned'],
+            "sad": { subEmotions: ['depressed', 'mournful', 'regretful', 'disappointed'],
                 color: "#67829F"
             },
-            "angry": { subEmotions: ['upset', 'enraged', 'violent', 'annoyed', 'furious', 'snappy'],
+            "angry": { subEmotions: ['defensive', 'disgusted', 'frustrated', 'offended'],
                 color: "#A70032"
             },
-            "anxious": { subEmotions: ['angsty', 'confused', 'distressed', 'nervous', 'tense', 'fearful'],
+            "anxious": { subEmotions: ['afraid', 'worried', 'stressed', 'nervous'],
                 color: "#D25668"
             },
-            "ashamed": { subEmotions: ['awkward', 'shameful', 'unsettled', 'sheepish', 'shy', 'uneasy'],
+            "ashamed": { subEmotions: ['isolated', 'pathetic', 'inferior', 'guilty'],
                 color: "#C383D7"
             },
-            "hurt": { subEmotions: ['ruined', 'wounded', 'damaged', 'abused', 'discomforted', 'injured'],
+            "hurt": { subEmotions: ['abandonned', 'betrayed', 'shocked', 'victimized'],
                 color: "#EB5593"
-            },
-            "depressed": { subEmotions: ['downhearted', 'low', 'dispirited', 'gloomy', 'morose', 'oppressed'],
-                color: "#1C4267"
-            },
-            "jealous": { subEmotions: ['bitter', 'envious', 'selfish', 'desirous', 'green', 'greedy'],
-                color: "#BEDFA4"
             }
+            //"depressed":  {subEmotions: ['downhearted', 'low', 'dispirited', 'gloomy', 'morose', 'oppressed'],
+            //color: "#1C4267"
+            //},
+            //"jealous":  {subEmotions: ['bitter', 'envious', 'selfish', 'desirous', 'green', 'greedy'],
+            // color: "#BEDFA4"
+            //}
         };
         this.emoLst = emotions[this.feels];
         console.log("Sub emotion list: ", this.emoLst);
     }
+    /** Opens the next page */
     FeelsPage.prototype.openPage = function (emotion) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__poem_grid_poem_grid__["a" /* PoemGridPage */], { feel: this.feels, emotion: emotion });
     };
+    /** Test function to check if the page loaded correctly */
     FeelsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad FeelsPage');
     };
     FeelsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-feels',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/feels/feels.html"*/'<ion-header>\n  <menu-bar></menu-bar>\n</ion-header>\n\n\n<ion-content padding>\n	  <div text-center>\n        <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">\n            <circle [style.fill]="feelsColor" cx="50%" cy="50%" r="50%" />\n        </svg>\n		<p>Tell us more details...</p>\n\n			<ion-grid>\n			<ion-row>\n				  <ion-col width-50 *ngFor="let emo of emoLst.subEmotions" (click)="openPage(emo)">\n              <color-button text="{{emo}}" fillColor="{{emoLst.color}}"></color-button>\n          </ion-col>\n			</ion-row>\n		</ion-grid>\n	</div>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/feels/feels.html"*/,
+            selector: 'page-feels',template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/pages/feels/feels.html"*/'<ion-header>\n  <menu-bar></menu-bar>\n</ion-header>\n\n\n<ion-content padding>\n	  <div text-center>\n        <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">\n            <circle [style.fill]="feelsColor" cx="50%" cy="50%" r="50%" />\n        </svg>\n		<p>Tell us more details...</p>\n\n			<ion-grid>\n			<ion-row>\n				  <ion-col width-50 *ngFor="let emo of emoLst.subEmotions" (click)="openPage(emo)">\n              <color-button text="{{emo}}" fillColor="{{emoLst.color}}"></color-button>\n          </ion-col>\n			</ion-row>\n		</ion-grid>\n	</div>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/pages/feels/feels.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], FeelsPage);
@@ -790,6 +850,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+/**
+* Home page.
+*
+* The home page, containing the primary emotions.
+*
+* @constructor
+* @param {NavController} navCtrl - Required for navigation on the website.
+* @param {NavParams} navParams - Parameters retrieved from last page.
+*/
 var HomePage = /** @class */ (function () {
     function HomePage(navCtrl, auth, poemApi) {
         this.navCtrl = navCtrl;
@@ -802,10 +871,9 @@ var HomePage = /** @class */ (function () {
             { emotion: "anxious", color: "#D25668" },
             { emotion: "ashamed", color: "#C383D7" },
             { emotion: "hurt", color: "#EB5593" },
-            { emotion: "depressed", color: "#1C4267" },
-            { emotion: "jealous", color: "#BEDFA4" }
         ];
     }
+    /** Action made when the page is generated */
     HomePage.prototype.ngOnInit = function () {
         /*
         console.log("poem api");
@@ -821,12 +889,13 @@ var HomePage = /** @class */ (function () {
           });
     */
     };
+    /** Go to next page, using the clicked emotion and color as parameters */
     HomePage.prototype.getFeels = function (feel, nBtn) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__feels_feels__["a" /* FeelsPage */], { feel: feel.emotion, color: feel.color });
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/pages/home/home.html"*/'<ion-header>\n  <menu-bar></menu-bar>\n</ion-header>\n\n<ion-content padding>\n	<div text-center>\n    <p>How are you feeling today ?</p>\n\n		<ion-grid>\n			<ion-row>\n				  <ion-col col-auto col-sm *ngFor="let feel of feelings">\n            <color-button (click)="getFeels(feel)"  fillColor="{{feel.color}}" text="{{feel.emotion}}">{{feel.emotion}}</color-button>\n          </ion-col>\n			</ion-row>\n		</ion-grid>\n	</div>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/pages/home/home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/pages/home/home.html"*/'<ion-header>\n  <menu-bar></menu-bar>\n</ion-header>\n\n<ion-content padding>\n	<div text-center>\n    <p>How are you feeling today ?</p>\n\n		<ion-grid>\n			<ion-row>\n				  <ion-col col-auto col-sm *ngFor="let feel of feelings">\n            <color-button (click)="getFeels(feel)"  fillColor="{{feel.color}}" text="{{feel.emotion}}">{{feel.emotion}}</color-button>\n          </ion-col>\n			</ion-row>\n		</ion-grid>\n	</div>\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/pages/home/home.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_poem_api_poem_api__["a" /* PoemApiProvider */]])
     ], HomePage);
@@ -1260,15 +1329,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 /**
- * Generated class for the ColorButtonComponent component.
+ * ColorButton Component
  *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
+ * Creates a colored, circular button.
  */
 var ColorButtonComponent = /** @class */ (function () {
     function ColorButtonComponent() {
-        this.fillColor = "red";
-        this.size = 50;
+        this.fillColor = "red"; /** Color of the button. */
+        this.size = 50; /** Size of the button. */
         console.log('Hello ColorButtonComponent Component');
     }
     __decorate([
@@ -1289,7 +1357,7 @@ var ColorButtonComponent = /** @class */ (function () {
     ], ColorButtonComponent.prototype, "size", void 0);
     ColorButtonComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'color-button',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/components/color-button/color-button.html"*/'<!-- Generated template for the ColorButtonComponent component -->\n<div>\n  <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">\n    <circle [attr.cx]="size" [attr.cy]="size" [attr.r]="size" [attr.fill]="fillColor" />\n      <text [attr.x]="(size)" [attr.y]="(size)" text-anchor="middle" fill="white">{{insideText | capitalize}}</text>\n    </svg>\n<p>{{text | capitalize}}</p>\n</div>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/components/color-button/color-button.html"*/
+            selector: 'color-button',template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/components/color-button/color-button.html"*/'<!-- Generated template for the ColorButtonComponent component -->\n<div>\n  <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">\n    <circle [attr.cx]="size" [attr.cy]="size" [attr.r]="size" [attr.fill]="fillColor" />\n      <text [attr.x]="(size)" [attr.y]="(size)" text-anchor="middle" fill="white">{{insideText | capitalize}}</text>\n    </svg>\n<p>{{text | capitalize}}</p>\n</div>\n'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/components/color-button/color-button.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], ColorButtonComponent);
@@ -1327,10 +1395,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the MenuBarComponent component.
+ * MenuBar component.
  *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
+ * A menu bar with three options : Home, Discover and Profile.
+ *
+ * @constructor
+ * @param {NavController} navCtrl - Enables navigation in the website.
+ * @param {ToastController} toastCtrl - Allows you to use pop up notification coming
+ * from either the top or the bottom of the screen.
+ * @param {AuthenticationProvider} auth - User's account authentication.
+ * @param {AngularFireDatabase} db - Website's database.
  */
 var MenuBarComponent = /** @class */ (function () {
     function MenuBarComponent(navCtrl, toastCtrl, auth, db) {
@@ -1339,21 +1413,25 @@ var MenuBarComponent = /** @class */ (function () {
         this.toastCtrl = toastCtrl;
         this.auth = auth;
         this.db = db;
-        this.showProfilePic = false;
+        this.showProfilePic = false; /** Selects if the profile pic is showing or not. */
         console.log('Hello MenuBarComponent Component');
         var node = this.db.database.ref("poems/");
         setTimeout(function () { return _this.checkLoggedIn(); }, 1000);
     }
+    /** Executes itself when the page containing the component inits itself.*/
     MenuBarComponent.prototype.ngOnInit = function () {
         this.checkLoggedIn();
     };
+    /** Checks if the user is logged in. */
     MenuBarComponent.prototype.checkLoggedIn = function () {
         this.showProfilePic = this.auth.isUserLoggedIn();
     };
+    /** Move to home page */
     MenuBarComponent.prototype.goToHome = function () {
         this.checkLoggedIn();
         this.navCtrl.popToRoot();
     };
+    /** Move to profile page */
     MenuBarComponent.prototype.goToProfile = function () {
         if (this.auth.isUserLoggedIn()) {
             this.checkLoggedIn();
@@ -1363,6 +1441,7 @@ var MenuBarComponent = /** @class */ (function () {
             this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_login_login__["a" /* LoginPage */]);
         }
     };
+    /** Springs the discover toast */
     MenuBarComponent.prototype.goToDiscover = function () {
         this.checkLoggedIn();
         var toast = this.toastCtrl.create({
@@ -1372,7 +1451,7 @@ var MenuBarComponent = /** @class */ (function () {
     };
     MenuBarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'menu-bar',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/components/menu-bar/menu-bar.html"*/'<!-- Generated template for the MenuBarComponent component -->\n<ion-navbar>\n  <ion-title>\n    <ion-title>\n      <ion-row>\n      <h1 ion-col col-10>Floetry</h1>\n        <ion-buttons ion-col col-auto>\n          <button ion-button (click)="goToHome()">Home</button>\n          <button ion-button (click)="goToDiscover()">Discovery</button>\n          <button ion-button (click)="goToProfile()">Profile</button>\n          <ion-avatar *ngIf="showProfilePic" ion-button><img src="../assets/imgs/Jean.jpg"></ion-avatar>\n        </ion-buttons>\n      </ion-row>\n    </ion-title>\n  </ion-title>\n</ion-navbar>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/components/menu-bar/menu-bar.html"*/
+            selector: 'menu-bar',template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/components/menu-bar/menu-bar.html"*/'<!-- Generated template for the MenuBarComponent component -->\n<ion-navbar>\n  <ion-title>\n    <ion-title>\n      <ion-row>\n      <h1 ion-col col-10>Floetry</h1>\n        <ion-buttons ion-col col-auto>\n          <button ion-button (click)="goToHome()">Home</button>\n          <button ion-button (click)="goToDiscover()">Discovery</button>\n          <button ion-button (click)="goToProfile()">Profile</button>\n          <ion-avatar *ngIf="showProfilePic" ion-button><img src="../assets/imgs/Jean.jpg"></ion-avatar>\n        </ion-buttons>\n      </ion-row>\n    </ion-title>\n  </ion-title>\n</ion-navbar>\n'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/components/menu-bar/menu-bar.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* ToastController */], __WEBPACK_IMPORTED_MODULE_4__providers_authentication_authentication__["a" /* AuthenticationProvider */], __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */]])
     ], MenuBarComponent);
@@ -1402,24 +1481,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the FavoriteButtonComponent component.
+ * FavoriteButtoncomponent.
  *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
+ * A star shaped button used to select a poem as a favorite.
+ * @constructor
+ * @param {AuthenticationProvider} auth - User's account authentication.
  */
 var FavoriteButtonComponent = /** @class */ (function () {
     function FavoriteButtonComponent(auth) {
         this.auth = auth;
-        this.isFavorited = false;
+        this.isFavorited = false; /** False = non favorited, True = favorited. Base state is false. */
         console.log('Hello FavoriteButtonComponent Component');
     }
+    /**
+    * Checks if a poem has already been favorited. Used when the poem page is generated
+    * to retrieve the status of the poem. A poem that has been favorited by the user
+    * must indeed show up as being favorited when the page is up.
+    */
     FavoriteButtonComponent.prototype.ngOnInit = function () {
         var _this = this;
         var favs = this.auth.getUserFavorites();
         console.log("toto", favs, this.poemId);
-        if (favs.find(function (val) { return val == _this.poemId; }) != undefined)
+        if (favs.find(function (val) { return val == _this.poemId; }))
             this.isFavorited = true;
     };
+    /**
+    * Toggles the favorited status. Add or remove the poem from the user's favorites.
+    */
     FavoriteButtonComponent.prototype.toggle = function () {
         this.isFavorited = !this.isFavorited;
         if (this.isFavorited) {
@@ -1435,7 +1523,7 @@ var FavoriteButtonComponent = /** @class */ (function () {
     ], FavoriteButtonComponent.prototype, "poemId", void 0);
     FavoriteButtonComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'favorite-button',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/components/favorite-button/favorite-button.html"*/'<!-- Generated template for the FavoriteButtonComponent component -->\n<div *ngIf="!isFavorited">\n	<svg xmlns="http://www.w3.org/2000/svg" height="25" width="23" (click)="toggle()">\n    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>\n	</svg>\n</div>\n<div *ngIf="isFavorited">\n	<svg xmlns="http://www.w3.org/2000/svg" height="25" width="23" (click)="toggle()">\n    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;" fill="#FDE025"/>\n	</svg>\n</div>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/components/favorite-button/favorite-button.html"*/
+            selector: 'favorite-button',template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/components/favorite-button/favorite-button.html"*/'<!-- Generated template for the FavoriteButtonComponent component -->\n<div *ngIf="!isFavorited">\n	<svg xmlns="http://www.w3.org/2000/svg" height="25" width="23" (click)="toggle()">\n    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>\n	</svg>\n</div>\n<div *ngIf="isFavorited">\n	<svg xmlns="http://www.w3.org/2000/svg" height="25" width="23" (click)="toggle()">\n    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;" fill="#FDE025"/>\n	</svg>\n</div>\n'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/components/favorite-button/favorite-button.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_authentication_authentication__["a" /* AuthenticationProvider */]])
     ], FavoriteButtonComponent);
@@ -1465,10 +1553,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the ShareButtonComponent component.
+ * ShareButton Component
  *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
+ * Creates a button with the purpose of sharing the poem on the internet.
+ *
+ * @constructor
+ * @param {string} text - Text contained inside the button.
  */
 var ShareButtonComponent = /** @class */ (function () {
     function ShareButtonComponent(modalCtrl) {
@@ -1477,7 +1567,7 @@ var ShareButtonComponent = /** @class */ (function () {
     }
     ShareButtonComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'share-button',template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/components/share-button/share-button.html"*/'<div>\n  <svg xmlns="http://www.w3.org/2000/svg" height="25" width="50">\n    <rect x="0" y="0" width="50" height="25" fill="white" stroke="black"/>\n	<text x="25" y="16" font-size="12" text-anchor="middle" fill="black">Share</text>\n    </svg>\n</div>'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/components/share-button/share-button.html"*/
+            selector: 'share-button',template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/components/share-button/share-button.html"*/'<div>\n  <svg xmlns="http://www.w3.org/2000/svg" height="25" width="50">\n    <rect x="0" y="0" width="50" height="25" fill="white" stroke="black"/>\n	<text x="25" y="16" font-size="12" text-anchor="middle" fill="black">Share</text>\n    </svg>\n</div>'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/components/share-button/share-button.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
     ], ShareButtonComponent);
@@ -1577,7 +1667,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/dimitri/Documents/PoemApp/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/dimitri/Documents/PoemApp/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
