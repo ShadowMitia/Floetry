@@ -3,10 +3,12 @@ import { ModalController, NavParams } from 'ionic-angular';
 import { ShareOverlayPage } from '../../pages/share-overlay/share-overlay';
 
 /**
- * Generated class for the ShareButtonComponent component.
+ * ShareButton Component
  *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
+ * Creates a button with the purpose of sharing the poem on the internet.
+ *
+ * @constructor
+ * @param {string} text - Text contained inside the button.
  */
 @Component({
   selector: 'share-button',
@@ -20,6 +22,8 @@ export class ShareButtonComponent {
     console.log('Hello ShareButtonComponent Component');
   }
 
+/** Opens the modal window related to the share button.
+*/
   openModal()
   {
 	  let myModal = this.modalCtrl.create(ShareOverlayPage);
