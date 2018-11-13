@@ -24,8 +24,8 @@ export class HomePage {
           {emotion:"anxious", color:"#D25668"},
           {emotion:"ashamed", color:"#C383D7"},
           {emotion:"hurt", color:"#EB5593"},
-          {emotion:"depressed", color:"#1C4267"},
-          {emotion:"jealous", color:"#BEDFA4"}
+        //  {emotion:"depressed", color:"#1C4267"},
+          //{emotion:"jealous", color:"#BEDFA4"}
       ];
 	}
 
