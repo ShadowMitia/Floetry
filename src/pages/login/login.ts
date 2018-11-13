@@ -7,12 +7,17 @@ import { ProfilePage } from '../../pages/profile/profile';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 import { SignupPage } from '../signup/signup';
 
-
 /**
- * Generated class for the LoginPage page.
+ * Login page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * Used to log on the website.
+ * 
+ * @constructor
+ * @param {NavController} navCtrl - Required for navigation on the website.
+ * @param {NavParams} navParams - Parameters retrieved from last page.
+ * @param {ToastController} toastCtrl - Allows you to use pop up notification coming
+ * from either the top or the bottom of the screen.
+ * @param {AuthenticationProvider} auth - User's account authentication.
  */
 
 @IonicPage()
@@ -36,6 +41,9 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  /** Tries to log in, using the user's email adress and password 
+  * @param {String, String} info - the user's account information, email and password respectively.
+  */
   tryLogin() {
     this.auth.signInWithEmail(this.info)
       .then((value)=>{
@@ -59,6 +67,7 @@ export class LoginPage {
 
   }
 
+  /** Goes to the signup Page */
   goToSignupPage() {
     this.navCtrl.push(SignupPage);
   }

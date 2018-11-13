@@ -2,16 +2,20 @@ import { Component } from '@angular/core';
 import { NavParams, ViewController } from 'ionic-angular';
 
 /**
- * Generated class for the PoemOverlayPage page.
+ * PoemOverlayPage page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * Page containing a poem with a favourite and a share button.
+ * Meant to be used as a modal page.
+ * @constructor
+ * @params {viewController} viewControl - controls the view for modal implementation.
+ * @params {navController} navParams - needed to navigate through the website.
  */
-
+ 
 @Component({
   selector: 'page-poem-overlay',
   templateUrl: 'poem-overlay.html',
 })
+
 export class PoemOverlayPage {
   text: string;
   author: string;
@@ -28,11 +32,17 @@ export class PoemOverlayPage {
     console.log("poeeeem", this.poem);
   }
 
+  /**
+  * (unused) Shows a message on the console. Used for debugging purposes.
+  */
   ionViewDidLoad() {
     console.log('ionViewDidLoad PoemOverlayPage');
   }
 
-    dismiss() {
+  /**
+  * Close the modal page.
+  */
+	dismiss() {
         this.viewCtrl.dismiss();
     }
 }
