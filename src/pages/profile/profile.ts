@@ -81,11 +81,17 @@ export class ProfilePage {
 
   }
 
+  /**
+  * Toggles the view between favorites and profile.
+  */
 	toggle(arg)
 	{
     this.show = this.state == "fav";
 	}
 
+	/**
+	* Disconnects the user.
+	*/
   logout() {
     this.auth.logout();
     this.navCtrl.popToRoot()

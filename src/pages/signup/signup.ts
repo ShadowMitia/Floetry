@@ -4,10 +4,14 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
 /**
- * Generated class for the SignupPage page.
+ * Signup page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * @constructor
+ * @param {NavController} navCtrl - Required for navigation on the website.
+ * @param {NavParams} navParams - Parameters retrieved from last page.
+ * @param {AuthenticationProvider} auth - User's account authentication.
+ * @param {ToastController} toast - Controller for that one window that pops up from the top or the bottom.
+ * @param {FormBuilder} formBuilder - Used to build forms (duh !).
  */
 
 @IonicPage()
@@ -18,12 +22,12 @@ import { AuthenticationProvider } from '../../providers/authentication/authentic
 export class SignupPage {
 
   info = {
-    email: "",
-    password: "",
-    password2: "",
-    username: "",
-    firstname: "",
-    lastname: ""
+    email: "", /** Email of the user. */
+    password: "", /** Password */
+    password2: "", /** Password confirmation */
+    username: "", /** Name of the user on the website */
+    firstname: "", /** First name */
+    lastname: "" /** Last name. */
 
   };
 
@@ -56,10 +60,14 @@ export class SignupPage {
 
   }
 
+  /**
+  * (unused) Shows a message on the console. Used for debugging purposes.
+  */
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
   }
 
+  /** Adds the user account to the database */
   createAccount() {
       this.info = {
         email: this.signup.value["email"],
