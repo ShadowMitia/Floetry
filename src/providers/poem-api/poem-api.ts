@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 
-/*
-  Generated class for the PoemApiProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+/**
+ * PoemApi provider.
+ *
+ * Provider used to get the poems from the database.
+ * @constructor
+ * @param {AngularFireDatabase} db : the website's database.
+ */
 
 /*
 For later:
@@ -20,6 +21,10 @@ export class PoemApiProvider {
     console.log('Hello PoemApiProvider Provider');
   }
 
+  /** Fetch all the poems related to an emotion and one of its advanced states 
+  * @param {String} emotion - the primary emotion.
+  * @param {String} feelings - the advanced state.
+  */
   getPoemsByFeelings(emotion: string, feelings: string) {
     feelings = feelings.toLowerCase();
     emotion = emotion.toLowerCase();
@@ -43,6 +48,9 @@ export class PoemApiProvider {
     });
   }
 
+  /** Fetch a poem based on its ID
+  * @param {String} id - ID of the poem.
+  */
   getPoemById(id: string) {
     let res = this.db.database.ref("poems/" + id + "/");
     return new Promise((resolve, reject) => {

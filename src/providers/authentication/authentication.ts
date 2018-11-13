@@ -6,20 +6,24 @@ import { ToastController } from 'ionic-angular';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { subscribeOn } from 'rxjs/operator/subscribeOn';
 
-/*
-  Generated class for the AuthenticationProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+/**
+ * Authentication provider.
+ *
+ * Provider used to get the users from the database.
+ * 
+ * @constructor
+ * @param {AngularFireAuth} afAuth - User account.
+ * @param {ToastController} toastCtrl - Sets up toast window.
+ * @param {AngularFireDatabase} db : the website's database.
+ */
 @Injectable()
 export class AuthenticationProvider {
 
-  private user: firebase.User;
+  private user: firebase.User; /** A user from the database */
   private userData: {
-    favorites: Array<string>,
-    firstname: string,
-    lastname: string
+    favorites: Array<string>, /** List of favorites */
+    firstname: string, /** First name */
+    lastname: string /** Last name */
   } = {
     favorites: [],
     firstname:"",
@@ -88,6 +92,7 @@ C'est merveilleux`,
 
   }
 
+  /** Create a user account by using user info as a parameter */
   createAccount(info) {
     this.afAuth.auth.createUserWithEmailAndPassword(info.email, info.password)
       .then((value) => {
@@ -114,18 +119,21 @@ C'est merveilleux`,
   });
   }
 
+  /** Signs the user in through their credentials */
   signInWithEmail(credentials) {
 		console.log('Sign in with email', credentials);
 		return this.afAuth.auth.signInWithEmailAndPassword(credentials.email,
 			                                                 credentials.password);
   }
 
+  /** Logs the user out */
   logout() {
     this.afAuth.auth.signOut()
       .then((value) => this.toastCtrl.create({message: "Succesffully logged out!", duration: 2000}).present() )
       .catch((value) => console.error(value));
   }
 
+  /** Checks if the user is logged in */
   isUserLoggedIn() {
     var user = this.afAuth.auth.currentUser;
     if (user) {
@@ -153,6 +161,9 @@ C'est merveilleux`,
     return this.userData.lastname;
   }
 
+  /** Adds a poem to the user's favorites 
+  * * @param poemId - the ID of a poem
+  */
   addPoemToFavorites(poemId: string) {
     if (!this.userData) return;
     if (this.userData.favorites && !this.userData.favorites.find((val) => val == poemId)) {
@@ -161,6 +172,9 @@ C'est merveilleux`,
     }
   }
 
+  /** Removes a poem from the user's favorites
+  * @param poemId - the ID of a poem
+  */
   removePoemFromFavorites(poemId: String) {
     if (!this.userData) return;
     if (this.userData.favorites.find((val) => val != poemId)) {
