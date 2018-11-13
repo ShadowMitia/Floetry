@@ -1,24 +1,25 @@
 import { Component, Input} from '@angular/core';
 
 /**
- * Generated class for the ColorButtonComponent component.
+ * ColorButton Component
  *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
+ * Creates a colored, circular button.
  */
+ 
 @Component({
   selector: 'color-button',
   templateUrl: 'color-button.html'
 })
 export class ColorButtonComponent {
 
-  @Input() text: string;
-  @Input() insideText: string;
-  @Input() fillColor: string = "red";
-  @Input() size: number = 50;
+  @Input() text: string;  /** Text contained below the button. */
+  @Input() insideText: string; /** Text contained inside the color circle. */
+  @Input() fillColor: string = "red"; /** Color of the button. */
+  @Input() size: number = 50; /** Size of the button. */
 
   constructor() {
     console.log('Hello ColorButtonComponent Component');
   }
 
 }
+
