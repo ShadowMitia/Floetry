@@ -10,10 +10,17 @@ import { PoemOverlayPage } from '../poem-overlay/poem-overlay';
 
 
 /**
- * Generated class for the ProfilePage page.
+ * Profile page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * Shows the user profile. Profile contains two views : the user info and their favorite list.
+ *
+ * @constructor
+ * @param {NavController} navCtrl - Required for navigation on the website.
+ * @param {NavParams} navParams - Parameters retrieved from last page.
+ * @param {PoemApiProvider} poemApi - Provider to manage the poem API.
+ * @param {AuthenticationProvider} auth - User's account authentication.
+ * @param {AngularFireDatabase} db - Website's database.
+ * @param {ModalController} modalCtrl - In charge of showing the modal screen.
  */
 
 @IonicPage()
@@ -23,19 +30,19 @@ import { PoemOverlayPage } from '../poem-overlay/poem-overlay';
 })
 export class ProfilePage {
 
-	show: boolean = false;
+	show: boolean = false; /** Used to determine the content of the profile page. False is info, true is favorites */
 
-  userInfo: {
-    email: string,
-    displayName: string,
-    photoURL: string,
-    favorites: string[],
-    firstname: string,
-    lastname: string
+  userInfo: { /** Explicit... */
+    email: string, /** Email adress of the user */
+    displayName: string, /** Pseudonym of the user */
+    photoURL: string, /** Image profile of the user */
+    favorites: string[], /** List of favorite poem's names */
+    firstname: string, /** The user's first name */
+    lastname: string /** The user's last name */
   };
 
-  favoritePoems: any = [];
-  state: string;
+  favoritePoems: any = []; /** List of favorite poems */
+  state: string; /** What the page is currently showing */
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private poemApi : PoemApiProvider, private auth: AuthenticationProvider, private db : AngularFireDatabase, private modalCtrl: ModalController)
   {
@@ -53,7 +60,7 @@ export class ProfilePage {
 
     let node = this.db.database.ref("poems/");
     node.once("value", (value) => {
-      for (let poemKey of this.userInfo.favorites) {
+      for (let poemKey of this.userInfo.favorites) { /** Gathers all the favorited poems */
         let poem = value.val()[poemKey];
         poem.poemId = poemKey;
         this.favoritePoems = [...this.favoritePoems, poem];
@@ -62,11 +69,15 @@ export class ProfilePage {
 
   }
 
+  /** Opens a poem overlay */
   openOverlay(poem: any) {
     let profileModal = this.modalCtrl.create(PoemOverlayPage, { poem: poem });
     profileModal.present();
   }
 
+  /**
+  * (unused) Shows a message on the console. Used for debugging purposes.
+  */
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
 

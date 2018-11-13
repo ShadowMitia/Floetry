@@ -2,6 +2,17 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PoemGridPage } from '../poem-grid/poem-grid';
 
+/**
+* Feels page
+*
+* Contain all the advanced emotions from the base emotion selected in the home page.
+* Leads to the poems page.
+*
+* @constructor
+* @param {NavController} navCtrl - Required for navigation on the website.
+* @param {NavParams} navParams - Parameters retrieved from last page.
+*/
+
 @IonicPage()
 @Component({
   selector: 'page-feels',
@@ -9,9 +20,9 @@ import { PoemGridPage } from '../poem-grid/poem-grid';
 })
 export class FeelsPage {
 
-	feels: string;
-	  emoLst: Array<any>;
-    feelsColor:string;
+	feels: string; /** Primary emotion recieved from the home page */
+	  emoLst: Array<any>; /** List of advanced emotions */
+    feelsColor:string; /** Color related to the primary emotion recieved from the home page */
 	constructor(public navCtrl: NavController, public navParams: NavParams)
 	{
 		this.feels = this.navParams.get('feel');
@@ -49,10 +60,12 @@ export class FeelsPage {
 
 	}
 
+	/** Opens the next page */
     openPage(emotion:string) {
         this.navCtrl.push(PoemGridPage, {feel: this.feels, emotion: emotion});
     }
 
+	/** Test function to check if the page loaded correctly */
 	ionViewDidLoad()
 	{
 		console.log('ionViewDidLoad FeelsPage');

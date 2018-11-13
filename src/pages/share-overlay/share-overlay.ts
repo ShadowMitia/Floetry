@@ -3,10 +3,15 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { SocialSharing } from '@ionic-native/social-sharing';
 
 /**
- * Generated class for the ShareOverlayPage page.
+ * ShareOverlay page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * A page made to be used as a modal for the share button component.
+ * Displays several buttons that can be used to share the poems on the internet.
+ * Currently unused.
+ *
+ * @constructor
+ * @param {NavController} navCtrl - Required for navigation on the website.
+ * @param {NavParams} navParams - Parameters retrieved from last page.
  */
 
 @IonicPage()

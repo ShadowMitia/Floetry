@@ -5,6 +5,16 @@ import { ProfilePage } from '../profile/profile';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
+/**
+* Home page.
+*
+* The home page, containing the primary emotions.
+*
+* @constructor
+* @param {NavController} navCtrl - Required for navigation on the website.
+* @param {NavParams} navParams - Parameters retrieved from last page.
+*/
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -26,6 +36,7 @@ export class HomePage {
       ];
 	}
 
+	/** Go to next page, using the clicked emotion and color as parameters */
 	getFeels(feel, nBtn: number)
 	{
 		this.navCtrl.push(FeelsPage, {feel:feel.emotion, color:feel.color});

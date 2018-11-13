@@ -9,10 +9,16 @@ import { SignupPage } from '../signup/signup';
 
 
 /**
- * Generated class for the LoginPage page.
+ * Login page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * Used to log on the website.
+ * 
+ * @constructor
+ * @param {NavController} navCtrl - Required for navigation on the website.
+ * @param {NavParams} navParams - Parameters retrieved from last page.
+ * @param {ToastController} toastCtrl - Allows you to use pop up notification coming
+ * from either the top or the bottom of the screen.
+ * @param {AuthenticationProvider} auth - User's account authentication.
  */
 
 @IonicPage()
@@ -24,11 +30,11 @@ import { SignupPage } from '../signup/signup';
 export class LoginPage {
 
     info = {
-        email: "",
-        password: ""
+        email: "", /** The email adress tied to the account */
+        password: "" /** The user's password */
     };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private events: Events, private toastCtrl : ToastController, private auth: AuthenticationProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private events: Events, private toastCtrl : ToastController, private auth: AuthenticationProvider) {
 
   }
 
@@ -36,6 +42,9 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  /** Tries to log in, using the user's email adress and password 
+  * @param {String, String} info - the user's account information, email and password respectively.
+  */
   tryLogin() {
     this.auth.signInWithEmail(this.info)
       .then((value)=>{
@@ -59,6 +68,7 @@ export class LoginPage {
 
   }
 
+  /** Goes to the signup Page */
   goToSignupPage() {
     this.navCtrl.push(SignupPage);
   }
