@@ -22,17 +22,8 @@ export class FeelsPage {
 
 	feels: string; /** Primary emotion recieved from the home page */
 	  emoLst: Array<any>; /** List of advanced emotions */
-    feelsColor:string; /** Color related to the primary emotion recieved from the home page */
-	constructor(public navCtrl: NavController, public navParams: NavParams)
-	{
-		this.feels = this.navParams.get('feel');
-      this.feelsColor = this.navParams.get('color');
-      this.feels = this.feels.toLowerCase();
-      this.feels = this.feels.trim();
-
-      console.log("Got emotion: ", this.feels);
-
-		  let emotions = {
+  feelsColor:string; /** Color related to the primary emotion recieved from the home page */
+  emotions: any = {
           "happy": {subEmotions: ['content', 'in love', 'inspired', 'thankful'],
                     color: "#F7D26C"
                    },
@@ -58,8 +49,16 @@ export class FeelsPage {
                     // color: "#BEDFA4"
                     //}
       };
+	constructor(public navCtrl: NavController, public navParams: NavParams)
+	{
+		this.feels = this.navParams.get('feel');
+      this.feelsColor = this.navParams.get('color');
+      this.feels = this.feels.toLowerCase();
+      this.feels = this.feels.trim();
 
-      this.emoLst = emotions[this.feels];
+      console.log("Got emotion: ", this.feels);
+
+      this.emoLst = this.emotions[this.feels];
 
       console.log("Sub emotion list: ", this.emoLst);
 
@@ -68,7 +67,7 @@ export class FeelsPage {
 
 	/** Opens the next page */
     openPage(emotion:string) {
-        this.navCtrl.push(PoemGridPage, {feel: this.feels, emotion: emotion});
+      this.navCtrl.push(PoemGridPage, {feel: this.feels, emotion: emotion, color: this.emotions[this.feels].color});
     }
 
 	/** Test function to check if the page loaded correctly */

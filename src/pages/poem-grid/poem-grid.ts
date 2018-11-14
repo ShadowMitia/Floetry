@@ -25,6 +25,7 @@ export class PoemGridPage {
 
   feels: string; /** Base emotion selected in home page */
   emotion: string; /** Sub-Emotion selected in feels page */
+  color: string;
 
   poems: any = []; /** List of poems tied to the emotion and advanced emotion combo */
 
@@ -32,6 +33,7 @@ export class PoemGridPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, private poemApi: PoemApiProvider) {
     this.feels = this.navParams.get("feel");
     this.emotion = this.navParams.get("emotion");
+    this.color = this.navParams.get("color");
 
 
     this.poemApi.getPoemsByFeelings(this.emotion, this.feels)
