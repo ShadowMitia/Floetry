@@ -19,9 +19,8 @@
         <ion-row>
            <ion-col *ngFor="let p of poems;" (click)="openOverlay(p)" col-auto>
                <h1>{{p.title | titlecase}} by {{p.author | capitalize }}</h1>
-               <p [innerHTML]="p.text | slice:0:200 | htmlify">... (More)</p>
+               <p innerHTML="{{p.text | slice:0:200 | htmlify}}... (More)"></p>
                </ion-col>
         </ion-row>
     </ion-grid>
-
 </ion-content>
