@@ -675,6 +675,7 @@ var PoemGridPage = /** @class */ (function () {
         this.poems = []; /** List of poems tied to the emotion and advanced emotion combo */
         this.feels = this.navParams.get("feel");
         this.emotion = this.navParams.get("emotion");
+        this.color = this.navParams.get("color");
         this.poemApi.getPoemsByFeelings(this.emotion, this.feels)
             .then(function (res) { console.log(res); _this.poems = res; })
             .catch(function (err) { return console.error(err); });
@@ -690,7 +691,7 @@ var PoemGridPage = /** @class */ (function () {
     };
     PoemGridPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-poem-grid',template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/pages/poem-grid/poem-grid.html"*/'<!--\n  Generated template for the PoemGridPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <menu-bar></menu-bar>\n\n  <div>\n    <color-button insideText="{{feels}}"></color-button>\n    <color-button insideText="{{emotion}}" size="25"></color-button>\n  </div>\n</ion-header>\n\n<ion-content padding>\n\n    <ion-grid>\n        <ion-row>\n           <ion-col *ngFor="let p of poems;" (click)="openOverlay(p)" col-auto>\n               <h1>{{p.title | titlecase}} by {{p.author | capitalize }}</h1>\n               <p [innerHTML]="p.text | slice:0:200 | htmlify">... (More)</p>\n               </ion-col>\n        </ion-row>\n    </ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/pages/poem-grid/poem-grid.html"*/,
+            selector: 'page-poem-grid',template:/*ion-inline-start:"/home/dimitri/Documents/Floetry/src/pages/poem-grid/poem-grid.html"*/'<!--\n  Generated template for the PoemGridPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <menu-bar></menu-bar>\n\n  <div>\n    <color-button insideText="{{feels}}" [fillColor]="color"></color-button>\n    <color-button insideText="{{emotion}}" [fillColor]="color" size="25"></color-button>\n  </div>\n</ion-header>\n\n<ion-content padding>\n\n    <ion-grid>\n        <ion-row>\n           <ion-col *ngFor="let p of poems;" (click)="openOverlay(p)" col-auto>\n               <h1>{{p.title | titlecase}} by {{p.author | capitalize }}</h1>\n               <p [innerHTML]="p.text | slice:0:200 | htmlify">... (More)</p>\n               </ion-col>\n        </ion-row>\n    </ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"/home/dimitri/Documents/Floetry/src/pages/poem-grid/poem-grid.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */], __WEBPACK_IMPORTED_MODULE_3__providers_poem_api_poem_api__["a" /* PoemApiProvider */]])
     ], PoemGridPage);
@@ -854,12 +855,7 @@ var FeelsPage = /** @class */ (function () {
     function FeelsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.feels = this.navParams.get('feel');
-        this.feelsColor = this.navParams.get('color');
-        this.feels = this.feels.toLowerCase();
-        this.feels = this.feels.trim();
-        console.log("Got emotion: ", this.feels);
-        var emotions = {
+        this.emotions = {
             "happy": { subEmotions: ['content', 'in love', 'inspired', 'thankful'],
                 color: "#F7D26C"
             },
@@ -885,12 +881,17 @@ var FeelsPage = /** @class */ (function () {
             // color: "#BEDFA4"
             //}
         };
-        this.emoLst = emotions[this.feels];
+        this.feels = this.navParams.get('feel');
+        this.feelsColor = this.navParams.get('color');
+        this.feels = this.feels.toLowerCase();
+        this.feels = this.feels.trim();
+        console.log("Got emotion: ", this.feels);
+        this.emoLst = this.emotions[this.feels];
         console.log("Sub emotion list: ", this.emoLst);
     }
     /** Opens the next page */
     FeelsPage.prototype.openPage = function (emotion) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__poem_grid_poem_grid__["a" /* PoemGridPage */], { feel: this.feels, emotion: emotion });
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__poem_grid_poem_grid__["a" /* PoemGridPage */], { feel: this.feels, emotion: emotion, color: this.emotions[this.feels].color });
     };
     /** Test function to check if the page loaded correctly */
     FeelsPage.prototype.ionViewDidLoad = function () {
